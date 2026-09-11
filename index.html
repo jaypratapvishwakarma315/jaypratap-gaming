@@ -4,126 +4,428 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width,initial-scale=1.0">
 <title>JAYPRATAP GAMING 🎮</title>
+
 <style>
 *{box-sizing:border-box}
-body{margin:0;font-family:Arial,sans-serif;background:#080808;color:white}
-header{padding:20px;text-align:center;background:linear-gradient(135deg,#111,#260000);border-bottom:2px solid red}
-header span{color:#ff2020}
-nav{position:sticky;top:0;z-index:5;background:#111;padding:12px;text-align:center}
-nav a{color:white;text-decoration:none;margin:7px;font-weight:bold}
-.hero{padding:40px 15px;text-align:center;background:radial-gradient(circle,#3b0000,#090909)}
-.hero h2{font-size:38px;color:#ff3030}
-section{max-width:1000px;margin:auto;padding:30px 15px}
-.title{text-align:center;color:#ff3030}
-.games{display:grid;grid-template-columns:repeat(2,1fr);gap:15px}
-.card{background:#151515;padding:20px;border-radius:15px;text-align:center;border:1px solid #333;margin-bottom:15px}
-.btn{display:inline-block;padding:12px 20px;margin:6px;background:#ff2020;color:white;text-decoration:none;border-radius:10px;font-weight:bold;border:0}
-input{width:100%;padding:13px;margin:7px 0;border-radius:8px;border:0}
-table{width:100%;border-collapse:collapse;background:#151515}
-th,td{padding:12px;border-bottom:1px solid #333;text-align:center}
+html{scroll-behavior:smooth}
+
+body{
+ margin:0;
+ font-family:Arial,sans-serif;
+ background:#050505;
+ color:white;
+}
+
+header{
+ padding:22px 15px;
+ text-align:center;
+ background:linear-gradient(135deg,#090909,#350000);
+ border-bottom:2px solid #ff2020;
+}
+
+.logo{
+ font-size:26px;
+ font-weight:bold;
+}
+.logo span{color:#ff2020}
+
+nav{
+ position:sticky;
+ top:0;
+ z-index:10;
+ display:flex;
+ justify-content:center;
+ flex-wrap:wrap;
+ gap:8px;
+ padding:12px;
+ background:#101010;
+ box-shadow:0 4px 15px #000;
+}
+
+nav a{
+ color:#fff;
+ text-decoration:none;
+ padding:9px 12px;
+ border-radius:20px;
+ font-size:14px;
+}
+
+nav a:hover{
+ background:#ff2020;
+}
+
+.hero{
+ min-height:430px;
+ display:flex;
+ align-items:center;
+ justify-content:center;
+ text-align:center;
+ padding:40px 15px;
+ background:
+ radial-gradient(circle at center,#4b0000 0,#170000 35%,#050505 75%);
+}
+
+.hero-box{
+ max-width:700px;
+}
+
+.hero h1{
+ font-size:46px;
+ margin:10px 0;
+ text-shadow:0 0 20px #ff2020;
+}
+
+.hero h1 span{color:#ff2020}
+
+.hero p{
+ color:#ccc;
+ font-size:17px;
+}
+
+.btn{
+ display:inline-block;
+ border:0;
+ padding:13px 22px;
+ margin:7px;
+ border-radius:12px;
+ background:#ff2020;
+ color:white;
+ text-decoration:none;
+ font-weight:bold;
+ cursor:pointer;
+ box-shadow:0 0 15px #650000;
+}
+
+.btn:hover{
+ transform:translateY(-2px);
+}
+
+section{
+ max-width:1050px;
+ margin:auto;
+ padding:35px 15px;
+}
+
+.title{
+ text-align:center;
+ color:#ff3030;
+ margin-bottom:25px;
+}
+
+.games{
+ display:grid;
+ grid-template-columns:repeat(2,1fr);
+ gap:16px;
+}
+
+.game{
+ padding:25px;
+ text-align:center;
+ background:linear-gradient(145deg,#181818,#0e0e0e);
+ border:1px solid #333;
+ border-radius:18px;
+ transition:.2s;
+}
+
+.game:hover{
+ transform:translateY(-5px);
+ border-color:#ff2020;
+}
+
+.game-icon{
+ font-size:42px;
+}
+
+.stats{
+ display:grid;
+ grid-template-columns:repeat(3,1fr);
+ gap:12px;
+}
+
+.stat{
+ background:#141414;
+ padding:20px;
+ text-align:center;
+ border-radius:15px;
+ border:1px solid #292929;
+}
+
+.stat b{
+ display:block;
+ font-size:28px;
+ color:#ff3030;
+}
+
+.news{
+ background:#151515;
+ border-left:4px solid #ff2020;
+ padding:17px;
+ margin:12px 0;
+ border-radius:10px;
+}
+
+.news h3{
+ color:#ff3030;
+ margin-top:0;
+}
+
+.card{
+ background:#121212;
+ padding:22px;
+ border-radius:18px;
+ border:1px solid #303030;
+ margin-bottom:15px;
+}
+
+input{
+ width:100%;
+ padding:13px;
+ margin:7px 0;
+ border:0;
+ border-radius:9px;
+ outline:none;
+}
+
+table{
+ width:100%;
+ border-collapse:collapse;
+ background:#121212;
+ border-radius:12px;
+ overflow:hidden;
+}
+
+th,td{
+ padding:13px;
+ text-align:center;
+ border-bottom:1px solid #292929;
+}
+
 th{color:#ff3030}
-.profile-box{background:#151515;padding:25px;border-radius:18px;border:2px solid #ff2020}
-.badge{display:inline-block;background:#ff2020;padding:7px 12px;border-radius:20px}
-.news{background:#151515;border-left:4px solid #ff2020;padding:15px;margin:12px 0;border-radius:10px}
-.news h3{margin-top:0;color:#ff3030}
-footer{text-align:center;padding:25px;background:#111;color:#aaa}
-@media(max-width:600px){.games{grid-template-columns:1fr}.hero h2{font-size:30px}}
+
+.profile{
+ text-align:center;
+ padding:30px;
+ background:linear-gradient(145deg,#1b0000,#111);
+ border:2px solid #ff2020;
+ border-radius:20px;
+}
+
+.avatar{
+ width:90px;
+ height:90px;
+ margin:auto;
+ display:flex;
+ align-items:center;
+ justify-content:center;
+ border-radius:50%;
+ background:#ff2020;
+ font-size:42px;
+ box-shadow:0 0 25px #700000;
+}
+
+.badge{
+ display:inline-block;
+ padding:7px 13px;
+ border-radius:20px;
+ background:#ff2020;
+ font-size:13px;
+}
+
+footer{
+ text-align:center;
+ padding:30px 15px;
+ background:#101010;
+ color:#888;
+}
+
+@media(max-width:650px){
+ .hero h1{font-size:32px}
+ .games{grid-template-columns:1fr}
+ .stats{grid-template-columns:1fr}
+ nav a{font-size:13px}
+}
 </style>
 </head>
 
 <body>
 
 <header>
-<h1>🎮 JAYPRATAP <span>GAMING</span> 🎮</h1>
+<div class="logo">🎮 JAYPRATAP <span>GAMING</span></div>
 </header>
 
 <nav>
 <a href="#home">🏠 Home</a>
 <a href="#games">🎮 Games</a>
+<a href="#stats">📊 Stats</a>
 <a href="#news">📰 News</a>
-<a href="#leaderboard">🏆 Rank</a>
+<a href="#rank">🏆 Rank</a>
 <a href="#login">🔐 Login</a>
 <a href="#profile">👤 Profile</a>
 </nav>
 
-<div class="hero" id="home">
-<h2>🔥 WELCOME TO JAYPRATAP GAMING 🔥</h2>
-<p>PLAY • COMPETE • WIN</p>
-<a class="btn" href="#games">START GAMING 🎮</a>
+<section class="hero" id="home">
+<div class="hero-box">
+<h1>🔥 JAYPRATAP <span>GAMING</span> 🔥</h1>
+<p>PLAY • COMPETE • CONQUER</p>
+<a class="btn" href="#games">🎮 START GAMING</a>
+<a class="btn" href="#rank">🏆 VIEW RANK</a>
 </div>
+</section>
 
 <section id="games">
 <h2 class="title">🎮 POPULAR GAMES</h2>
+
 <div class="games">
-<div class="card">🔥<h3>FREE FIRE</h3><p>Battle Royale</p></div>
-<div class="card">⚔️<h3>BATTLE GAMES</h3><p>Fight & Win</p></div>
-<div class="card">🏎️<h3>RACING</h3><p>Speed Challenge</p></div>
-<div class="card">🏏<h3>SPORTS</h3><p>Play & Compete</p></div>
+
+<div class="game">
+<div class="game-icon">🔥</div>
+<h3>FREE FIRE</h3>
+<p>Battle Royale</p>
+</div>
+
+<div class="game">
+<div class="game-icon">⚔️</div>
+<h3>BATTLE GAMES</h3>
+<p>Fight & Win</p>
+</div>
+
+<div class="game">
+<div class="game-icon">🏎️</div>
+<h3>RACING</h3>
+<p>Speed Challenge</p>
+</div>
+
+<div class="game">
+<div class="game-icon">🏏</div>
+<h3>SPORTS</h3>
+<p>Play & Compete</p>
+</div>
+
+</div>
+</section>
+
+<section id="stats">
+<h2 class="title">📊 GAMING STATS</h2>
+
+<div class="stats">
+<div class="stat">
+<b>315</b>
+Gamer ID
+</div>
+
+<div class="stat">
+<b>100+</b>
+Matches
+</div>
+
+<div class="stat">
+<b>🔥</b>
+Pro Gamer
+</div>
 </div>
 </section>
 
 <section id="news">
-<h2 class="title">📰 GAMING NEWS & UPDATES</h2>
+<h2 class="title">📰 GAMING NEWS</h2>
 
 <div class="news">
-<h3>🔥 Free Fire Update</h3>
-<p>Latest gaming updates aur events ki information yahan milegi.</p>
+<h3>🔥 Free Fire Updates</h3>
+<p>Latest gaming events aur updates yahan check karo.</p>
 </div>
 
 <div class="news">
-<h3>🏆 Gaming Tournament</h3>
-<p>Apne favourite players ke saath competition ke liye ready raho!</p>
+<h3>🏆 Tournament</h3>
+<p>Competition ke liye ready raho aur apna rank improve karo.</p>
 </div>
 
 <div class="news">
-<h3>🎮 New Gaming Content</h3>
-<p>JAYPRATAP GAMING par naye gaming videos aur updates check karo.</p>
+<h3>🎮 New Content</h3>
+<p>JAYPRATAP GAMING par naye gaming videos aur updates.</p>
 </div>
 </section>
 
-<section id="leaderboard">
-<h2 class="title">🏆 REAL LEADERBOARD</h2>
+<section id="rank">
+<h2 class="title">🏆 LEADERBOARD</h2>
+
+<div class="card">
 <input id="playerName" placeholder="Player Name">
 <input id="playerScore" type="number" placeholder="Score">
 <button class="btn" onclick="addPlayer()">ADD PLAYER 🏆</button>
-<br><br>
+</div>
+
 <table>
-<thead><tr><th>Rank</th><th>Player</th><th>Score</th></tr></thead>
+<thead>
+<tr>
+<th>Rank</th>
+<th>Player</th>
+<th>Score</th>
+</tr>
+</thead>
+
 <tbody id="board"></tbody>
 </table>
 </section>
 
 <section id="login">
 <h2 class="title">🔐 GAMER LOGIN</h2>
+
 <div class="card">
 <input id="loginName" placeholder="Gamer Name">
 <input id="loginId" placeholder="Gamer ID">
+
 <button class="btn" onclick="login()">LOGIN 🎮</button>
+
 <p id="loginMessage"></p>
 </div>
 </section>
 
 <section id="profile">
 <h2 class="title">👤 GAMER PROFILE</h2>
-<div class="profile-box">
-<h2 id="profileName">🎮 JAYPRATAP</h2>
+
+<div class="profile">
+
+<div class="avatar">🎮</div>
+
+<h2 id="profileName">JAYPRATAP</h2>
+
 <p>Gamer ID: <b id="profileId">315</b></p>
-<p><span class="badge">🟢 Active Gamer</span></p>
+
+<p>
+<span class="badge">🟢 ACTIVE GAMER</span>
+</p>
+
 <p>🔥 Gaming • 🏆 Competition • 🎮 Victory</p>
+
 </div>
 </section>
 
 <section>
-<h2 class="title">📱 SOCIAL</h2>
-<div class="card">
-<a class="btn" href="https://www.youtube.com/@BhaktiMargofficil_01" target="_blank">▶️ YouTube</a>
-<a class="btn" href="https://www.instagram.com/drx_jaypratap_vishwakarma__315" target="_blank">📸 Instagram</a>
+<h2 class="title">📱 FOLLOW ME</h2>
+
+<div class="card" style="text-align:center">
+
+<a class="btn"
+href="https://www.youtube.com/@BhaktiMargofficil_01"
+target="_blank">
+▶️ YouTube
+</a>
+
+<a class="btn"
+href="https://www.instagram.com/drx_jaypratap_vishwakarma__315"
+target="_blank">
+📸 Instagram
+</a>
+
 </div>
 </section>
 
-<footer>© 2026 JAYPRATAP GAMING 🎮</footer>
+<footer>
+© 2026 JAYPRATAP GAMING 🎮<br>
+PLAY • COMPETE • CONQUER
+</footer>
 
 <script>
+
 let players=[
 {name:"Jaypratap 315",score:315},
 {name:"Gamer 2",score:280},
@@ -131,34 +433,77 @@ let players=[
 ];
 
 function showBoard(){
+
 players.sort((a,b)=>b.score-a.score);
+
 let html="";
+
 players.forEach((p,i)=>{
-html+=`<tr><td>${i+1}</td><td>${p.name}</td><td>${p.score}</td></tr>`;
+
+html+=`
+<tr>
+<td>${i+1}</td>
+<td>${p.name}</td>
+<td>${p.score}</td>
+</tr>
+`;
+
 });
+
 document.getElementById("board").innerHTML=html;
 }
 
 function addPlayer(){
+
 let name=document.getElementById("playerName").value.trim();
-let score=Number(document.getElementById("playerScore").value);
-if(!name||score<0){alert("Player Name aur Score bharo!");return}
-players.push({name,score});
+
+let score=Number(
+document.getElementById("playerScore").value
+);
+
+if(!name || score<0){
+
+alert("Player Name aur Score bharo!");
+
+return;
+}
+
+players.push({
+name:name,
+score:score
+});
+
 document.getElementById("playerName").value="";
 document.getElementById("playerScore").value="";
+
 showBoard();
 }
 
 function login(){
+
 let name=document.getElementById("loginName").value.trim();
+
 let id=document.getElementById("loginId").value.trim();
-if(!name||!id){alert("Gamer Name aur Gamer ID bharo!");return}
-document.getElementById("profileName").innerText="🎮 "+name;
+
+if(!name || !id){
+
+alert("Gamer Name aur Gamer ID bharo!");
+
+return;
+}
+
+document.getElementById("profileName").innerText=name;
+
 document.getElementById("profileId").innerText=id;
-document.getElementById("loginMessage").innerText="✅ Login Successful!";
+
+document.getElementById("loginMessage").innerText=
+"✅ Login Successful!";
+
+location.hash="profile";
 }
 
 showBoard();
+
 </script>
 
 </body>
