@@ -1,379 +1,344 @@
 <!DOCTYPE html>
-<html lang="hi">
+<html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<meta name="description" content="Jaypratap Gaming - Gaming videos, tips, updates and games.">
-<meta name="keywords" content="Jaypratap Gaming, gaming, Free Fire, gaming tips">
+  <title>Jaypratap Gaming 🎮 | Free Fire & Gaming</title>
 
-<title>🎮 Jaypratap Gaming</title>
+  <meta name="description" content="Jaypratap Gaming - Free Fire, gaming videos, gamer profile, leaderboard and gaming updates.">
+  <meta name="keywords" content="Jaypratap Gaming, Free Fire, gaming, gamer, gaming videos, Jaypratap">
+  <meta name="author" content="Jaypratap Gaming">
 
-<style>
-*{
-    box-sizing:border-box;
-    scroll-behavior:smooth;
-}
+  <meta property="og:title" content="Jaypratap Gaming 🎮">
+  <meta property="og:description" content="Welcome to Jaypratap Gaming - Free Fire and gaming world.">
+  <meta property="og:type" content="website">
 
-body{
-    margin:0;
-    font-family:Arial,sans-serif;
-    color:white;
-    background:#070707;
-}
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      font-family: Arial, sans-serif;
+    }
 
-header{
-    padding:30px 15px;
-    text-align:center;
-    background:linear-gradient(135deg,#12002b,#000,#240047);
-    box-shadow:0 0 25px #8a2be2;
-}
+    body {
+      background: #080808;
+      color: white;
+    }
 
-.logo{
-    font-size:38px;
-    font-weight:bold;
-    text-shadow:0 0 15px #b000ff;
-}
+    header {
+      padding: 25px 15px;
+      text-align: center;
+      background: linear-gradient(135deg, #111, #222);
+    }
 
-header p{
-    color:#ddd;
-}
+    header h1 {
+      font-size: 32px;
+    }
 
-nav{
-    position:sticky;
-    top:0;
-    z-index:10;
-    display:flex;
-    justify-content:center;
-    gap:10px;
-    flex-wrap:wrap;
-    padding:12px;
-    background:#111;
-}
+    header p {
+      margin-top: 10px;
+      color: #ccc;
+    }
 
-nav a{
-    color:white;
-    text-decoration:none;
-    padding:9px 15px;
-    border-radius:20px;
-    background:#252525;
-}
+    nav {
+      position: sticky;
+      top: 0;
+      z-index: 10;
+      background: #151515;
+      padding: 12px;
+      text-align: center;
+    }
 
-nav a:hover{
-    background:#7b00ff;
-}
+    nav a {
+      color: white;
+      text-decoration: none;
+      margin: 0 10px;
+      font-weight: bold;
+    }
 
-.container{
-    max-width:950px;
-    margin:auto;
-    padding:20px 15px;
-}
+    .hero {
+      text-align: center;
+      padding: 55px 20px;
+      background: linear-gradient(135deg, #171717, #050505);
+    }
 
-.hero{
-    text-align:center;
-    padding:45px 15px;
-}
+    .hero h2 {
+      font-size: 30px;
+      margin-bottom: 15px;
+    }
 
-.hero h1{
-    font-size:42px;
-    color:#ffcc00;
-    text-shadow:0 0 20px #ff9900;
-}
+    .hero p {
+      color: #bbb;
+      margin-bottom: 25px;
+    }
 
-.hero p{
-    font-size:19px;
-}
+    button {
+      border: none;
+      padding: 12px 22px;
+      border-radius: 8px;
+      background: #ff4500;
+      color: white;
+      font-weight: bold;
+      cursor: pointer;
+    }
 
-button{
-    padding:14px 25px;
-    border:0;
-    border-radius:30px;
-    font-size:17px;
-    font-weight:bold;
-    cursor:pointer;
-    background:#ffcc00;
-    color:#111;
-}
+    .section {
+      padding: 35px 15px;
+      max-width: 1000px;
+      margin: auto;
+    }
 
-button:hover{
-    transform:scale(1.06);
-}
+    .section h2 {
+      text-align: center;
+      margin-bottom: 25px;
+    }
 
-.card{
-    margin:20px 0;
-    padding:25px;
-    text-align:center;
-    background:linear-gradient(145deg,#151515,#222);
-    border:1px solid #7b00ff;
-    border-radius:20px;
-    box-shadow:0 0 15px #30005c;
-}
+    .search {
+      width: 100%;
+      padding: 13px;
+      border-radius: 8px;
+      border: 1px solid #444;
+      background: #151515;
+      color: white;
+      margin-bottom: 20px;
+    }
 
-.card h2{
-    color:#ffcc00;
-}
+    .games {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 15px;
+    }
 
-.games{
-    display:grid;
-    grid-template-columns:repeat(auto-fit,minmax(140px,1fr));
-    gap:15px;
-}
+    .card {
+      background: #151515;
+      padding: 25px 15px;
+      border-radius: 12px;
+      text-align: center;
+      border: 1px solid #292929;
+    }
 
-.game{
-    padding:22px 10px;
-    border-radius:15px;
-    background:#101010;
-    border:1px solid #444;
-    transition:.3s;
-}
+    .card h3 {
+      margin-bottom: 10px;
+    }
 
-.game:hover{
-    transform:translateY(-6px);
-    border-color:#a000ff;
-    box-shadow:0 0 15px #7b00ff;
-}
+    .profile {
+      background: #151515;
+      padding: 25px;
+      border-radius: 12px;
+      text-align: center;
+    }
 
-.game .icon{
-    font-size:40px;
-}
+    .stats {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 10px;
+      margin-top: 20px;
+    }
 
-.search{
-    width:100%;
-    padding:15px;
-    border:0;
-    outline:none;
-    border-radius:30px;
-    font-size:16px;
-    margin-bottom:15px;
-}
+    .stat {
+      background: #222;
+      padding: 15px;
+      border-radius: 8px;
+    }
 
-#result{
-    color:#00ffcc;
-    font-weight:bold;
-}
+    .leaderboard {
+      background: #151515;
+      padding: 20px;
+      border-radius: 12px;
+    }
 
-.profile{
-    font-size:20px;
-}
+    .player {
+      display: flex;
+      justify-content: space-between;
+      padding: 14px 5px;
+      border-bottom: 1px solid #333;
+    }
 
-.stats{
-    display:flex;
-    justify-content:center;
-    gap:30px;
-    flex-wrap:wrap;
-    margin-top:20px;
-}
+    .social {
+      text-align: center;
+    }
 
-.stat{
-    padding:15px 25px;
-    background:#111;
-    border-radius:15px;
-}
+    .social a {
+      display: inline-block;
+      margin: 8px;
+      padding: 12px 18px;
+      background: #222;
+      color: white;
+      text-decoration: none;
+      border-radius: 8px;
+    }
 
-.stat b{
-    display:block;
-    color:#ffcc00;
-    font-size:25px;
-}
+    footer {
+      text-align: center;
+      padding: 25px;
+      background: #111;
+      color: #aaa;
+      margin-top: 20px;
+    }
 
-.links{
-    display:flex;
-    justify-content:center;
-    gap:12px;
-    flex-wrap:wrap;
-}
+    @media (max-width: 600px) {
+      header h1 {
+        font-size: 25px;
+      }
 
-.links a{
-    text-decoration:none;
-    color:white;
-    padding:13px 20px;
-    border-radius:25px;
-    background:#222;
-}
+      .hero h2 {
+        font-size: 24px;
+      }
 
-.links a:hover{
-    background:#7b00ff;
-}
+      .stats {
+        grid-template-columns: 1fr;
+      }
 
-#message{
-    display:none;
-    margin-top:20px;
-    color:#00ffcc;
-    font-size:20px;
-}
-
-footer{
-    text-align:center;
-    padding:30px 15px;
-    background:#000;
-    color:#aaa;
-    margin-top:30px;
-}
-</style>
+      nav a {
+        margin: 0 5px;
+        font-size: 13px;
+      }
+    }
+  </style>
 </head>
 
 <body>
 
 <header>
-    <div class="logo">🎮 JAYPRATAP GAMING 🎮</div>
-    <p>🔥 Gaming • Tips • Videos • Updates 🔥</p>
+  <h1>🎮 JAYPRATAP GAMING 🎮</h1>
+  <p>Welcome to the Gaming World 🔥</p>
 </header>
 
 <nav>
-    <a href="#home">🏠 Home</a>
-    <a href="#games">🎮 Games</a>
-    <a href="#profile">👤 Profile</a>
-    <a href="#leaderboard">🏆 Rank</a>
-    <a href="#contact">📱 Contact</a>
+  <a href="#home">Home</a>
+  <a href="#games">Games</a>
+  <a href="#profile">Profile</a>
+  <a href="#leaderboard">Leaderboard</a>
 </nav>
 
-<div class="container">
-
 <section class="hero" id="home">
-    <h1>🔥 WELCOME GAMER 🔥</h1>
-    <p>Welcome to the official Jaypratap Gaming website.</p>
-    <button onclick="welcome()">🚀 START GAMING</button>
-
-    <div id="message">
-        ⚡ Let's Go Gamer! ⚡
-    </div>
+  <h2>🔥 Welcome Gamers 🔥</h2>
+  <p>Free Fire & Gaming Content by Jaypratap Gaming</p>
+  <button onclick="welcome()">START GAMING 🚀</button>
 </section>
 
-<section class="card" id="games">
-    <h2>🎮 POPULAR GAMES</h2>
+<section class="section" id="games">
+  <h2>🎮 Popular Games</h2>
 
-    <input
-        class="search"
-        id="search"
-        type="text"
-        placeholder="🔎 Game search करो..."
-        onkeyup="searchGame()"
-    >
+  <input
+    type="text"
+    id="search"
+    class="search"
+    placeholder="🔍 Search game..."
+    onkeyup="searchGames()"
+  >
 
-    <div class="games">
+  <div class="games">
 
-        <div class="game">
-            <div class="icon">🔥</div>
-            <b>Free Fire</b>
-        </div>
-
-        <div class="game">
-            <div class="icon">⚔️</div>
-            <b>Battle Games</b>
-        </div>
-
-        <div class="game">
-            <div class="icon">🏎️</div>
-            <b>Racing</b>
-        </div>
-
-        <div class="game">
-            <div class="icon">⚽</div>
-            <b>Sports</b>
-        </div>
-
+    <div class="card">
+      <h3>🔥 Free Fire</h3>
+      <p>Battle Royale Gaming</p>
     </div>
 
-    <p id="result"></p>
+    <div class="card">
+      <h3>⚔️ Battle Games</h3>
+      <p>Action & Adventure</p>
+    </div>
+
+    <div class="card">
+      <h3>🏎️ Racing</h3>
+      <p>Fast Racing Games</p>
+    </div>
+
+    <div class="card">
+      <h3>🏏 Sports</h3>
+      <p>Sports Gaming</p>
+    </div>
+
+  </div>
 </section>
 
-<section class="card" id="profile">
-    <h2>👤 GAMER PROFILE</h2>
+<section class="section" id="profile">
+  <h2>👑 Gamer Profile</h2>
 
-    <div class="profile">
-        🎮 <b>Jaypratap</b>
-        <br><br>
-        🔥 Gaming Lover
-    </div>
+  <div class="profile">
+    <h3>🎮 Jaypratap</h3>
+    <p>Gamer ID: 315</p>
+    <p>🔥 Pro Player</p>
+    <p>🟢 Active</p>
 
     <div class="stats">
-        <div class="stat">
-            <b>315</b>
-            Gamer ID
-        </div>
+      <div class="stat">
+        <b>315</b>
+        <p>Gamer ID</p>
+      </div>
 
-        <div class="stat">
-            <b>⭐</b>
-            Pro Player
-        </div>
+      <div class="stat">
+        <b>Pro</b>
+        <p>Level</p>
+      </div>
 
-        <div class="stat">
-            <b>🔥</b>
-            Active
-        </div>
+      <div class="stat">
+        <b>Active</b>
+        <p>Status</p>
+      </div>
     </div>
+  </div>
 </section>
 
-<section class="card" id="leaderboard">
-    <h2>🏆 LEADERBOARD</h2>
+<section class="section" id="leaderboard">
+  <h2>🏆 Leaderboard</h2>
 
-    <p>🥇 Jaypratap — 315 Points</p>
-    <p>🥈 Gamer 2 — 280 Points</p>
-    <p>🥉 Gamer 3 — 250 Points</p>
-</section>
-
-<section class="card" id="contact">
-    <h2>📱 FOLLOW JAYPRATAP GAMING</h2>
-
-    <div class="links">
-        <a href="#" onclick="alert('YouTube link बाद में जोड़ेंगे!')">
-            ▶️ YouTube
-        </a>
-
-        <a href="#" onclick="alert('Instagram link बाद में जोड़ेंगे!')">
-            📸 Instagram
-        </a>
+  <div class="leaderboard">
+    <div class="player">
+      <span>🥇 Jaypratap</span>
+      <b>315</b>
     </div>
+
+    <div class="player">
+      <span>🥈 Gamer 2</span>
+      <b>280</b>
+    </div>
+
+    <div class="player">
+      <span>🥉 Gamer 3</span>
+      <b>250</b>
+    </div>
+  </div>
 </section>
 
-</div>
+<section class="section social">
+  <h2>📱 Follow Jaypratap Gaming</h2>
+
+  <a href="#" onclick="alert('YouTube link coming soon!')">
+    ▶️ YouTube
+  </a>
+
+  <a href="#" onclick="alert('Instagram link coming soon!')">
+    📸 Instagram
+  </a>
+</section>
 
 <footer>
-    © 2026 Jaypratap Gaming 🎮
-    <br>
-    🔥 Keep Gaming • Keep Winning 🔥
+  © 2026 Jaypratap Gaming 🎮 | All Rights Reserved
 </footer>
 
 <script>
+  function welcome() {
+    alert("🔥 Welcome to Jaypratap Gaming! 🎮");
+  }
 
-function welcome(){
-    document.getElementById("message").style.display="block";
-}
+  function searchGames() {
+    let input = document.getElementById("search").value.toLowerCase();
+    let cards = document.querySelectorAll(".card");
 
-function searchGame(){
+    cards.forEach(function(card) {
+      let text = card.innerText.toLowerCase();
 
-    let text =
-    document.getElementById("search").value.toLowerCase();
-
-    let games =
-    document.querySelectorAll(".game");
-
-    let found=false;
-
-    games.forEach(function(game){
-
-        let name=game.innerText.toLowerCase();
-
-        if(name.includes(text)){
-            game.style.display="block";
-            found=true;
-        }else{
-            game.style.display="none";
-        }
-
+      if (text.includes(input)) {
+        card.style.display = "block";
+      } else {
+        card.style.display = "none";
+      }
     });
-
-    if(text===""){
-        document.getElementById("result").innerText="";
-    }
-    else if(found){
-        document.getElementById("result").innerText="✅ Game मिल गया!";
-    }
-    else{
-        document.getElementById("result").innerText="❌ Game नहीं मिला";
-    }
-}
-
+  }
 </script>
 
 </body>
