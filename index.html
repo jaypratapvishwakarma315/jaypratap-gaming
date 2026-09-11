@@ -4,119 +4,30 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width,initial-scale=1.0">
 <title>JAYPRATAP GAMING 🎮</title>
-
 <style>
 *{box-sizing:border-box}
-body{
- margin:0;
- font-family:Arial,sans-serif;
- background:#080808;
- color:white;
-}
-header{
- padding:20px;
- text-align:center;
- background:linear-gradient(135deg,#111,#260000);
- border-bottom:2px solid red;
-}
-header h1{margin:0}
+body{margin:0;font-family:Arial,sans-serif;background:#080808;color:white}
+header{padding:20px;text-align:center;background:linear-gradient(135deg,#111,#260000);border-bottom:2px solid red}
 header span{color:#ff2020}
-nav{
- position:sticky;
- top:0;
- z-index:5;
- background:#111;
- padding:12px;
- text-align:center;
-}
-nav a{
- color:white;
- text-decoration:none;
- margin:7px;
- font-weight:bold;
-}
-.hero{
- padding:40px 15px;
- text-align:center;
- background:radial-gradient(circle,#3b0000,#090909);
-}
-.hero h2{
- font-size:38px;
- color:#ff3030;
-}
-section{
- max-width:1000px;
- margin:auto;
- padding:30px 15px;
-}
-.title{
- text-align:center;
- color:#ff3030;
-}
-.games{
- display:grid;
- grid-template-columns:repeat(2,1fr);
- gap:15px;
-}
-.card{
- background:#151515;
- padding:20px;
- border-radius:15px;
- text-align:center;
- border:1px solid #333;
- margin-bottom:15px;
-}
-.btn{
- display:inline-block;
- padding:12px 20px;
- margin:6px;
- background:#ff2020;
- color:white;
- text-decoration:none;
- border-radius:10px;
- font-weight:bold;
- border:0;
-}
-input{
- width:100%;
- padding:13px;
- margin:7px 0;
- border-radius:8px;
- border:0;
-}
-table{
- width:100%;
- border-collapse:collapse;
- background:#151515;
-}
-th,td{
- padding:12px;
- border-bottom:1px solid #333;
- text-align:center;
-}
+nav{position:sticky;top:0;z-index:5;background:#111;padding:12px;text-align:center}
+nav a{color:white;text-decoration:none;margin:7px;font-weight:bold}
+.hero{padding:40px 15px;text-align:center;background:radial-gradient(circle,#3b0000,#090909)}
+.hero h2{font-size:38px;color:#ff3030}
+section{max-width:1000px;margin:auto;padding:30px 15px}
+.title{text-align:center;color:#ff3030}
+.games{display:grid;grid-template-columns:repeat(2,1fr);gap:15px}
+.card{background:#151515;padding:20px;border-radius:15px;text-align:center;border:1px solid #333;margin-bottom:15px}
+.btn{display:inline-block;padding:12px 20px;margin:6px;background:#ff2020;color:white;text-decoration:none;border-radius:10px;font-weight:bold;border:0}
+input{width:100%;padding:13px;margin:7px 0;border-radius:8px;border:0}
+table{width:100%;border-collapse:collapse;background:#151515}
+th,td{padding:12px;border-bottom:1px solid #333;text-align:center}
 th{color:#ff3030}
-.profile-box{
- background:#151515;
- padding:25px;
- border-radius:18px;
- border:2px solid #ff2020;
-}
-.badge{
- display:inline-block;
- background:#ff2020;
- padding:7px 12px;
- border-radius:20px;
-}
-footer{
- text-align:center;
- padding:25px;
- background:#111;
- color:#aaa;
-}
-@media(max-width:600px){
- .games{grid-template-columns:1fr}
- .hero h2{font-size:30px}
-}
+.profile-box{background:#151515;padding:25px;border-radius:18px;border:2px solid #ff2020}
+.badge{display:inline-block;background:#ff2020;padding:7px 12px;border-radius:20px}
+.news{background:#151515;border-left:4px solid #ff2020;padding:15px;margin:12px 0;border-radius:10px}
+.news h3{margin-top:0;color:#ff3030}
+footer{text-align:center;padding:25px;background:#111;color:#aaa}
+@media(max-width:600px){.games{grid-template-columns:1fr}.hero h2{font-size:30px}}
 </style>
 </head>
 
@@ -129,6 +40,7 @@ footer{
 <nav>
 <a href="#home">🏠 Home</a>
 <a href="#games">🎮 Games</a>
+<a href="#news">📰 News</a>
 <a href="#leaderboard">🏆 Rank</a>
 <a href="#login">🔐 Login</a>
 <a href="#profile">👤 Profile</a>
@@ -150,30 +62,39 @@ footer{
 </div>
 </section>
 
+<section id="news">
+<h2 class="title">📰 GAMING NEWS & UPDATES</h2>
+
+<div class="news">
+<h3>🔥 Free Fire Update</h3>
+<p>Latest gaming updates aur events ki information yahan milegi.</p>
+</div>
+
+<div class="news">
+<h3>🏆 Gaming Tournament</h3>
+<p>Apne favourite players ke saath competition ke liye ready raho!</p>
+</div>
+
+<div class="news">
+<h3>🎮 New Gaming Content</h3>
+<p>JAYPRATAP GAMING par naye gaming videos aur updates check karo.</p>
+</div>
+</section>
+
 <section id="leaderboard">
 <h2 class="title">🏆 REAL LEADERBOARD</h2>
-
 <input id="playerName" placeholder="Player Name">
 <input id="playerScore" type="number" placeholder="Score">
 <button class="btn" onclick="addPlayer()">ADD PLAYER 🏆</button>
-
 <br><br>
-
 <table>
-<thead>
-<tr>
-<th>Rank</th>
-<th>Player</th>
-<th>Score</th>
-</tr>
-</thead>
+<thead><tr><th>Rank</th><th>Player</th><th>Score</th></tr></thead>
 <tbody id="board"></tbody>
 </table>
 </section>
 
 <section id="login">
 <h2 class="title">🔐 GAMER LOGIN</h2>
-
 <div class="card">
 <input id="loginName" placeholder="Gamer Name">
 <input id="loginId" placeholder="Gamer ID">
@@ -184,7 +105,6 @@ footer{
 
 <section id="profile">
 <h2 class="title">👤 GAMER PROFILE</h2>
-
 <div class="profile-box">
 <h2 id="profileName">🎮 JAYPRATAP</h2>
 <p>Gamer ID: <b id="profileId">315</b></p>
@@ -201,9 +121,7 @@ footer{
 </div>
 </section>
 
-<footer>
-© 2026 JAYPRATAP GAMING 🎮
-</footer>
+<footer>© 2026 JAYPRATAP GAMING 🎮</footer>
 
 <script>
 let players=[
@@ -213,45 +131,31 @@ let players=[
 ];
 
 function showBoard(){
- players.sort((a,b)=>b.score-a.score);
- let html="";
- players.forEach((p,i)=>{
-  html+=`<tr>
-  <td>${i+1}</td>
-  <td>${p.name}</td>
-  <td>${p.score}</td>
-  </tr>`;
- });
- document.getElementById("board").innerHTML=html;
+players.sort((a,b)=>b.score-a.score);
+let html="";
+players.forEach((p,i)=>{
+html+=`<tr><td>${i+1}</td><td>${p.name}</td><td>${p.score}</td></tr>`;
+});
+document.getElementById("board").innerHTML=html;
 }
 
 function addPlayer(){
- let name=document.getElementById("playerName").value.trim();
- let score=Number(document.getElementById("playerScore").value);
-
- if(!name || score<0){
-  alert("Player Name aur Score bharo!");
-  return;
- }
-
- players.push({name:name,score:score});
- document.getElementById("playerName").value="";
- document.getElementById("playerScore").value="";
- showBoard();
+let name=document.getElementById("playerName").value.trim();
+let score=Number(document.getElementById("playerScore").value);
+if(!name||score<0){alert("Player Name aur Score bharo!");return}
+players.push({name,score});
+document.getElementById("playerName").value="";
+document.getElementById("playerScore").value="";
+showBoard();
 }
 
 function login(){
- let name=document.getElementById("loginName").value.trim();
- let id=document.getElementById("loginId").value.trim();
-
- if(!name || !id){
-  alert("Gamer Name aur Gamer ID bharo!");
-  return;
- }
-
- document.getElementById("profileName").innerText="🎮 "+name;
- document.getElementById("profileId").innerText=id;
- document.getElementById("loginMessage").innerText="✅ Login Successful!";
+let name=document.getElementById("loginName").value.trim();
+let id=document.getElementById("loginId").value.trim();
+if(!name||!id){alert("Gamer Name aur Gamer ID bharo!");return}
+document.getElementById("profileName").innerText="🎮 "+name;
+document.getElementById("profileId").innerText=id;
+document.getElementById("loginMessage").innerText="✅ Login Successful!";
 }
 
 showBoard();
