@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Jaypratap Gaming 🎮</title>
+<meta name="description" content="Jaypratap Gaming - Free Fire and gaming content.">
+
+<style>
+*{box-sizing:border-box;margin:0;padding:0;font-family:Arial,sans-serif}
+body{background:#080808;color:white}
+header{text-align:center;padding:28px 15px;background:#151515}
+header h1{font-size:30px}
+header p{color:#bbb;margin-top:8px}
+nav{position:sticky;top:0;z-index:5;text-align:center;padding:12px;background:#111}
+nav a{color:white;text-decoration:none;margin:0 8px;font-weight:bold}
+.hero{text-align:center;padding:60px 20px;background:#101010}
+.hero h2{font-size:30px;margin-bottom:12px}
+.hero p{color:#bbb;margin-bottom:22px}
+button{background:#ff4500;color:white;border:0;padding:12px 20px;border-radius:8px;font-weight:bold}
+.section{max-width:1000px;margin:auto;padding:35px 15px}
+.section h2{text-align:center;margin-bottom:22px}
+.search{width:100%;padding:13px;border-radius:8px;border:1px solid #444;background:#151515;color:white;margin-bottom:20px}
+.games{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:15px}
+.card,.profile,.leaderboard{background:#151515;padding:22px;border-radius:12px}
+.card{text-align:center}
+.card h3{margin-bottom:8px}
+.profile{text-align:center}
+.stats{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin-top:20px}
+.stat{background:#222;padding:15px;border-radius:8px}
+.player{display:flex;justify-content:space-between;padding:14px 5px;border-bottom:1px solid #333}
+.social{text-align:center}
+.social a{display:inline-block;margin:8px;padding:13px 20px;color:white;text-decoration:none;border-radius:8px;font-weight:bold}
+.youtube{background:#e62117}
+.instagram{background:#833ab4}
+footer{text-align:center;padding:25px;background:#111;color:#aaa}
+@media(max-width:600px){
+header h1{font-size:24px}
+.hero h2{font-size:24px}
+.stats{grid-template-columns:1fr}
+nav a{font-size:13px;margin:0 4px}
+}
+</style>
+</head>
+
+<body>
+
+<header>
+<h1>🎮 JAYPRATAP GAMING 🎮</h1>
+<p>Welcome to the Gaming World 🔥</p>
+</header>
+
+<nav>
+<a href="#home">Home</a>
+<a href="#games">Games</a>
+<a href="#profile">Profile</a>
+<a href="#leaderboard">Leaderboard</a>
+</nav>
+
+<section class="hero" id="home">
+<h2>🔥 Welcome Gamers 🔥</h2>
+<p>Free Fire & Gaming Content by Jaypratap Gaming</p>
+<button onclick="welcome()">START GAMING 🚀</button>
+</section>
+
+<section class="section" id="games">
+<h2>🎮 Popular Games</h2>
+
+<input class="search" id="search" type="text"
+placeholder="🔍 Search game..." onkeyup="searchGames()">
+
+<div class="games">
+
+<div class="card">
+<h3>🔥 Free Fire</h3>
+<p>Battle Royale Gaming</p>
+</div>
+
+<div class="card">
+<h3>⚔️ Battle Games</h3>
+<p>Action & Adventure</p>
+</div>
+
+<div class="card">
+<h3>🏎️ Racing</h3>
+<p>Fast Racing Games</p>
+</div>
+
+<div class="card">
+<h3>🏏 Sports</h3>
+<p>Sports Gaming</p>
+</div>
+
+</div>
+</section>
+
+<section class="section" id="profile">
+<h2>👑 Gamer Profile</h2>
+
+<div class="profile">
+<h3>🎮 Jaypratap</h3>
+<p>Gamer ID: 315</p>
+<p>🔥 Pro Player</p>
+<p>🟢 Active</p>
+
+<div class="stats">
+<div class="stat"><b>315</b><p>Gamer ID</p></div>
+<div class="stat"><b>Pro</b><p>Level</p></div>
+<div class="stat"><b>Active</b><p>Status</p></div>
+</div>
+</div>
+</section>
+
+<section class="section" id="leaderboard">
+<h2>🏆 Leaderboard</h2>
+
+<div class="leaderboard">
+<div class="player"><span>🥇 Jaypratap</span><b>315</b></div>
+<div class="player"><span>🥈 Gamer 2</span><b>280</b></div>
+<div class="player"><span>🥉 Gamer 3</span><b>250</b></div>
+</div>
+</section>
+
+<section class="section social">
+<h2>📱 Follow Me</h2>
+
+<a class="youtube"
+href="https://www.youtube.com/@BhaktiMargofficil_01"
+target="_blank">
+▶️ YouTube
+</a>
+
+<a class="instagram"
+href="https://www.instagram.com/drx_jaypratap_vishwakarma__315"
+target="_blank">
+📸 Instagram
+</a>
+</section>
+
+<footer>
+© 2026 Jaypratap Gaming 🎮 | All Rights Reserved
+</footer>
+
+<script>
+function welcome(){
+alert("🔥 Welcome to Jaypratap Gaming! 🎮");
+}
+
+function searchGames(){
+let input=document.getElementById("search").value.toLowerCase();
+let cards=document.querySelectorAll(".card");
+
+cards.forEach(function(card){
+card.style.display=card.innerText.toLowerCase().includes(input)
+?"block":"none";
+});
+}
+</script>
+
+</body>
+</html>
