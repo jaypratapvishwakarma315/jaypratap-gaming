@@ -4,111 +4,70 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <title>JAYPRATAP GAMING 🎮</title>
-
-<meta name="description" content="JAYPRATAP GAMING - Free Fire Gaming, Mini Games, XP, Coins, Achievements and Online Leaderboard.">
+<meta name="description" content="JAYPRATAP GAMING - Gaming, Mini Games, Rank, Coins, Missions and Online Leaderboard.">
 <meta name="keywords" content="Jaypratap Gaming, Free Fire, Gaming, Jaypratap Vishwakarma">
 <meta name="author" content="Jaypratap Gaming">
 <meta name="robots" content="index,follow">
 
 <style>
 *{box-sizing:border-box}
-
+html{scroll-behavior:smooth}
 body{
  margin:0;
  font-family:Arial,sans-serif;
- background:#070707;
+ background:#060606;
  color:#fff;
  transition:.3s;
 }
-
-body.light{
- background:#f2f2f2;
- color:#111;
-}
-
+body.light{background:#f1f1f1;color:#111}
 header{
  text-align:center;
- padding:28px 12px;
- background:linear-gradient(135deg,#180000,#080808);
+ padding:30px 12px;
+ background:linear-gradient(135deg,#260000,#090909);
  border-bottom:2px solid #f22;
 }
-
-header h1{
- margin:0;
- color:#ff3030;
- font-size:30px;
-}
-
-header p{
- color:#ddd;
-}
-
+header h1{margin:0;color:#ff3030;font-size:31px}
+header p{color:#ddd}
 nav{
  position:sticky;
  top:0;
- z-index:10;
+ z-index:20;
  background:#111;
- padding:12px 5px;
+ padding:10px 5px;
  text-align:center;
- box-shadow:0 2px 10px #000;
+ box-shadow:0 2px 12px #000;
 }
-
 nav a{
  color:#fff;
  text-decoration:none;
- margin:4px;
- padding:8px;
  display:inline-block;
+ padding:8px;
+ margin:3px;
  border-radius:7px;
 }
-
-nav a:hover{
- background:#e50909;
-}
-
-.container{
- max-width:950px;
- margin:auto;
- padding:15px;
-}
-
+nav a:hover{background:#e50909}
+.container{max-width:1000px;margin:auto;padding:15px}
 .card{
  background:#121212;
  border:1px solid #333;
  border-radius:16px;
  padding:20px;
  margin:18px 0;
- box-shadow:0 5px 20px #0005;
+ box-shadow:0 5px 20px #0006;
 }
-
-.light .card{
- background:#fff;
- color:#111;
- border-color:#ccc;
+.light .card{background:#fff;color:#111;border-color:#ccc}
+h2{color:#ff3030}
+.center{text-align:center}
+input{
+ width:100%;
+ padding:13px;
+ margin:7px 0;
+ background:#080808;
+ color:#fff;
+ border:1px solid #555;
+ border-radius:8px;
 }
-
-h2{
- color:#ff3030;
-}
-
-.games{
- display:grid;
- grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
- gap:15px;
-}
-
-.game{
- background:#1b1b1b;
- padding:18px;
- border-radius:14px;
- text-align:center;
- border:1px solid #333;
-}
-
-.light .game{
- background:#eee;
-}
-
+.light input{background:#fff;color:#111}
 button{
  background:#e50909;
  color:#fff;
@@ -119,120 +78,111 @@ button{
  cursor:pointer;
  font-weight:bold;
 }
-
-button:hover{
- background:#ff3030;
- transform:scale(1.03);
-}
-
-input{
- width:100%;
- padding:13px;
- margin:7px 0;
- background:#080808;
- color:#fff;
- border:1px solid #555;
- border-radius:8px;
-}
-
-.light input{
- background:#fff;
- color:#111;
-}
-
-.score{
- font-size:30px;
- color:#00ff88;
- margin:12px;
-}
-
-.stats{
+button:hover{background:#ff3030;transform:scale(1.03)}
+.grid{
  display:grid;
- grid-template-columns:repeat(auto-fit,minmax(130px,1fr));
- gap:10px;
+ grid-template-columns:repeat(auto-fit,minmax(210px,1fr));
+ gap:14px;
 }
-
-.stat{
- background:#1b1b1b;
- border-radius:12px;
- padding:15px;
+.box{
+ background:#1a1a1a;
+ padding:17px;
+ border-radius:13px;
+ border:1px solid #333;
  text-align:center;
 }
-
+.light .box{background:#eee}
+.big{font-size:29px;color:#00ff88;font-weight:bold}
+.stats{
+ display:grid;
+ grid-template-columns:repeat(auto-fit,minmax(120px,1fr));
+ gap:10px;
+}
+.stat{
+ background:#1a1a1a;
+ border-radius:12px;
+ padding:14px;
+ text-align:center;
+}
+.light .stat{background:#eee}
 .stat b{
  display:block;
- font-size:25px;
+ font-size:24px;
  color:#ff3030;
  margin-top:5px;
 }
-
-.achievement{
- padding:12px;
- margin:8px 0;
- border-radius:10px;
- background:#1b1b1b;
- border-left:4px solid #555;
-}
-
-.unlocked{
- border-left-color:#00ff88;
-}
-
-.status{
- color:#00ff88;
- min-height:20px;
-}
-
-.center{
- text-align:center;
-}
-
-.hidden{
- display:none;
-}
-
-table{
- width:100%;
- border-collapse:collapse;
-}
-
-th,td{
- padding:12px;
- border-bottom:1px solid #333;
- text-align:center;
-}
-
-th{
- color:#ff3030;
-}
-
 .badge{
  display:inline-block;
- background:#e50909;
- padding:7px 12px;
- border-radius:20px;
+ padding:8px 12px;
  margin:4px;
+ border-radius:20px;
+ background:#333;
+ color:#999;
 }
-
+.badge.on{background:#e50909;color:#fff}
 .progress{
- width:100%;
  height:15px;
  background:#333;
  border-radius:20px;
  overflow:hidden;
 }
-
 .progress-bar{
  height:100%;
- width:0%;
+ width:0;
  background:#00ff88;
  transition:.4s;
 }
-
-footer{
+.rank{
+ font-size:28px;
+ font-weight:bold;
+ color:#ffd000;
+}
+.mission{
+ background:#1a1a1a;
+ padding:14px;
+ margin:9px 0;
+ border-radius:10px;
+ border-left:4px solid #555;
+}
+.mission.done{border-left-color:#00ff88}
+.shop-item{
+ background:#1a1a1a;
+ padding:15px;
+ border-radius:12px;
  text-align:center;
- padding:30px;
- color:#999;
+}
+table{width:100%;border-collapse:collapse}
+th,td{
+ padding:12px;
+ border-bottom:1px solid #333;
+ text-align:center;
+}
+th{color:#ff3030}
+.status{color:#00ff88;min-height:20px}
+footer{text-align:center;padding:35px;color:#999}
+.hidden{display:none}
+#wheel{
+ width:180px;
+ height:180px;
+ margin:15px auto;
+ border-radius:50%;
+ border:8px solid #333;
+ display:flex;
+ align-items:center;
+ justify-content:center;
+ font-size:22px;
+ font-weight:bold;
+ background:conic-gradient(
+ #e50909 0 45deg,
+ #111 45deg 90deg,
+ #e50909 90deg 135deg,
+ #111 135deg 180deg,
+ #e50909 180deg 225deg,
+ #111 225deg 270deg,
+ #e50909 270deg 315deg,
+ #111 315deg 360deg
+ );
+ transition:transform 2s ease-out;
 }
 </style>
 </head>
@@ -241,32 +191,32 @@ footer{
 
 <header>
 <h1>🎮 JAYPRATAP GAMING 🎮</h1>
-<p>🔥 Gaming • Challenges • XP • Coins • Victory 🔥</p>
+<p>🔥 Rank • Missions • Spin • Coins • Victory 🔥</p>
 </header>
 
 <nav>
 <a href="#home">🏠 Home</a>
-<a href="#games">🎮 Games</a>
 <a href="#profile">👤 Profile</a>
-<a href="#achievements">🏆 Achievements</a>
-<a href="#leaderboard">🥇 Leaderboard</a>
+<a href="#games">🎮 Games</a>
+<a href="#missions">🎯 Missions</a>
+<a href="#spin">🎡 Spin</a>
+<a href="#shop">🛒 Shop</a>
+<a href="#leaderboard">🏆 Rank</a>
 </nav>
 
 <div class="container">
 
 <section id="home" class="card center">
 <h2>🔥 Welcome Gamer 🔥</h2>
-<p>Game खेलो • XP कमाओ • Coins पाओ • Leaderboard में ऊपर जाओ!</p>
-
+<p>Game खेलो और अपना Rank बढ़ाओ!</p>
 <button onclick="toggleTheme()">🌙 Theme</button>
 <button onclick="dailyReward()">🎁 Daily Reward</button>
-
 <p id="homeStatus" class="status"></p>
 </section>
 
 
 <section class="card">
-<h2>📊 Gamer Stats</h2>
+<h2>📊 Player Stats</h2>
 
 <div class="stats">
 
@@ -290,11 +240,22 @@ footer{
 <b id="totalScore">0</b>
 </div>
 
+<div class="stat">
+🔥 Streak
+<b id="streak">0</b>
+</div>
+
 </div>
 
 <br>
 
-<p>Level Progress</p>
+<div class="center">
+<div class="rank" id="rank">🥉 Bronze</div>
+<p id="rankText">अभी शुरुआत करो!</p>
+</div>
+
+<p>XP Progress</p>
+
 <div class="progress">
 <div id="xpBar" class="progress-bar"></div>
 </div>
@@ -303,27 +264,21 @@ footer{
 </section>
 
 
-<section id="auth" class="card">
-
+<section class="card">
 <h2>🔐 Login / Register</h2>
 
 <input id="email" type="email" placeholder="Email">
-
 <input id="password" type="password" placeholder="Password">
 
 <button onclick="registerUser()">📝 Register</button>
-
 <button onclick="loginUser()">🔑 Login</button>
-
 <button onclick="logoutUser()">🚪 Logout</button>
 
 <p id="authStatus" class="status"></p>
-
 </section>
 
 
 <section id="profile" class="card">
-
 <h2>👤 Gamer Profile</h2>
 
 <p id="userInfo">🔴 Login नहीं किया गया</p>
@@ -333,7 +288,6 @@ footer{
 <button onclick="saveProfile()">💾 Save Profile</button>
 
 <p id="profileStatus" class="status"></p>
-
 </section>
 
 
@@ -341,40 +295,27 @@ footer{
 
 <h2>🎮 Mini Games</h2>
 
-<div class="games">
+<div class="grid">
 
-<div class="game">
+<div class="box">
 <h3>🎯 Tap Target</h3>
-<p>हर tap पर +10 Score</p>
-
-<div class="score" id="tapScore">0</div>
-
+<p>+10 Score / +2 Coins</p>
+<div id="tapScore" class="big">0</div>
 <button onclick="tapGame()">TAP 🎯</button>
 </div>
 
-
-<div class="game">
-
+<div class="box">
 <h3>⚡ Speed Click</h3>
-<p>हर click पर +5 Score</p>
-
-<div class="score" id="clickScore">0</div>
-
+<p>+5 Score / +1 Coin</p>
+<div id="clickScore" class="big">0</div>
 <button onclick="clickGame()">CLICK ⚡</button>
-
 </div>
 
-
-<div class="game">
-
+<div class="box">
 <h3>🍀 Lucky Number</h3>
-
-<p>किस्मत आजमाओ</p>
-
-<div class="score" id="luckyScore">0</div>
-
+<p>Jackpot = +50 Score</p>
+<div id="luckyScore" class="big">0</div>
 <button onclick="luckyGame()">PLAY 🍀</button>
-
 </div>
 
 </div>
@@ -382,700 +323,35 @@ footer{
 <br>
 
 <div class="center">
-
-<button onclick="submitScore()">🏆 ONLINE SCORE SUBMIT</button>
-
-<button onclick="resetGame()">🔄 Reset Game</button>
-
+<button onclick="submitScore()">🏆 SUBMIT SCORE</button>
+<button onclick="resetGame()">🔄 Reset</button>
 </div>
 
 <p id="gameStatus" class="status"></p>
-
 </section>
 
 
-<section class="card">
+<section id="missions" class="card">
 
-<h2>🎁 Daily Reward</h2>
+<h2>🎯 Daily Missions</h2>
 
-<p>हर दिन website पर आकर reward लो।</p>
-
-<button onclick="dailyReward()">🎁 CLAIM REWARD</button>
-
-<p id="rewardStatus" class="status"></p>
-
-</section>
-
-
-<section id="achievements" class="card">
-
-<h2>🏆 Achievements</h2>
-
-<div id="achievementList">
-
-<div id="ach1" class="achievement">
-🎯 First Game — कोई भी game खेलो
+<div id="mission1" class="mission">
+🎯 5 बार Tap Target खेलो
+<br>
+<span id="m1">0 / 5</span>
 </div>
 
-<div id="ach2" class="achievement">
-⭐ Score Hunter — 100 Score
+<div id="mission2" class="mission">
+⚡ 10 Speed Click करो
+<br>
+<span id="m2">0 / 10</span>
 </div>
 
-<div id="ach3" class="achievement">
-🪙 Coin Master — 100 Coins
+<div id="mission3" class="mission">
+🏆 100 Score बनाओ
+<br>
+<span id="m3">0 / 100</span>
 </div>
 
-<div id="ach4" class="achievement">
-🔥 Level Up — Level 5
-</div>
-
-<div id="ach5" class="achievement">
-🏆 Pro Gamer — 500 Score
-</div>
-
-</div>
-
-</section>
-
-
-<section id="leaderboard" class="card">
-
-<h2>🥇 ONLINE LEADERBOARD</h2>
-
-<button onclick="loadLeaderboard()">🔄 Refresh</button>
-
-<table>
-
-<thead>
-<tr>
-<th>#</th>
-<th>Player</th>
-<th>Score</th>
-</tr>
-</thead>
-
-<tbody id="leaderboardBody">
-
-<tr>
-<td colspan="3">Loading...</td>
-</tr>
-
-</tbody>
-
-</table>
-
-<p id="firebaseStatus" class="status"></p>
-
-</section>
-
-</div>
-
-
-<footer>
-
-🎮 JAYPRATAP GAMING 🎮
-
-<br><br>
-
-🔥 Free Fire • Gaming • Challenges 🔥
-
-<br><br>
-
-© 2026 Jaypratap Gaming
-
-</footer>
-
-
-<script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-app-compat.js"></script>
-
-<script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-auth-compat.js"></script>
-
-<script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore-compat.js"></script>
-
-
-<script>
-
-const firebaseConfig = {
-
-apiKey:"AIzaSyB_a4mOviXxrHnfPZkfQgyFP8hW0fhQEBk",
-
-authDomain:"jaypratap-gaming.firebaseapp.com",
-
-projectId:"jaypratap-gaming",
-
-storageBucket:"jaypratap-gaming.firebasestorage.app",
-
-messagingSenderId:"317689965528",
-
-appId:"1:317689965528:web:c1e4c7907aa19e00e5e0ad",
-
-measurementId:"G-MLQPVKRW82"
-
-};
-
-
-firebase.initializeApp(firebaseConfig);
-
-const auth=firebase.auth();
-
-const db=firebase.firestore();
-
-
-let tapScore=0;
-
-let clickScore=0;
-
-let luckyScore=0;
-
-let totalScore=0;
-
-let coins=0;
-
-let xp=0;
-
-let level=1;
-
-
-function loadLocalData(){
-
-coins=Number(localStorage.getItem("coins")||0);
-
-xp=Number(localStorage.getItem("xp")||0);
-
-level=Math.floor(xp/100)+1;
-
-updateStats();
-
-}
-
-
-function saveLocalData(){
-
-localStorage.setItem("coins",coins);
-
-localStorage.setItem("xp",xp);
-
-}
-
-
-function updateStats(){
-
-totalScore=tapScore+clickScore+luckyScore;
-
-document.getElementById("coins").textContent=coins;
-
-document.getElementById("xp").textContent=xp;
-
-document.getElementById("level").textContent=level;
-
-document.getElementById("totalScore").textContent=totalScore;
-
-let currentXP=xp%100;
-
-document.getElementById("xpBar").style.width=currentXP+"%";
-
-document.getElementById("levelText").textContent=
-currentXP+" / 100 XP";
-
-checkAchievements();
-
-}
-
-
-function addReward(score,coinReward){
-
-totalScore+=score;
-
-coins+=coinReward;
-
-xp+=score;
-
-level=Math.floor(xp/100)+1;
-
-saveLocalData();
-
-updateStats();
-
-}
-
-
-function tapGame(){
-
-tapScore+=10;
-
-document.getElementById("tapScore").textContent=tapScore;
-
-addReward(10,2);
-
-}
-
-
-function clickGame(){
-
-clickScore+=5;
-
-document.getElementById("clickScore").textContent=clickScore;
-
-addReward(5,1);
-
-}
-
-
-function luckyGame(){
-
-let win=Math.floor(Math.random()*6);
-
-if(win===5){
-
-luckyScore+=50;
-
-alert("🎉 JACKPOT! +50 Score +20 Coins");
-
-addReward(50,20);
-
-}else{
-
-luckyScore+=5;
-
-alert("👍 +5 Score +2 Coins");
-
-addReward(5,2);
-
-}
-
-document.getElementById("luckyScore").textContent=luckyScore;
-
-}
-
-
-function resetGame(){
-
-tapScore=0;
-
-clickScore=0;
-
-luckyScore=0;
-
-document.getElementById("tapScore").textContent=0;
-
-document.getElementById("clickScore").textContent=0;
-
-document.getElementById("luckyScore").textContent=0;
-
-updateStats();
-
-}
-
-
-function toggleTheme(){
-
-document.body.classList.toggle("light");
-
-localStorage.setItem(
-"theme",
-document.body.classList.contains("light")?"light":"dark"
-);
-
-}
-
-
-function dailyReward(){
-
-let today=new Date().toDateString();
-
-let last=localStorage.getItem("dailyReward");
-
-if(last===today){
-
-document.getElementById("rewardStatus").textContent=
-"⏳ आज का reward पहले ही ले चुके हो!";
-
-document.getElementById("homeStatus").textContent=
-"⏳ Daily reward already claimed";
-
-return;
-
-}
-
-localStorage.setItem("dailyReward",today);
-
-coins+=50;
-
-xp+=20;
-
-level=Math.floor(xp/100)+1;
-
-saveLocalData();
-
-updateStats();
-
-document.getElementById("rewardStatus").textContent=
-"🎉 +50 Coins और +20 XP मिल गया!";
-
-document.getElementById("homeStatus").textContent=
-"🎉 Daily Reward Claimed!";
-
-}
-
-
-async function registerUser(){
-
-const email=document.getElementById("email").value.trim();
-
-const password=document.getElementById("password").value;
-
-if(!email||!password){
-
-alert("Email और Password डालो!");
-
-return;
-
-}
-
-if(password.length<6){
-
-alert("Password कम से कम 6 characters का होना चाहिए!");
-
-return;
-
-}
-
-try{
-
-await auth.createUserWithEmailAndPassword(
-email,password
-);
-
-document.getElementById("authStatus").textContent=
-"✅ Account बन गया!";
-
-}catch(error){
-
-document.getElementById("authStatus").textContent=
-"❌ "+error.message;
-
-}
-
-}
-
-
-async function loginUser(){
-
-const email=document.getElementById("email").value.trim();
-
-const password=document.getElementById("password").value;
-
-try{
-
-await auth.signInWithEmailAndPassword(
-email,password
-);
-
-}catch(error){
-
-document.getElementById("authStatus").textContent=
-"❌ "+error.message;
-
-}
-
-}
-
-
-async function logoutUser(){
-
-await auth.signOut();
-
-document.getElementById("authStatus").textContent=
-"✅ Logout हो गया";
-
-}
-
-
-auth.onAuthStateChanged(user=>{
-
-if(user){
-
-document.getElementById("userInfo").textContent=
-"🟢 Login: "+user.email;
-
-document.getElementById("authStatus").textContent=
-"✅ Login successful";
-
-loadProfile(user);
-
-}else{
-
-document.getElementById("userInfo").textContent=
-"🔴 Login नहीं किया गया";
-
-}
-
-});
-
-
-async function saveProfile(){
-
-const user=auth.currentUser;
-
-if(!user){
-
-alert("पहले Login करो!");
-
-return;
-
-}
-
-const name=document.getElementById("gamerName").value.trim();
-
-if(!name){
-
-alert("Gamer name डालो!");
-
-return;
-
-}
-
-try{
-
-await db.collection("players").doc(user.uid).set({
-
-uid:user.uid,
-
-name:name,
-
-updatedAt:
-firebase.firestore.FieldValue.serverTimestamp()
-
-},{merge:true});
-
-document.getElementById("profileStatus").textContent=
-"✅ Profile saved";
-
-}catch(error){
-
-document.getElementById("profileStatus").textContent=
-"❌ "+error.message;
-
-}
-
-}
-
-
-async function loadProfile(user){
-
-try{
-
-const doc=await db
-.collection("players")
-.doc(user.uid)
-.get();
-
-if(doc.exists){
-
-const data=doc.data();
-
-document.getElementById("gamerName").value=
-data.name||"";
-
-}
-
-}catch(error){
-
-console.log(error);
-
-}
-
-}
-
-
-async function submitScore(){
-
-const user=auth.currentUser;
-
-if(!user){
-
-alert("पहले Login करो!");
-
-return;
-
-}
-
-if(totalScore<=0){
-
-alert("पहले game खेलो!");
-
-return;
-
-}
-
-try{
-
-const profile=await db
-.collection("players")
-.doc(user.uid)
-.get();
-
-let name="Player";
-
-if(profile.exists){
-
-name=profile.data().name||"Player";
-
-}
-
-await db
-.collection("leaderboard")
-.doc(user.uid)
-.set({
-
-uid:user.uid,
-
-name:name,
-
-score:totalScore,
-
-updatedAt:
-firebase.firestore.FieldValue.serverTimestamp()
-
-},{merge:true});
-
-document.getElementById("gameStatus").textContent=
-"✅ Score online save हो गया!";
-
-loadLeaderboard();
-
-}catch(error){
-
-document.getElementById("gameStatus").textContent=
-"❌ "+error.message;
-
-}
-
-}
-
-
-async function loadLeaderboard(){
-
-const body=document.getElementById("leaderboardBody");
-
-try{
-
-const snapshot=await db
-.collection("leaderboard")
-.orderBy("score","desc")
-.limit(20)
-.get();
-
-body.innerHTML="";
-
-if(snapshot.empty){
-
-body.innerHTML=
-"<tr><td colspan='3'>अभी कोई score नहीं 🎮</td></tr>";
-
-return;
-
-}
-
-let rank=1;
-
-snapshot.forEach(doc=>{
-
-const data=doc.data();
-
-const row=document.createElement("tr");
-
-row.innerHTML=
-"<td>"+rank+"</td>"+
-"<td>"+escapeHtml(data.name||"Player")+"</td>"+
-"<td>"+Number(data.score||0)+"</td>";
-
-body.appendChild(row);
-
-rank++;
-
-});
-
-document.getElementById("firebaseStatus").textContent=
-"🟢 Online leaderboard connected";
-
-}catch(error){
-
-body.innerHTML=
-"<tr><td colspan='3'>Leaderboard error</td></tr>";
-
-document.getElementById("firebaseStatus").textContent=
-"❌ "+error.message;
-
-}
-
-}
-
-
-function escapeHtml(text){
-
-const div=document.createElement("div");
-
-div.textContent=text;
-
-return div.innerHTML;
-
-}
-
-
-function checkAchievements(){
-
-const score=tapScore+clickScore+luckyScore;
-
-if(score>0){
-
-document.getElementById("ach1")
-.classList.add("unlocked");
-
-}
-
-if(score>=100){
-
-document.getElementById("ach2")
-.classList.add("unlocked");
-
-}
-
-if(coins>=100){
-
-document.getElementById("ach3")
-.classList.add("unlocked");
-
-}
-
-if(level>=5){
-
-document.getElementById("ach4")
-.classList.add("unlocked");
-
-}
-
-if(score>=500){
-
-document.getElementById("ach5")
-.classList.add("unlocked");
-
-}
-
-}
-
-
-if(localStorage.getItem("theme")==="light"){
-
-document.body.classList.add("light");
-
-}
-
-loadLocalData();
-
-loadLeaderboard();
-
-</script>
-
-</body>
-</html>
+<div class="center">
+<button onclick="claimMissions()">🎁 Mission Rewards</button>
