@@ -1,486 +1,115 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="hi">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <title>JAYPRATAP GAMING 🎮</title>
 <style>
-*{box-sizing:border-box}body{margin:0;background:#080b16;color:#fff;font-family:Arial}
-header{padding:18px;text-align:center;background:linear-gradient(135deg,#101b3d,#35105c)}
-nav{display:flex;gap:7px;overflow:auto;padding:10px;background:#0d1222}
-nav button,.btn{border:0;border-radius:10px;padding:11px 15px;background:#7047ff;color:#fff;font-weight:bold}
-main{max-width:1000px;margin:auto;padding:15px}.page{display:none}.active{display:block}
-.card{background:#11182b;border:1px solid #29385e;border-radius:18px;padding:18px;margin:12px 0}
-.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(140px,1fr));gap:12px}
-.feature{text-align:center;padding:20px;background:#151e35;border-radius:15px;cursor:pointer}
-input{width:100%;padding:12px;margin:6px 0;background:#090e1c;color:#fff;border:1px solid #33415f;border-radius:10px}
-.score{font-size:28px;font-weight:bold}.small{color:#aab4ce}.badge{display:inline-block;padding:7px 10px;margin:4px;background:#263251;border-radius:20px}
-.chatbox{height:280px;overflow:auto;background:#080c18;padding:10px;border-radius:12px}.msg{background:#18233d;padding:9px;margin:7px 0;border-radius:10px}
-table{width:100%;border-collapse:collapse}td,th{padding:10px;border-bottom:1px solid #293452;text-align:left}
-footer{text-align:center;padding:25px;color:#9da7c0}
-a{color:#9c8cff}
+*{box-sizing:border-box}
+body{margin:0;font-family:Arial;background:#090b14;color:white}
+header{padding:25px 15px;text-align:center;background:linear-gradient(135deg,#171b3d,#10111c)}
+h1{margin:0;color:#00eaff}
+p{color:#bbb}
+nav{display:flex;gap:8px;overflow:auto;padding:10px;background:#111522}
+nav button{white-space:nowrap;padding:10px 15px;border:0;border-radius:20px;background:#20263b;color:white}
+section{display:none;padding:20px}
+section.active{display:block}
+.card{background:#151a2b;border-radius:18px;padding:20px;margin:15px 0;box-shadow:0 5px 20px #0008}
+button.action{padding:12px 18px;border:0;border-radius:12px;background:#00c8ff;color:#001018;font-weight:bold}
+input{width:100%;padding:13px;margin:7px 0;border:0;border-radius:10px;background:#22283b;color:white}
+.score{font-size:30px;color:#00ffb3}
 </style>
 </head>
 
 <body>
 
 <header>
-<h1>🎮 JAYPRATAP GAMING</h1>
-<div id="status">Firebase Connecting...</div>
+<h1>🎮 JAYPRATAP GAMING 🎮</h1>
+<p>🔥 Play • Score • Compete • Win 🔥</p>
 </header>
 
 <nav>
-<button onclick="openPage('home')">🏠</button>
-<button onclick="openPage('games')">🎮 Games</button>
-<button onclick="openPage('leaderboard')">🏆 Rank</button>
-<button onclick="openPage('chat')">💬 Chat</button>
-<button onclick="openPage('rooms')">🏠 Rooms</button>
-<button onclick="openPage('tournament')">🏅 Tournament</button>
-<button onclick="openPage('rewards')">🎁 Rewards</button>
-<button onclick="openPage('friends')">🤝 Friends</button>
-<button onclick="openPage('profile')">👤 Profile</button>
+<button onclick="show('home')">🏠 Home</button>
+<button onclick="show('games')">🎮 Games</button>
+<button onclick="show('leaderboard')">🏆 Leaderboard</button>
+<button onclick="show('friends')">👥 Friends</button>
+<button onclick="show('profile')">👤 Profile</button>
 </nav>
 
-<main>
-
-<section id="home" class="page active">
-<div class="card" style="text-align:center">
-<h2>🔥 JAYPRATAP GAMING 🔥</h2>
-<p>Play • Earn Coins • Gain XP • Compete</p>
-<button class="btn" onclick="openPage('games')">🎮 Start Gaming</button>
-</div>
-
-<div class="grid">
-<div class="feature" onclick="openPage('games')">🎯<br>Mini Games</div>
-<div class="feature" onclick="openPage('leaderboard')">🏆<br>Leaderboard</div>
-<div class="feature" onclick="openPage('chat')">💬<br>Live Chat</div>
-<div class="feature" onclick="openPage('rooms')">🏠<br>Game Rooms</div>
-<div class="feature" onclick="openPage('tournament')">🏅<br>Tournament</div>
-<div class="feature" onclick="openPage('rewards')">🎁<br>Rewards</div>
-</div>
-</section>
-
-<section id="games" class="page">
+<section id="home" class="active">
 <div class="card">
-<h2>🎮 Mini Games</h2>
-<p>Score: <b id="gameScore">0</b></p>
-<p>Coins: 🪙 <b id="gameCoins">0</b></p>
-<button class="btn" onclick="playGame(10)">🎯 Tap Target +10</button>
-<button class="btn" onclick="playGame(5)">⚡ Speed Click +5</button>
-<button class="btn" onclick="luckyGame()">🍀 Lucky Number</button>
-<p id="gameResult" class="small"></p>
+<h2>🔥 Welcome Gamer!</h2>
+<p>JAYPRATAP GAMING में आपका स्वागत है ❤️</p>
+<p>अपना score बढ़ाओ और leaderboard में ऊपर जाओ!</p>
 </div>
 </section>
 
-<section id="leaderboard" class="page">
+<section id="games">
+<div class="card">
+<h2>🎮 Mini Game</h2>
+<p>Button दबाओ और points कमाओ!</p>
+<div class="score" id="score">0</div>
+<br>
+<button class="action" onclick="play()">⚡ PLAY</button>
+</div>
+</section>
+
+<section id="leaderboard">
 <div class="card">
 <h2>🏆 Leaderboard</h2>
-<button class="btn" onclick="loadLeaderboard()">🔄 Refresh</button>
-<div id="leaderboardData">Loading...</div>
+<p>🥇 JAYPRATAP — <span id="lbscore">0</span> XP</p>
+<p>🥈 Gamer Pro — 850 XP</p>
+<p>🥉 FF Warrior — 700 XP</p>
 </div>
 </section>
 
-<section id="chat" class="page">
+<section id="friends">
 <div class="card">
-<h2>💬 Live Chat</h2>
-<div id="chatbox" class="chatbox"></div>
-<input id="chatInput" placeholder="Type message...">
-<button class="btn" onclick="sendChat()">📤 Send</button>
+<h2>👥 Player Search</h2>
+<input id="search" placeholder="Player name search...">
+<button class="action" onclick="searchPlayer()">🔎 Search</button>
+<p id="result"></p>
 </div>
 </section>
 
-<section id="rooms" class="page">
+<section id="profile">
 <div class="card">
-<h2>🏠 Game Rooms</h2>
-<input id="roomName" placeholder="Room name">
-<button class="btn" onclick="createRoom()">➕ Create Room</button>
-<div id="roomsData">Loading...</div>
+<h2>👤 My Profile</h2>
+<p>🔥 JAYPRATAP</p>
+<p>🎮 Gaming Player</p>
+<p>⚡ XP: <span id="xp">0</span></p>
 </div>
 </section>
 
-<section id="tournament" class="page">
-<div class="card">
-<h2>🏅 Tournament</h2>
-<p>Your Points: <b id="tournamentPoints">0</b></p>
-<button class="btn" onclick="tournamentPlay()">🎮 Earn 10 Points</button>
-</div>
-</section>
+<script>
+let score=Number(localStorage.getItem("score")||0);
 
-<section id="rewards" class="page">
-<div class="card">
-<h2>🎁 Daily Rewards</h2>
-<p>🪙 Your Coins: <b id="rewardCoins">0</b></p>
-<p id="rewardMessage">आज का reward ले लो!</p>
-<button class="btn" onclick="dailyReward()">🎁 Claim Daily Reward</button>
-</div>
-
-<div class="card">
-<h3>🔔 Notifications</h3>
-<div id="notifications">No notifications yet.</div>
-</div>
-</section>
-
-<section id="friends" class="page">
-<div class="card">
-<h2>🤝 Friends</h2>
-<input id="friendName" placeholder="Friend name">
-<button class="btn" onclick="addFriend()">➕ Add Friend</button>
-<div id="friendsData"></div>
-</div>
-</section>
-
-<section id="profile" class="page">
-<div class="card">
-<h2>👤 Profile</h2>
-<div id="userInfo">Not logged in</div>
-
-<h3>🔐 Account</h3>
-<input id="email" type="email" placeholder="Email">
-<input id="password" type="password" placeholder="Password">
-<button class="btn" onclick="registerUser()">📝 Register</button>
-<button class="btn" onclick="loginUser()">🔑 Login</button>
-<button class="btn" onclick="logoutUser()">🚪 Logout</button>
-<p id="authResult" class="small"></p>
-</div>
-
-<div class="card">
-<h3>📊 Player Stats</h3>
-<p>🏆 Score: <b id="profileScore">0</b></p>
-<p>⚡ XP: <b id="xp">0</b></p>
-<p>🪙 Coins: <b id="coins">0</b></p>
-<span class="badge">🎮 Gamer</span>
-<span class="badge">🔥 Player</span>
-</div>
-</section>
-
-</main>
-
-<footer>
-🔥 JAYPRATAP GAMING 🔥<br><br>
-<a href="https://www.youtube.com/@BhaktiMargofficil_01" target="_blank">▶️ YouTube</a>
-&nbsp; | &nbsp;
-<a href="https://www.instagram.com/drx_jaypratap_vishwakarma__315" target="_blank">📸 Instagram</a>
-</footer>
-
-<script type="module">
-
-import {initializeApp}
-from "https://www.gstatic.com/firebasejs/12.1.0/firebase-app.js";
-
-import {
-getAuth,createUserWithEmailAndPassword,
-signInWithEmailAndPassword,signOut,onAuthStateChanged
-}
-from "https://www.gstatic.com/firebasejs/12.1.0/firebase-auth.js";
-
-import {
-getFirestore,collection,addDoc,setDoc,doc,
-getDoc,getDocs,query,orderBy,limit,serverTimestamp
-}
-from "https://www.gstatic.com/firebasejs/12.1.0/firebase-firestore.js";
-
-const firebaseConfig={
-apiKey:"AIzaSyB_a4mOviXxrHnfPZkfQgyFP8hW0fhQEBk",
-authDomain:"jaypratap-gaming.firebaseapp.com",
-projectId:"jaypratap-gaming",
-storageBucket:"jaypratap-gaming.firebasestorage.app",
-messagingSenderId:"317689965528",
-appId:"1:317689965528:web:c1e4c7907aa19e00e5e0ad",
-measurementId:"G-MLQPVKRW82"
-};
-
-const app=initializeApp(firebaseConfig);
-const auth=getAuth(app);
-const db=getFirestore(app);
-
-let currentUser=null;
-let score=0,coins=0,xp=0;
-
-window.openPage=function(p){
-document.querySelectorAll(".page").forEach(x=>x.classList.remove("active"));
-document.getElementById(p).classList.add("active");
-
-if(p==="leaderboard")loadLeaderboard();
-if(p==="chat")loadChat();
-if(p==="rooms")loadRooms();
-if(p==="friends")loadFriends();
-if(p==="rewards")loadRewards();
-};
-
-onAuthStateChanged(auth,async user=>{
-currentUser=user;
-
-if(user){
-document.getElementById("status").textContent="🟢 Logged in";
-document.getElementById("userInfo").innerHTML="👤 "+user.email;
-await loadPlayer();
-}else{
-document.getElementById("status").textContent="🔴 Not logged in";
-document.getElementById("userInfo").textContent="Not logged in";
-}
-});
-
-window.registerUser=async function(){
-let email=document.getElementById("email").value.trim();
-let password=document.getElementById("password").value;
-
-if(!email||!password){
-document.getElementById("authResult").textContent="Email और password डालो.";
-return;
+function show(id){
+document.querySelectorAll("section").forEach(x=>x.classList.remove("active"));
+document.getElementById(id).classList.add("active");
 }
 
-try{
-let r=await createUserWithEmailAndPassword(auth,email,password);
-
-await setDoc(doc(db,"players",r.user.uid),{
-name:email.split("@")[0],
-email:email,score:0,xp:0,coins:100,
-createdAt:serverTimestamp()
-});
-
-document.getElementById("authResult").textContent="✅ Account created!";
-}catch(e){
-document.getElementById("authResult").textContent="❌ "+e.message;
-}
-};
-
-window.loginUser=async function(){
-try{
-await signInWithEmailAndPassword(
-auth,
-document.getElementById("email").value.trim(),
-document.getElementById("password").value
-);
-document.getElementById("authResult").textContent="✅ Login successful!";
-}catch(e){
-document.getElementById("authResult").textContent="❌ "+e.message;
-}
-};
-
-window.logoutUser=async function(){
-await signOut(auth);
-document.getElementById("authResult").textContent="✅ Logged out";
-};
-
-async function loadPlayer(){
-let s=await getDoc(doc(db,"players",currentUser.uid));
-
-if(s.exists()){
-let d=s.data();
-score=d.score||0;
-coins=d.coins||0;
-xp=d.xp||0;
-updateStats();
-}
+function update(){
+document.getElementById("score").textContent=score;
+document.getElementById("lbscore").textContent=score;
+document.getElementById("xp").textContent=score;
+localStorage.setItem("score",score);
 }
 
-function updateStats(){
-document.getElementById("gameScore").textContent=score;
-document.getElementById("profileScore").textContent=score;
-document.getElementById("xp").textContent=xp;
-document.getElementById("coins").textContent=coins;
-document.getElementById("gameCoins").textContent=coins;
-document.getElementById("rewardCoins").textContent=coins;
+function play(){
+score+=10;
+update();
+alert("🔥 +10 XP मिला!");
 }
 
-async function savePlayer(){
-await setDoc(doc(db,"players",currentUser.uid),{
-score:score,coins:coins,xp:xp,
-updatedAt:serverTimestamp()
-},{merge:true});
-updateStats();
+function searchPlayer(){
+let name=document.getElementById("search").value.trim();
+document.getElementById("result").textContent=
+name ? "🔎 Player मिला: "+name : "⚠️ Player name डालो";
 }
 
-window.playGame=async function(points){
-if(!currentUser){
-alert("पहले Login करो.");
-openPage("profile");return;
-}
-score+=points;
-coins+=points;
-xp+=points;
-await savePlayer();
-document.getElementById("gameResult").textContent="🔥 +"+points+" Score & Coins!";
-};
-
-window.luckyGame=async function(){
-let n=Math.floor(Math.random()*10)+1;
-if(n===7){
-score+=50;coins+=50;xp+=50;
-await savePlayer();
-document.getElementById("gameResult").textContent="🍀 Lucky 7! +50!";
-}else{
-document.getElementById("gameResult").textContent="🎲 Number "+n+" — Try again!";
-}
-};
-
-window.loadLeaderboard=async function(){
-let box=document.getElementById("leaderboardData");
-try{
-let q=query(collection(db,"players"),orderBy("score","desc"),limit(20));
-let snap=await getDocs(q);
-let html="<table><tr><th>#</th><th>Player</th><th>Score</th></tr>";
-let r=1;
-snap.forEach(x=>{
-let p=x.data();
-html+="<tr><td>"+r+"</td><td>🎮 "+(p.name||"Player")+
-"</td><td>🏆 "+(p.score||0)+"</td></tr>";
-r++;
-});
-html+="</table>";
-box.innerHTML=html;
-}catch(e){box.innerHTML="❌ "+e.message}
-};
-
-window.sendChat=async function(){
-if(!currentUser){alert("पहले Login करो.");return}
-let input=document.getElementById("chatInput");
-let msg=input.value.trim();
-if(!msg)return;
-
-await addDoc(collection(db,"chat"),{
-message:msg,
-name:currentUser.email.split("@")[0],
-uid:currentUser.uid,
-createdAt:serverTimestamp()
-});
-
-input.value="";
-loadChat();
-};
-
-window.loadChat=async function(){
-let box=document.getElementById("chatbox");
-try{
-let q=query(collection(db,"chat"),orderBy("createdAt","desc"),limit(50));
-let snap=await getDocs(q);
-let html="";
-snap.docs.reverse().forEach(x=>{
-let m=x.data();
-html+='<div class="msg"><b>🎮 '+(m.name||"Player")+
-'</b><br>'+m.message+'</div>';
-});
-box.innerHTML=html||"No messages.";
-}catch(e){box.innerHTML="❌ "+e.message}
-};
-
-window.createRoom=async function(){
-if(!currentUser){alert("पहले Login करो.");return}
-let name=document.getElementById("roomName").value.trim();
-if(!name)return;
-
-await addDoc(collection(db,"rooms"),{
-name:name,
-host:currentUser.uid,
-hostName:currentUser.email.split("@")[0],
-createdAt:serverTimestamp()
-});
-
-document.getElementById("roomName").value="";
-loadRooms();
-};
-
-window.loadRooms=async function(){
-let box=document.getElementById("roomsData");
-try{
-let snap=await getDocs(
-query(collection(db,"rooms"),orderBy("createdAt","desc"),limit(20))
-);
-let html="";
-snap.forEach(x=>{
-let r=x.data();
-html+='<div class="card">🎮 <b>'+r.name+
-'</b><br><span class="small">Host: '+(r.hostName||"Player")+
-'</span><br><button class="btn" onclick="joinRoom()">🚀 Join</button></div>';
-});
-box.innerHTML=html||"No rooms.";
-}catch(e){box.innerHTML="❌ "+e.message}
-};
-
-window.joinRoom=function(){
-alert("🚀 Room joined!");
-};
-
-window.tournamentPlay=async function(){
-if(!currentUser){alert("पहले Login करो.");return}
-let p=Number(localStorage.getItem("tp")||0)+10;
-localStorage.setItem("tp",p);
-document.getElementById("tournamentPoints").textContent=p;
-await window.playGame(10);
-};
-
-window.dailyReward=async function(){
-if(!currentUser){
-alert("पहले Login करो.");
-openPage("profile");return;
-}
-
-let today=new Date().toISOString().slice(0,10);
-let last=localStorage.getItem("dailyReward");
-
-if(last===today){
-document.getElementById("rewardMessage").textContent=
-"⏳ आज का reward पहले ही ले चुके हो.";
-return;
-}
-
-coins+=50;
-xp+=25;
-localStorage.setItem("dailyReward",today);
-await savePlayer();
-
-document.getElementById("rewardMessage").textContent=
-"🎉 +50 Coins और +25 XP मिले!";
-addNotification("🎁 Daily Reward मिला!");
-};
-
-window.addNotification=function(text){
-let arr=JSON.parse(localStorage.getItem("notifications")||"[]");
-arr.unshift(text);
-localStorage.setItem("notifications",JSON.stringify(arr));
-loadRewards();
-};
-
-window.loadRewards=function(){
-let arr=JSON.parse(localStorage.getItem("notifications")||"[]");
-document.getElementById("notifications").innerHTML=
-arr.length?arr.map(x=>"🔔 "+x).join("<br><br>"):
-"No notifications yet.";
-if(currentUser)document.getElementById("rewardCoins").textContent=coins;
-};
-
-window.addFriend=function(){
-let n=document.getElementById("friendName").value.trim();
-if(!n)return;
-let a=JSON.parse(localStorage.getItem("friends")||"[]");
-a.push(n);
-localStorage.setItem("friends",JSON.stringify(a));
-document.getElementById("friendName").value="";
-loadFriends();
-};
-
-window.loadFriends=function(){
-let a=JSON.parse(localStorage.getItem("friends")||"[]");
-document.getElementById("friendsData").innerHTML=
-a.length?a.map((x,i)=>
-'<div class="card">🤝 '+x+
-' <button class="btn" onclick="removeFriend('+i+')">❌</button></div>'
-).join(""):"No friends added.";
-};
-
-window.removeFriend=function(i){
-let a=JSON.parse(localStorage.getItem("friends")||"[]");
-a.splice(i,1);
-localStorage.setItem("friends",JSON.stringify(a));
-loadFriends();
-};
-
-document.getElementById("tournamentPoints").textContent=
-localStorage.getItem("tp")||0;
-
-loadFriends();
-loadRewards();
-
+update();
 </script>
+
 </body>
 </html>
