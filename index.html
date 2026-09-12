@@ -1,1057 +1,730 @@
 <!DOCTYPE html>
-<html lang="hi">
+<html lang="en">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>JAYPRATAP GAMING 🎮</title>
 
 <style>
 *{box-sizing:border-box}
 body{
- margin:0;
- font-family:Arial,sans-serif;
- background:#080808;
- color:white;
+ margin:0;font-family:Arial,sans-serif;
+ background:#080b16;color:#fff
 }
 header{
- background:linear-gradient(135deg,#ff0000,#700000);
- padding:25px 15px;
- text-align:center;
+ padding:18px;text-align:center;
+ background:linear-gradient(135deg,#101b3d,#35105c);
+ position:sticky;top:0;z-index:10
 }
-header h1{margin:0;font-size:30px}
-header p{margin:8px 0 0}
-
+header h1{margin:0;font-size:25px}
 nav{
- display:flex;
- gap:8px;
- padding:10px;
- background:#151515;
- overflow-x:auto;
- position:sticky;
- top:0;
- z-index:10;
+ display:flex;gap:7px;overflow-x:auto;
+ padding:10px;background:#0d1222
 }
 nav button{
- border:0;
- padding:11px 15px;
- border-radius:10px;
- background:#292929;
- color:white;
- white-space:nowrap;
- cursor:pointer;
+ flex:0 0 auto;border:0;border-radius:10px;
+ padding:10px 14px;background:#1b2440;color:white
 }
-nav button:hover{background:#e00000}
-
-.container{
- max-width:1000px;
- margin:auto;
- padding:15px;
-}
-
-.section{display:none}
-.section.active{display:block}
-
+nav button:hover{background:#6c35ff}
+main{padding:15px;max-width:1000px;margin:auto}
+.page{display:none}
+.page.active{display:block}
 .card{
- background:#131313;
- border:1px solid #333;
- border-radius:18px;
- padding:20px;
- margin:15px 0;
+ background:#11182b;border:1px solid #273354;
+ border-radius:18px;padding:18px;margin:12px 0;
+ box-shadow:0 8px 25px #0005
 }
-
-.hero{
- text-align:center;
- padding:35px 10px;
-}
-.hero h2{
- color:#ff3030;
- font-size:34px;
-}
-
+.hero{text-align:center;padding:30px 15px}
+.hero h2{font-size:32px;margin:8px}
 .grid{
- display:grid;
- grid-template-columns:repeat(auto-fit,minmax(180px,1fr));
- gap:12px;
+ display:grid;grid-template-columns:repeat(auto-fit,minmax(145px,1fr));
+ gap:12px
 }
-
 .feature{
- background:#1d1d1d;
- border:1px solid #333;
- border-radius:15px;
- padding:22px 10px;
- text-align:center;
- cursor:pointer;
- transition:.2s;
+ padding:20px;text-align:center;cursor:pointer;
+ background:#151e35;border-radius:16px;
+ border:1px solid #29385e
 }
-.feature:hover{
- transform:translateY(-3px);
- border-color:red;
- background:#292929;
+.feature:hover{transform:translateY(-2px);background:#202d50}
+button.action{
+ border:0;border-radius:10px;padding:11px 16px;
+ background:#7047ff;color:#fff;font-weight:bold;margin:5px
 }
-.feature h3{margin:8px 0}
-
-.btn{
- border:0;
- border-radius:10px;
- padding:11px 16px;
- margin:5px;
- background:#e00000;
- color:white;
- font-weight:bold;
- cursor:pointer;
+input{
+ width:100%;padding:12px;margin:6px 0;
+ border-radius:10px;border:1px solid #33415f;
+ background:#090e1c;color:white
 }
-.btn.blue{background:#075ed7}
-.btn.green{background:#008c3a}
-.btn.gold{background:#b88700}
-.btn.gray{background:#444}
-
-input,textarea{
- width:100%;
- padding:12px;
- margin:7px 0;
- border-radius:10px;
- border:1px solid #444;
- background:#202020;
- color:white;
+.chatbox{
+ height:300px;overflow:auto;
+ background:#080c18;border-radius:12px;padding:10px
 }
-
-.stat{
- background:#1d1d1d;
- border-radius:12px;
- padding:15px;
- text-align:center;
+.msg{
+ background:#18233d;padding:9px;border-radius:10px;
+ margin:7px 0
 }
-.stat b{
- display:block;
- font-size:25px;
- color:#ff3030;
+.small{color:#9ca8c7;font-size:13px}
+.score{font-size:28px;font-weight:bold}
+.badge{
+ display:inline-block;padding:7px 10px;
+ margin:4px;border-radius:20px;background:#252f50
 }
-
-.message{
- background:#1d1d1d;
- padding:12px;
- margin:8px 0;
- border-radius:10px;
-}
-
-.avatar{
- width:100px;
- height:100px;
- border-radius:50%;
- border:4px solid red;
- object-fit:cover;
-}
-
-table{
- width:100%;
- border-collapse:collapse;
-}
-th,td{
- padding:10px;
- border-bottom:1px solid #333;
- text-align:left;
-}
-
-.small{
- color:#aaa;
- font-size:13px;
-}
-
-footer{
- text-align:center;
- padding:30px 10px;
- color:#aaa;
-}
-
-a{color:#ff4040}
+table{width:100%;border-collapse:collapse}
+td,th{padding:10px;border-bottom:1px solid #293452;text-align:left}
+footer{text-align:center;padding:25px;color:#9da7c0}
+a{color:#8e7aff}
 </style>
 </head>
 
 <body>
 
 <header>
-<h1>🔥 JAYPRATAP GAMING 🎮</h1>
-<p>Free Fire • Gaming • Tournament • Community</p>
+<h1>🎮 JAYPRATAP GAMING</h1>
+<div class="small" id="status">Firebase Connecting...</div>
 </header>
 
 <nav>
 <button onclick="openPage('home')">🏠 Home</button>
 <button onclick="openPage('games')">🎮 Games</button>
-<button onclick="openPage('leaderboard')">🏆 Leaderboard</button>
+<button onclick="openPage('leaderboard')">🏆 Rank</button>
 <button onclick="openPage('chat')">💬 Chat</button>
-<button onclick="openPage('rooms')">🚪 Rooms</button>
+<button onclick="openPage('rooms')">🏠 Rooms</button>
 <button onclick="openPage('tournament')">🏅 Tournament</button>
-<button onclick="openPage('friends')">👥 Friends</button>
+<button onclick="openPage('friends')">🤝 Friends</button>
 <button onclick="openPage('profile')">👤 Profile</button>
 </nav>
 
-<div class="container">
+<main>
 
-<!-- HOME -->
-<section id="home" class="section active">
-
-<div class="hero">
-<h2>JAYPRATAP GAMING 🎮</h2>
-<p>🔥 Welcome Gamer 🔥</p>
-
-<button class="btn" onclick="openPage('games')">
-🎮 PLAY NOW
-</button>
+<section id="home" class="page active">
+<div class="card hero">
+<h2>🔥 Welcome Gamer 🔥</h2>
+<p>Play • Earn XP • Compete • Become Champion</p>
+<button class="action" onclick="openPage('games')">🎮 Start Gaming</button>
 </div>
-
-<div class="card">
-<h2>✨ Features</h2>
 
 <div class="grid">
-
-<div class="feature" onclick="openPage('games')">
-<div style="font-size:40px">🎮</div>
-<h3>Mini Games</h3>
-<p>Games खेलो</p>
+<div class="feature" onclick="openPage('games')">🎯<br><b>Mini Games</b></div>
+<div class="feature" onclick="openPage('leaderboard')">🏆<br><b>Leaderboard</b></div>
+<div class="feature" onclick="openPage('chat')">💬<br><b>Live Chat</b></div>
+<div class="feature" onclick="openPage('rooms')">🏠<br><b>Game Rooms</b></div>
+<div class="feature" onclick="openPage('tournament')">🏅<br><b>Tournament</b></div>
+<div class="feature" onclick="openPage('friends')">🤝<br><b>Friends</b></div>
 </div>
-
-<div class="feature" onclick="openPage('leaderboard')">
-<div style="font-size:40px">🏆</div>
-<h3>Leaderboard</h3>
-<p>Top players देखो</p>
-</div>
-
-<div class="feature" onclick="openPage('chat')">
-<div style="font-size:40px">💬</div>
-<h3>Live Chat</h3>
-<p>Gamer से बात करो</p>
-</div>
-
-<div class="feature" onclick="openPage('rooms')">
-<div style="font-size:40px">🚪</div>
-<h3>Game Rooms</h3>
-<p>Room बनाओ</p>
-</div>
-
-<div class="feature" onclick="openPage('tournament')">
-<div style="font-size:40px">🏅</div>
-<h3>Tournament</h3>
-<p>Competition खेलो</p>
-</div>
-
-<div class="feature" onclick="openPage('friends')">
-<div style="font-size:40px">👥</div>
-<h3>Friends</h3>
-<p>Friends जोड़ो</p>
-</div>
-
-</div>
-</div>
-
-<div class="card">
-<h2>📊 My Stats</h2>
-
-<div class="grid">
-
-<div class="stat">
-<b id="homeScore">0</b>
-Score
-</div>
-
-<div class="stat">
-<b id="homeCoins">0</b>
-Coins
-</div>
-
-<div class="stat">
-<b id="homeXP">0</b>
-XP
-</div>
-
-<div class="stat">
-<b id="homeLevel">1</b>
-Level
-</div>
-
-</div>
-</div>
-
 </section>
 
-
-<!-- GAMES -->
-<section id="games" class="section">
-
+<section id="games" class="page">
 <div class="card">
 <h2>🎮 Mini Games</h2>
+<p>Your Score: <span id="gameScore" class="score">0</span></p>
 
-<div class="grid">
+<button class="action" onclick="tapGame()">🎯 Tap Target +10</button>
+<button class="action" onclick="speedGame()">⚡ Speed Click +5</button>
+<button class="action" onclick="luckyGame()">🍀 Lucky Number</button>
 
-<div class="feature">
-<h3>🎯 Tap Target</h3>
-<p>+10 Score</p>
-<button class="btn" onclick="tapTarget()">TAP 🎯</button>
+<p id="gameResult" class="small"></p>
 </div>
-
-<div class="feature">
-<h3>⚡ Speed Click</h3>
-<p>+5 Score</p>
-<button class="btn blue" onclick="speedClick()">CLICK ⚡</button>
-</div>
-
-<div class="feature">
-<h3>🍀 Lucky Number</h3>
-<p>Lucky 7 = +50</p>
-<button class="btn green" onclick="luckyNumber()">LUCKY 🍀</button>
-</div>
-
-</div>
-</div>
-
-<div class="card">
-<h2>🎮 Result</h2>
-<h3 id="gameResult">Game शुरू करो!</h3>
-</div>
-
 </section>
 
-
-<!-- LEADERBOARD -->
-<section id="leaderboard" class="section">
-
+<section id="leaderboard" class="page">
 <div class="card">
-<h2>🏆 Leaderboard</h2>
-
-<button class="btn" onclick="loadLeaderboard()">
-🔄 Refresh
-</button>
-
-<div id="leaderboardBox">
-Leaderboard load हो रहा है...
+<h2>🏆 Online Leaderboard</h2>
+<button class="action" onclick="loadLeaderboard()">🔄 Refresh</button>
+<div id="leaderboardData">Loading...</div>
 </div>
-
-</div>
-
 </section>
 
-
-<!-- CHAT -->
-<section id="chat" class="section">
-
+<section id="chat" class="page">
 <div class="card">
 <h2>💬 Live Chat</h2>
+<div id="chatbox" class="chatbox"></div>
 
-<div id="chatBox">
-Chat अभी खाली है।
+<input id="chatInput" placeholder="Type your message...">
+<button class="action" onclick="sendChat()">📤 Send</button>
 </div>
-
-<textarea id="chatMessage"
-placeholder="अपना message लिखो..."></textarea>
-
-<button class="btn" onclick="sendChat()">
-📤 Send
-</button>
-
-</div>
-
 </section>
 
-
-<!-- ROOMS -->
-<section id="rooms" class="section">
-
+<section id="rooms" class="page">
 <div class="card">
-<h2>🚪 Game Rooms</h2>
+<h2>🏠 Game Rooms</h2>
 
-<input id="roomName"
-placeholder="Room Name">
+<input id="roomName" placeholder="Room name">
+<button class="action" onclick="createRoom()">➕ Create Room</button>
 
-<input id="roomPassword"
-placeholder="Password optional">
-
-<button class="btn" onclick="createRoom()">
-➕ Create Room
-</button>
-
-<button class="btn blue" onclick="loadRooms()">
-🔄 Refresh
-</button>
-
-<div id="roomsBox">
-अभी कोई room नहीं।
+<div id="roomsData">Loading rooms...</div>
 </div>
-
-</div>
-
 </section>
 
-
-<!-- TOURNAMENT -->
-<section id="tournament" class="section">
-
+<section id="tournament" class="page">
 <div class="card">
-<h2>🏅 Weekly Tournament</h2>
+<h2>🏅 Tournament</h2>
+<p>Weekly Gaming Tournament</p>
+<p>Your Tournament Points:</p>
+<div class="score" id="tournamentPoints">0</div>
 
-<div class="stat">
-<b id="tournamentPoints">0</b>
-Tournament Points
+<button class="action" onclick="addTournamentPoints()">🎮 Play & Earn 10 Points</button>
 </div>
-
-<button class="btn gold"
-onclick="addTournamentPoints()">
-🏆 +10 Points
-</button>
-
-<button class="btn"
-onclick="loadTournament()">
-🔄 Ranking
-</button>
-
-<div id="tournamentBox">
-Ranking load होगा।
-</div>
-
-</div>
-
 </section>
 
-
-<!-- FRIENDS -->
-<section id="friends" class="section">
-
+<section id="friends" class="page">
 <div class="card">
-<h2>👥 Friends</h2>
+<h2>🤝 Friends</h2>
 
-<input id="friendName"
-placeholder="Friend का नाम">
+<input id="friendName" placeholder="Friend name">
+<button class="action" onclick="addFriend()">➕ Add Friend</button>
 
-<button class="btn"
-onclick="addFriend()">
-➕ Add Friend
-</button>
-
-<div id="friendsBox">
-अभी कोई friend नहीं।
+<div id="friendsData"></div>
 </div>
-
-</div>
-
 </section>
 
-
-<!-- PROFILE -->
-<section id="profile" class="section">
-
+<section id="profile" class="page">
 <div class="card">
+<h2>👤 Profile</h2>
 
-<h2>👤 Gamer Profile</h2>
+<div id="userInfo">Not logged in</div>
 
-<div style="text-align:center">
+<hr>
 
-<img class="avatar"
-id="avatar"
-src="https://api.dicebear.com/9.x/bottts/svg?seed=Jaypratap">
+<h3>🔐 Login / Register</h3>
 
-<h2 id="profileName">Jaypratap Gamer</h2>
+<input id="email" type="email" placeholder="Email">
+<input id="password" type="password" placeholder="Password">
 
-<p id="profileBio">
-🔥 Free Fire Gamer 🔥
-</p>
+<button class="action" onclick="registerUser()">📝 Register</button>
+<button class="action" onclick="loginUser()">🔑 Login</button>
+<button class="action" onclick="logoutUser()">🚪 Logout</button>
 
-</div>
-
-<input id="nameInput"
-placeholder="Gamer Name">
-
-<input id="bioInput"
-placeholder="Bio">
-
-<button class="btn"
-onclick="saveProfile()">
-💾 Save
-</button>
-
+<p id="authResult" class="small"></p>
 </div>
 
 <div class="card">
+<h3>📊 Player Stats</h3>
+<p>🎮 Game Score: <b id="profileScore">0</b></p>
+<p>⚡ XP: <b id="xp">0</b></p>
+<p>🪙 Coins: <b id="coins">0</b></p>
 
-<h2>📊 Stats</h2>
-
-<div class="grid">
-
-<div class="stat">
-<b id="scoreStat">0</b>
-Score
+<h3>🏅 Badges</h3>
+<div id="badges">
+<span class="badge">🎮 Gamer</span>
 </div>
-
-<div class="stat">
-<b id="winsStat">0</b>
-Wins
 </div>
-
-<div class="stat">
-<b id="lossStat">0</b>
-Loss
-</div>
-
-<div class="stat">
-<b id="coinsStat">0</b>
-Coins
-</div>
-
-</div>
-
-</div>
-
 </section>
 
-</div>
-
+</main>
 
 <footer>
-
-<p>🔥 JAYPRATAP GAMING 🎮</p>
-
+<p>🔥 JAYPRATAP GAMING 🔥</p>
 <p>
-<a href="https://www.youtube.com/@BhaktiMargofficil_01"
-target="_blank">▶️ YouTube</a>
-|
-<a href="https://www.instagram.com/drx_jaypratap_vishwakarma__315"
-target="_blank">📸 Instagram</a>
+<a href="https://www.youtube.com/@BhaktiMargofficil_01" target="_blank">▶️ YouTube</a>
+&nbsp; | &nbsp;
+<a href="https://www.instagram.com/drx_jaypratap_vishwakarma__315" target="_blank">📸 Instagram</a>
 </p>
-
 </footer>
 
 
-<script>
+<script type="module">
 
-/* DATA */
+import { initializeApp }
+from "https://www.gstatic.com/firebasejs/12.1.0/firebase-app.js";
 
-let data=JSON.parse(
-localStorage.getItem("jaypratapGaming")
-)||{
-name:"Jaypratap Gamer",
-bio:"🔥 Free Fire Gamer 🔥",
-score:0,
-coins:0,
-xp:0,
-wins:0,
-loss:0,
-tournament:0,
-friends:[]
+import {
+ getAuth,
+ createUserWithEmailAndPassword,
+ signInWithEmailAndPassword,
+ signOut,
+ onAuthStateChanged
+}
+from "https://www.gstatic.com/firebasejs/12.1.0/firebase-auth.js";
+
+import {
+ getFirestore,
+ collection,
+ addDoc,
+ setDoc,
+ doc,
+ getDoc,
+ getDocs,
+ query,
+ orderBy,
+ limit,
+ serverTimestamp
+}
+from "https://www.gstatic.com/firebasejs/12.1.0/firebase-firestore.js";
+
+
+const firebaseConfig = {
+ apiKey:"AIzaSyB_a4mOviXxrHnfPZkfQgyFP8hW0fhQEBk",
+ authDomain:"jaypratap-gaming.firebaseapp.com",
+ projectId:"jaypratap-gaming",
+ storageBucket:"jaypratap-gaming.firebasestorage.app",
+ messagingSenderId:"317689965528",
+ appId:"1:317689965528:web:c1e4c7907aa19e00e5e0ad",
+ measurementId:"G-MLQPVKRW82"
+};
+
+const app=initializeApp(firebaseConfig);
+const auth=getAuth(app);
+const db=getFirestore(app);
+
+let currentUser=null;
+let gameScore=0;
+
+window.openPage=function(page){
+ document.querySelectorAll(".page")
+ .forEach(x=>x.classList.remove("active"));
+
+ document.getElementById(page)
+ .classList.add("active");
+
+ if(page==="leaderboard") loadLeaderboard();
+ if(page==="chat") loadChat();
+ if(page==="rooms") loadRooms();
+ if(page==="friends") loadFriends();
 };
 
 
-/* SAVE */
-
-function saveData(){
-
-localStorage.setItem(
-"jaypratapGaming",
-JSON.stringify(data)
-);
-
-updateUI();
-
+function showStatus(text){
+ document.getElementById("status").textContent=text;
 }
 
 
-/* NAVIGATION */
+onAuthStateChanged(auth,async(user)=>{
 
-function openPage(page){
+ currentUser=user;
 
-document.querySelectorAll(".section")
-.forEach(function(section){
+ if(user){
+   showStatus("🟢 Logged in");
 
-section.classList.remove("active");
+   document.getElementById("userInfo").innerHTML=
+   "👤 <b>"+user.email+"</b><br>UID: "+user.uid;
 
+   await loadPlayer();
+ }else{
+   showStatus("🔴 Not logged in");
+   document.getElementById("userInfo").textContent="Not logged in";
+ }
 });
 
-let selected=document.getElementById(page);
 
-if(selected){
+window.registerUser=async function(){
 
-selected.classList.add("active");
+ const email=document.getElementById("email").value.trim();
+ const password=document.getElementById("password").value;
 
-window.scrollTo({
-top:0,
-behavior:"smooth"
-});
+ if(!email||!password){
+   document.getElementById("authResult").textContent="Email और password डालो.";
+   return;
+ }
 
-}
+ try{
 
-}
+   const result=await createUserWithEmailAndPassword(
+     auth,email,password
+   );
 
+   await setDoc(doc(db,"players",result.user.uid),{
+     name:email.split("@")[0],
+     email:email,
+     score:0,
+     xp:0,
+     coins:100,
+     createdAt:serverTimestamp()
+   });
 
-/* UI */
+   document.getElementById("authResult").textContent=
+   "✅ Account created!";
 
-function updateUI(){
-
-document.getElementById("homeScore").textContent=data.score;
-
-document.getElementById("homeCoins").textContent=data.coins;
-
-document.getElementById("homeXP").textContent=data.xp;
-
-document.getElementById("homeLevel").textContent=
-Math.floor(data.xp/100)+1;
-
-document.getElementById("scoreStat").textContent=data.score;
-
-document.getElementById("winsStat").textContent=data.wins;
-
-document.getElementById("lossStat").textContent=data.loss;
-
-document.getElementById("coinsStat").textContent=data.coins;
-
-document.getElementById("tournamentPoints").textContent=
-data.tournament;
-
-document.getElementById("profileName").textContent=
-data.name;
-
-document.getElementById("profileBio").textContent=
-data.bio;
-
-document.getElementById("nameInput").value=
-data.name;
-
-document.getElementById("bioInput").value=
-data.bio;
-
-}
+ }catch(error){
+   document.getElementById("authResult").textContent=
+   "❌ "+error.message;
+ }
+};
 
 
-/* PROFILE */
+window.loginUser=async function(){
 
-function saveProfile(){
+ const email=document.getElementById("email").value.trim();
+ const password=document.getElementById("password").value;
 
-data.name=
-document.getElementById("nameInput").value ||
-"Jaypratap Gamer";
+ try{
+   await signInWithEmailAndPassword(auth,email,password);
 
-data.bio=
-document.getElementById("bioInput").value ||
-"🔥 Free Fire Gamer 🔥";
-
-saveData();
-
-alert("✅ Profile Saved!");
-
-}
+   document.getElementById("authResult").textContent=
+   "✅ Login successful!";
+ }catch(error){
+   document.getElementById("authResult").textContent=
+   "❌ "+error.message;
+ }
+};
 
 
-/* GAMES */
+window.logoutUser=async function(){
 
-function tapTarget(){
+ try{
+   await signOut(auth);
+   document.getElementById("authResult").textContent=
+   "✅ Logged out";
+ }catch(error){
+   document.getElementById("authResult").textContent=
+   "❌ "+error.message;
+ }
+};
 
-data.score+=10;
-data.xp+=10;
-data.coins+=2;
-data.wins++;
 
-saveData();
+async function loadPlayer(){
 
-document.getElementById("gameResult").textContent=
-"🎯 +10 Score | +2 Coins";
+ if(!currentUser)return;
 
+ const ref=doc(db,"players",currentUser.uid);
+ const snap=await getDoc(ref);
+
+ if(snap.exists()){
+
+   const data=snap.data();
+
+   gameScore=data.score||0;
+
+   document.getElementById("gameScore").textContent=gameScore;
+   document.getElementById("profileScore").textContent=gameScore;
+   document.getElementById("xp").textContent=data.xp||0;
+   document.getElementById("coins").textContent=data.coins||0;
+ }
 }
 
 
-function speedClick(){
+async function updateScore(points){
 
-data.score+=5;
-data.xp+=5;
-data.coins++;
+ if(!currentUser){
+   document.getElementById("gameResult").textContent=
+   "🔐 पहले Login करो.";
+   openPage("profile");
+   return;
+ }
 
-saveData();
+ gameScore+=points;
 
-document.getElementById("gameResult").textContent=
-"⚡ +5 Score | +1 Coin";
+ const ref=doc(db,"players",currentUser.uid);
 
+ const snap=await getDoc(ref);
+ const old=snap.exists()?snap.data():{};
+
+ await setDoc(ref,{
+   name:old.name||currentUser.email.split("@")[0],
+   email:currentUser.email,
+   score:gameScore,
+   xp:(old.xp||0)+points,
+   coins:(old.coins||0)+points,
+   updatedAt:serverTimestamp()
+ },{merge:true});
+
+ document.getElementById("gameScore").textContent=gameScore;
+ document.getElementById("profileScore").textContent=gameScore;
+ document.getElementById("gameResult").textContent=
+ "🔥 +"+points+" points!";
 }
 
 
-function luckyNumber(){
-
-let number=
-Math.floor(Math.random()*10)+1;
-
-if(number===7){
-
-data.score+=50;
-data.xp+=50;
-data.coins+=10;
-data.wins++;
-
-document.getElementById("gameResult").textContent=
-"🍀 JACKPOT! 7 मिला! +50 Score";
-
-}else{
-
-data.score+=5;
-data.xp+=5;
-
-document.getElementById("gameResult").textContent=
-"🍀 Number "+number+" आया! +5 Score";
-
-}
-
-saveData();
-
-}
+window.tapGame=function(){
+ updateScore(10);
+};
 
 
-/* FRIENDS */
-
-function addFriend(){
-
-let name=
-document.getElementById("friendName").value.trim();
-
-if(!name){
-
-alert("Friend का नाम लिखो");
-
-return;
-
-}
-
-data.friends.push(name);
-
-document.getElementById("friendName").value="";
-
-saveData();
-
-showFriends();
-
-}
+window.speedGame=function(){
+ updateScore(5);
+};
 
 
-function showFriends(){
+window.luckyGame=function(){
 
-let box=
-document.getElementById("friendsBox");
+ const number=Math.floor(Math.random()*10)+1;
 
-if(data.friends.length===0){
-
-box.innerHTML="अभी कोई friend नहीं।";
-
-return;
-
-}
-
-box.innerHTML=
-data.friends.map(function(friend,index){
-
-return `
-<div class="message">
-👤 ${friend}
-<br>
-<button class="btn gray"
-onclick="removeFriend(${index})">
-Remove
-</button>
-</div>
-`;
-
-}).join("");
-
-}
+ if(number===7){
+   updateScore(50);
+   document.getElementById("gameResult").textContent=
+   "🍀 Lucky 7! +50 points!";
+ }else{
+   document.getElementById("gameResult").textContent=
+   "🎲 Number: "+number+" — Try again!";
+ }
+};
 
 
-function removeFriend(index){
+window.loadLeaderboard=async function(){
 
-data.friends.splice(index,1);
+ const box=document.getElementById("leaderboardData");
+ box.innerHTML="Loading...";
 
-saveData();
+ try{
 
-showFriends();
+   const q=query(
+     collection(db,"players"),
+     orderBy("score","desc"),
+     limit(20)
+   );
 
-}
+   const snap=await getDocs(q);
+
+   if(snap.empty){
+     box.innerHTML="No players yet.";
+     return;
+   }
+
+   let html="<table><tr><th>#</th><th>Player</th><th>Score</th></tr>";
+
+   let rank=1;
+
+   snap.forEach(d=>{
+     const p=d.data();
+
+     html+=
+     "<tr><td>"+rank+
+     "</td><td>🎮 "+(p.name||"Player")+
+     "</td><td>🏆 "+(p.score||0)+
+     "</td></tr>";
+
+     rank++;
+   });
+
+   html+="</table>";
+
+   box.innerHTML=html;
+
+ }catch(error){
+   box.innerHTML="❌ "+error.message;
+ }
+};
 
 
-/* TOURNAMENT */
+window.sendChat=async function(){
 
-function addTournamentPoints(){
+ if(!currentUser){
+   alert("पहले Login करो.");
+   return;
+ }
 
-data.tournament+=10;
+ const input=document.getElementById("chatInput");
+ const message=input.value.trim();
 
-data.xp+=10;
+ if(!message)return;
 
-saveData();
+ try{
 
-alert("🏆 +10 Tournament Points!");
+   const snap=await getDoc(
+     doc(db,"players",currentUser.uid)
+   );
 
-}
+   const player=snap.exists()?snap.data():{};
+
+   await addDoc(collection(db,"chat"),{
+     message:message,
+     name:player.name||currentUser.email.split("@")[0],
+     uid:currentUser.uid,
+     createdAt:serverTimestamp()
+   });
+
+   input.value="";
+   loadChat();
+
+ }catch(error){
+   alert(error.message);
+ }
+};
+
+
+window.loadChat=async function(){
+
+ const box=document.getElementById("chatbox");
+
+ try{
+
+   const q=query(
+     collection(db,"chat"),
+     orderBy("createdAt","desc"),
+     limit(50)
+   );
+
+   const snap=await getDocs(q);
+
+   let html="";
+
+   snap.docs.reverse().forEach(d=>{
+
+     const m=d.data();
+
+     html+=
+     '<div class="msg"><b>🎮 '+
+     (m.name||"Player")+
+     '</b><br>'+
+     (m.message||"")+
+     '</div>';
+   });
+
+   box.innerHTML=html||"No messages yet.";
+
+   box.scrollTop=box.scrollHeight;
+
+ }catch(error){
+   box.innerHTML="❌ "+error.message;
+ }
+};
+
+
+window.createRoom=async function(){
+
+ if(!currentUser){
+   alert("पहले Login करो.");
+   return;
+ }
+
+ const name=document.getElementById("roomName").value.trim();
+
+ if(!name)return;
+
+ await addDoc(collection(db,"rooms"),{
+   name:name,
+   host:currentUser.uid,
+   hostName:currentUser.email.split("@")[0],
+   createdAt:serverTimestamp()
+ });
+
+ document.getElementById("roomName").value="";
+
+ loadRooms();
+};
+
+
+window.loadRooms=async function(){
+
+ const box=document.getElementById("roomsData");
+
+ try{
+
+   const snap=await getDocs(
+     query(
+       collection(db,"rooms"),
+       orderBy("createdAt","desc"),
+       limit(20)
+     )
+   );
+
+   let html="";
+
+   snap.forEach(d=>{
+
+     const r=d.data();
+
+     html+=
+     '<div class="card">'+
+     '🎮 <b>'+r.name+'</b>'+
+     '<p class="small">Host: '+(r.hostName||"Player")+'</p>'+
+     '<button class="action" onclick="joinRoom()">🚀 Join</button>'+
+     '</div>';
+   });
+
+   box.innerHTML=html||"No rooms yet.";
+
+ }catch(error){
+   box.innerHTML="❌ "+error.message;
+ }
+};
+
+
+window.joinRoom=function(){
+ alert("🚀 Room selected! Game room system ready.");
+};
+
+
+window.addTournamentPoints=function(){
+
+ if(!currentUser){
+   alert("पहले Login करो.");
+   openPage("profile");
+   return;
+ }
+
+ let points=Number(
+   localStorage.getItem("tournamentPoints")||0
+ );
+
+ points+=10;
+
+ localStorage.setItem("tournamentPoints",points);
+
+ document.getElementById("tournamentPoints")
+ .textContent=points;
+
+ updateScore(10);
+};
 
 
 function loadTournament(){
 
-document.getElementById("tournamentBox").innerHTML=
-`
-<div class="message">
-🥇 Jaypratap Gamer — ${data.tournament} Points
-</div>
-
-<div class="message">
-🥈 Pro Gamer — 0 Points
-</div>
-
-<div class="message">
-🥉 Free Fire King — 0 Points
-</div>
-`;
-
+ document.getElementById("tournamentPoints")
+ .textContent=
+ localStorage.getItem("tournamentPoints")||0;
 }
 
 
-/* ROOMS */
+window.addFriend=function(){
 
-let rooms=
-JSON.parse(localStorage.getItem("gamingRooms"))
-||[];
+ const name=document.getElementById("friendName")
+ .value.trim();
 
+ if(!name)return;
 
-function createRoom(){
+ let friends=
+ JSON.parse(localStorage.getItem("friends")||"[]");
 
-let name=
-document.getElementById("roomName").value.trim();
+ friends.push(name);
 
-let password=
-document.getElementById("roomPassword").value;
+ localStorage.setItem(
+   "friends",
+   JSON.stringify(friends)
+ );
 
-if(!name){
+ document.getElementById("friendName").value="";
 
-alert("Room Name भरो");
-
-return;
-
-}
-
-rooms.push({
-
-name:name,
-password:password,
-host:data.name,
-players:1
-
-});
-
-localStorage.setItem(
-"gamingRooms",
-JSON.stringify(rooms)
-);
-
-document.getElementById("roomName").value="";
-document.getElementById("roomPassword").value="";
-
-loadRooms();
-
-alert("✅ Room Created!");
-
-}
-
-
-function loadRooms(){
-
-let box=
-document.getElementById("roomsBox");
-
-if(rooms.length===0){
-
-box.innerHTML=
-"🚪 अभी कोई room नहीं है।";
-
-return;
-
-}
-
-box.innerHTML=
-rooms.map(function(room,index){
-
-return `
-<div class="message">
-
-<h3>🎮 ${room.name}</h3>
-
-<p>👑 Host: ${room.host}</p>
-
-<p>👥 Players: ${room.players}</p>
-
-<p>${room.password ? "🔒 Protected" : "🔓 Open"}</p>
-
-<button class="btn green"
-onclick="joinRoom(${index})">
-🚪 Join
-</button>
-
-</div>
-`;
-
-}).join("");
-
-}
-
-
-function joinRoom(index){
-
-alert(
-"🚪 Room: "+
-rooms[index].name+
-"\nHost: "+
-rooms[index].host
-);
-
-}
-
-
-/* CHAT */
-
-let messages=
-JSON.parse(localStorage.getItem("gamingChat"))
-||[];
-
-
-function sendChat(){
-
-let input=
-document.getElementById("chatMessage");
-
-let text=input.value.trim();
-
-if(!text)return;
-
-messages.push({
-
-name:data.name,
-message:text
-
-});
-
-localStorage.setItem(
-"gamingChat",
-JSON.stringify(messages)
-);
-
-input.value="";
-
-loadChat();
-
-}
-
-
-function loadChat(){
-
-let box=
-document.getElementById("chatBox");
-
-if(messages.length===0){
-
-box.innerHTML=
-"💬 अभी कोई message नहीं है।";
-
-return;
-
-}
-
-box.innerHTML=
-messages.map(function(m){
-
-return `
-<div class="message">
-<b>🎮 ${m.name}</b>
-<p>${escapeHTML(m.message)}</p>
-</div>
-`;
-
-}).join("");
-
-}
-
-
-/* LEADERBOARD */
-
-function loadLeaderboard(){
-
-let players=
-JSON.parse(
-localStorage.getItem("gamingPlayers")
-)||[];
-
-let me={
-name:data.name,
-score:data.score
+ loadFriends();
 };
 
-players=players.filter(function(p){
 
-return p.name!==data.name;
+window.loadFriends=function(){
 
-});
+ const box=document.getElementById("friendsData");
 
-players.push(me);
+ let friends=
+ JSON.parse(localStorage.getItem("friends")||"[]");
 
-players.sort(function(a,b){
+ if(!friends.length){
+   box.innerHTML="<p>No friends added.</p>";
+   return;
+ }
 
-return b.score-a.score;
-
-});
-
-localStorage.setItem(
-"gamingPlayers",
-JSON.stringify(players)
-);
-
-let box=
-document.getElementById("leaderboardBox");
-
-box.innerHTML=
-`
-<table>
-
-<tr>
-<th>#</th>
-<th>Player</th>
-<th>Score</th>
-</tr>
-
-${
-players.slice(0,20).map(function(p,i){
-
-return `
-<tr>
-<td>${i+1}</td>
-<td>🎮 ${escapeHTML(p.name)}</td>
-<td>🔥 ${p.score}</td>
-</tr>
-`;
-
-}).join("")
-}
-
-</table>
-`;
-
-}
+ box.innerHTML=friends.map(
+   (x,i)=>'<div class="card">🤝 '+x+
+   ' <button class="action" onclick="removeFriend('+i+')">❌</button></div>'
+ ).join("");
+};
 
 
-/* SAFE TEXT */
+window.removeFriend=function(index){
 
-function escapeHTML(text){
+ let friends=
+ JSON.parse(localStorage.getItem("friends")||"[]");
 
-return String(text)
-.replaceAll("&","&amp;")
-.replaceAll("<","&lt;")
-.replaceAll(">","&gt;")
-.replaceAll('"',"&quot;")
-.replaceAll("'","&#039;");
+ friends.splice(index,1);
 
-}
+ localStorage.setItem(
+   "friends",
+   JSON.stringify(friends)
+ );
+
+ loadFriends();
+};
 
 
-/* START */
-
-updateUI();
-showFriends();
-loadRooms();
-loadChat();
-loadLeaderboard();
+loadTournament();
+loadFriends();
 
 </script>
 
