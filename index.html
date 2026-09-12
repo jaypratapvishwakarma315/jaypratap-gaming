@@ -6,19 +6,24 @@
 <title>JAYPRATAP GAMING 🎮</title>
 <style>
 *{box-sizing:border-box}
-body{margin:0;font-family:Arial;background:#080b14;color:#fff}
-header{text-align:center;padding:25px;background:#121936}
-h1{color:#00eaff;margin:0}
-nav{display:flex;gap:8px;overflow:auto;padding:10px;background:#111522}
-nav button,.btn{padding:11px 16px;border:0;border-radius:12px;background:#202943;color:#fff}
-section{display:none;padding:18px}
+body{margin:0;font-family:Arial,sans-serif;background:#070a12;color:#fff}
+header{padding:24px 15px;text-align:center;background:linear-gradient(135deg,#111a3a,#10111b)}
+h1{margin:0;color:#00eaff}
+header p{color:#bbb}
+nav{display:flex;gap:7px;overflow-x:auto;padding:10px;background:#101522;position:sticky;top:0;z-index:5}
+nav button{white-space:nowrap;border:0;border-radius:12px;padding:10px 14px;background:#20283d;color:#fff}
+section{display:none;padding:16px}
 section.active{display:block}
-.card{background:#151b2e;padding:20px;margin:12px 0;border-radius:18px}
-.stat{font-size:20px;line-height:2}
-.big{font-size:32px;font-weight:bold;color:#00ffb3}
-.btn{background:#00c8ff;color:#001018;font-weight:bold;margin:5px}
-.shop{display:grid;gap:12px}
-.item{background:#202943;padding:16px;border-radius:14px}
+.card{background:#141a2b;border-radius:18px;padding:18px;margin-bottom:14px}
+.stats{display:grid;grid-template-columns:repeat(3,1fr);gap:8px}
+.stat{background:#20283d;padding:12px;border-radius:12px;text-align:center}
+.num{font-size:22px;font-weight:bold;color:#00ffb3}
+.btn{border:0;border-radius:12px;padding:12px 17px;background:#00c8ff;color:#001018;font-weight:bold;margin:5px 3px}
+input{width:100%;padding:13px;border:0;border-radius:10px;background:#222a3e;color:#fff;margin:6px 0}
+.game{background:#20283d;padding:16px;border-radius:15px;margin:10px 0}
+.result{min-height:25px;color:#00ffb3;font-weight:bold}
+.item{background:#20283d;border-radius:14px;padding:14px;margin:10px 0}
+.badge{display:inline-block;padding:7px 10px;border-radius:20px;background:#2b3550;margin:4px}
 </style>
 </head>
 
@@ -26,13 +31,15 @@ section.active{display:block}
 
 <header>
 <h1>🎮 JAYPRATAP GAMING</h1>
-<p>🔥 Play • Earn • Shop 🔥</p>
+<p>🔥 PLAY • EARN • COMPETE 🔥</p>
 </header>
 
 <nav>
 <button onclick="show('home')">🏠 Home</button>
 <button onclick="show('games')">🎮 Games</button>
 <button onclick="show('shop')">🛒 Shop</button>
+<button onclick="show('leaderboard')">🏆 Rank</button>
+<button onclick="show('friends')">👥 Friends</button>
 <button onclick="show('rewards')">🎁 Rewards</button>
 <button onclick="show('profile')">👤 Profile</button>
 </nav>
@@ -40,71 +47,127 @@ section.active{display:block}
 <section id="home" class="active">
 <div class="card">
 <h2>🔥 Welcome Gamer!</h2>
-<div class="stat">
-💎 Gems: <b id="gems">5</b><br>
-🪙 Coins: <b id="coins">0</b><br>
-⚡ XP: <b id="xp">0</b>
+<div class="stats">
+<div class="stat">💎<br><span class="num" id="gems">5</span></div>
+<div class="stat">🪙<br><span class="num" id="coins">0</span></div>
+<div class="stat">⚡<br><span class="num" id="xp">0</span></div>
 </div>
+</div>
+
+<div class="card">
+<h2>🏆 Your High Score</h2>
+<div class="num" id="score">0</div>
+<p>Games खेलकर अपना score बढ़ाओ!</p>
 </div>
 </section>
 
 <section id="games">
 <div class="card">
-<h2>🎮 Mini Game</h2>
-<p>Play करके Coins और XP कमाओ!</p>
-<div class="big" id="score">0</div>
-<button class="btn" onclick="playGame()">⚡ PLAY</button>
+<h2>🎮 Mini Games</h2>
+
+<div class="game">
+<h3>🎯 Tap Challenge</h3>
+<p>10 clicks करो और reward पाओ!</p>
+<button class="btn" onclick="tapGame()">🎯 TAP</button>
+<p id="tapResult" class="result"></p>
+</div>
+
+<div class="game">
+<h3>🧠 Guess Number</h3>
+<p>1 से 5 के बीच number guess करो।</p>
+<input id="guess" type="number" min="1" max="5" placeholder="1-5">
+<button class="btn" onclick="guessGame()">🧠 GUESS</button>
+<p id="guessResult" class="result"></p>
+</div>
+
+<div class="game">
+<h3>⚡ Fast Click</h3>
+<p>Button दबाओ और random reward पाओ!</p>
+<button class="btn" onclick="fastGame()">⚡ CLICK</button>
+<p id="fastResult" class="result"></p>
+</div>
+
 </div>
 </section>
 
 <section id="shop">
 <div class="card">
 <h2>🛒 GEM SHOP 💎</h2>
-<p>अपने Gems से reward खरीदो।</p>
-
-<div class="shop">
 
 <div class="item">
 <h3>🎁 Starter Reward</h3>
-<p>कीमत: 💎 2 Gems</p>
-<button class="btn" onclick="buyItem(2,'Starter Reward')">BUY</button>
+<p>कीमत: 💎 2</p>
+<button class="btn" onclick="buy(2,'Starter Reward')">BUY</button>
 </div>
 
 <div class="item">
 <h3>🔥 Pro Reward</h3>
-<p>कीमत: 💎 3 Gems</p>
-<button class="btn" onclick="buyItem(3,'Pro Reward')">BUY</button>
+<p>कीमत: 💎 3</p>
+<button class="btn" onclick="buy(3,'Pro Reward')">BUY</button>
 </div>
 
 <div class="item">
 <h3>👑 VIP Reward</h3>
-<p>कीमत: 💎 5 Gems</p>
-<button class="btn" onclick="buyItem(5,'VIP Reward')">BUY</button>
+<p>कीमत: 💎 5</p>
+<button class="btn" onclick="buy(5,'VIP Reward')">BUY</button>
 </div>
 
+<p id="shopResult" class="result"></p>
+</div>
+</section>
+
+<section id="leaderboard">
+<div class="card">
+<h2>🏆 Leaderboard</h2>
+<p>🥇 JAYPRATAP — <b id="rankScore">0</b> XP</p>
+<p>🥈 Gamer Pro — 850 XP</p>
+<p>🥉 FF Warrior — 700 XP</p>
+</div>
+</section>
+
+<section id="friends">
+<div class="card">
+<h2>👥 Player Search</h2>
+<input id="playerSearch" placeholder="Player name लिखो">
+<button class="btn" onclick="searchPlayer()">🔎 SEARCH</button>
+<p id="searchResult" class="result"></p>
 </div>
 
-<p id="shopMessage"></p>
+<div class="card">
+<h2>👥 Friends</h2>
+<p id="friendsList">अभी कोई friend नहीं है।</p>
 </div>
 </section>
 
 <section id="rewards">
 <div class="card">
-<h2>🎁 Daily Gem Reward</h2>
-<p>हर दिन 1 Gem claim कर सकते हो।</p>
-<button class="btn" onclick="claimGem()">💎 CLAIM +1 GEM</button>
-<p id="message"></p>
+<h2>🎁 Daily Reward</h2>
+<p>हर दिन 1 💎 free Gem!</p>
+<button class="btn" onclick="dailyReward()">💎 CLAIM</button>
+<p id="rewardResult" class="result"></p>
+</div>
+
+<div class="card">
+<h2>🔔 Notifications</h2>
+<p class="badge">🎮 Welcome Gamer</p>
+<p class="badge">💎 Daily Reward Available</p>
+<p class="badge">🏆 Keep Playing!</p>
 </div>
 </section>
 
 <section id="profile">
 <div class="card">
 <h2>👤 JAYPRATAP</h2>
-<div class="stat">
-💎 Gems: <b id="gems2">5</b><br>
-🪙 Coins: <b id="coins2">0</b><br>
-⚡ XP: <b id="xp2">0</b>
+<p>🎮 Gaming Player</p>
+
+<div class="stats">
+<div class="stat">💎<br><span class="num" id="gems2">5</span></div>
+<div class="stat">🪙<br><span class="num" id="coins2">0</span></div>
+<div class="stat">⚡<br><span class="num" id="xp2">0</span></div>
 </div>
+
+<h3>🏅 Achievements</h3>
+<p id="achievements">🔒 Play games to unlock badges.</p>
 </div>
 </section>
 
@@ -113,6 +176,7 @@ let gems=Number(localStorage.getItem("gems") ?? 5);
 let coins=Number(localStorage.getItem("coins") ?? 0);
 let xp=Number(localStorage.getItem("xp") ?? 0);
 let score=Number(localStorage.getItem("score") ?? 0);
+let taps=0;
 
 function save(){
 localStorage.setItem("gems",gems);
@@ -124,48 +188,110 @@ document.querySelectorAll("#gems,#gems2").forEach(e=>e.textContent=gems);
 document.querySelectorAll("#coins,#coins2").forEach(e=>e.textContent=coins);
 document.querySelectorAll("#xp,#xp2").forEach(e=>e.textContent=xp);
 document.getElementById("score").textContent=score;
+document.getElementById("rankScore").textContent=xp;
+updateAchievements();
 }
 
 function show(id){
-document.querySelectorAll("section").forEach(e=>e.classList.remove("active"));
+document.querySelectorAll("section").forEach(s=>s.classList.remove("active"));
 document.getElementById(id).classList.add("active");
 }
 
-function playGame(){
-score+=10;
-xp+=10;
-coins+=5;
+function reward(c,x){
+coins+=c;
+xp+=x;
+score+=x;
 save();
-alert("🔥 +10 XP | 🪙 +5 Coins");
 }
 
-function claimGem(){
+function tapGame(){
+taps++;
+if(taps>=10){
+reward(10,20);
+taps=0;
+document.getElementById("tapResult").textContent="🎉 Challenge Complete! +10 🪙 +20 ⚡";
+}else{
+document.getElementById("tapResult").textContent="🎯 "+taps+"/10 taps";
+}
+}
+
+function guessGame(){
+let value=Number(document.getElementById("guess").value);
+let secret=Math.floor(Math.random()*5)+1;
+
+if(value<1 || value>5){
+document.getElementById("guessResult").textContent="⚠️ 1 से 5 चुनो!";
+return;
+}
+
+if(value===secret){
+reward(20,30);
+document.getElementById("guessResult").textContent="🎉 सही! +20 🪙 +30 ⚡";
+}else{
+document.getElementById("guessResult").textContent="❌ गलत! सही number "+secret+" था।";
+}
+}
+
+function fastGame(){
+let c=Math.floor(Math.random()*10)+1;
+let x=c*2;
+reward(c,x);
+document.getElementById("fastResult").textContent=
+"⚡ Great! +"+c+" 🪙 +"+x+" ⚡";
+}
+
+function buy(price,name){
+if(gems<price){
+document.getElementById("shopResult").textContent="❌ Gems कम हैं!";
+return;
+}
+gems-=price;
+save();
+document.getElementById("shopResult").textContent=
+"🎉 "+name+" खरीदा! 💎 -"+price;
+}
+
+function dailyReward(){
 let today=new Date().toDateString();
-let last=localStorage.getItem("gemClaim");
+let last=localStorage.getItem("dailyGem");
 
 if(last===today){
-document.getElementById("message").textContent="❌ आज का Gem पहले ही claim कर चुके हो!";
+document.getElementById("rewardResult").textContent=
+"❌ आज का reward पहले ही ले चुके हो!";
 return;
 }
 
 gems++;
-localStorage.setItem("gemClaim",today);
+localStorage.setItem("dailyGem",today);
 save();
-document.getElementById("message").textContent="🎉 +1 Gem मिल गया!";
+
+document.getElementById("rewardResult").textContent=
+"🎉 +1 💎 Gem मिल गया!";
 }
 
-function buyItem(price,name){
-if(gems<price){
-document.getElementById("shopMessage").textContent=
-"❌ Gems कम हैं!";
+function searchPlayer(){
+let name=document.getElementById("playerSearch").value.trim();
+
+if(!name){
+document.getElementById("searchResult").textContent=
+"⚠️ Player name डालो!";
 return;
 }
 
-gems-=price;
-save();
+document.getElementById("searchResult").textContent=
+"🔎 Player मिला: "+name+" 🎮";
+}
 
-document.getElementById("shopMessage").textContent=
-"🎉 "+name+" खरीदा गया! 💎 -"+price;
+function updateAchievements(){
+let text="";
+
+if(xp>=50) text+="🥉 50 XP Badge ";
+if(xp>=100) text+="🥈 100 XP Badge ";
+if(xp>=500) text+="🥇 500 XP Badge ";
+
+if(!text) text="🔒 Play games to unlock badges.";
+
+document.getElementById("achievements").textContent=text;
 }
 
 save();
