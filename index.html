@@ -1,106 +1,148 @@
 <!DOCTYPE html>
-<html lang="hi">
+<html lang="en">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
 <title>JAYPRATAP GAMING 🎮</title>
-<meta name="description" content="JAYPRATAP GAMING - Play games, earn coins and unlock achievements.">
-<meta name="robots" content="index,follow">
+<meta name="description" content="JAYPRATAP GAMING - Play games, earn scores and compete on the online leaderboard.">
+<meta name="keywords" content="Jaypratap Gaming, Free Fire, gaming, leaderboard, online games">
 
 <style>
-*{box-sizing:border-box}
+*{box-sizing:border-box;margin:0;padding:0}
 body{
- margin:0;background:#070707;color:#fff;
- font-family:Arial,sans-serif;text-align:center;
- transition:.3s
+  font-family:Arial,sans-serif;
+  background:#080808;
+  color:white;
 }
-body.light{background:#eee;color:#111}
 header{
- padding:22px 10px;
- background:linear-gradient(135deg,#050505,#650000);
- border-bottom:2px solid red
+  background:linear-gradient(135deg,#120000,#350000,#080808);
+  padding:25px 15px;
+  text-align:center;
+  border-bottom:2px solid #ff2020;
 }
-h1{margin:0;color:#ff3030}
+header h1{color:#ff3030;font-size:28px}
+header p{margin-top:8px;color:#ccc}
+
 nav{
- position:sticky;top:0;z-index:20;
- padding:10px;background:#151515;
- overflow:auto;white-space:nowrap
+  position:sticky;
+  top:0;
+  z-index:10;
+  background:#111;
+  padding:12px;
+  text-align:center;
+  border-bottom:1px solid #333;
 }
-nav a{color:#fff;text-decoration:none;margin:7px;font-weight:bold}
-section{max-width:720px;margin:auto;padding:15px}
+nav a{
+  color:white;
+  text-decoration:none;
+  margin:5px 8px;
+  font-weight:bold;
+}
+
+.container{
+  max-width:1000px;
+  margin:auto;
+  padding:20px;
+}
+
+.hero{
+  text-align:center;
+  padding:45px 15px;
+  background:linear-gradient(135deg,#180000,#080808);
+  border:1px solid #4a1111;
+  border-radius:15px;
+  margin-bottom:25px;
+}
+.hero h2{
+  font-size:34px;
+  color:#ff3030;
+}
+.hero p{
+  margin:12px 0 20px;
+  color:#ccc;
+}
+
+.btn{
+  border:0;
+  background:#e50909;
+  color:white;
+  padding:12px 20px;
+  border-radius:8px;
+  font-weight:bold;
+  cursor:pointer;
+}
+.btn:hover{background:#ff3030}
+
 .card{
- background:#151515;border:1px solid #444;
- border-radius:16px;padding:18px;margin:16px 0
+  background:#111;
+  border:1px solid #333;
+  border-radius:15px;
+  padding:20px;
+  margin:20px 0;
+  box-shadow:0 0 15px #000;
 }
-.light .card{background:#fff;border-color:#bbb}
-button{
- background:#e60000;color:white;border:0;
- border-radius:10px;padding:11px 17px;
- margin:5px;font-size:15px;font-weight:bold
+
+.title{
+  color:#ff3030;
+  margin-bottom:15px;
 }
-button:active{transform:scale(.95)}
+
+.games{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+  gap:15px;
+}
+
+.game{
+  background:#181818;
+  border:1px solid #3b3b3b;
+  border-radius:12px;
+  padding:20px;
+  text-align:center;
+}
+
+.game h3{margin-bottom:12px}
+
+.score{
+  font-size:24px;
+  color:#00ff88;
+  margin:12px 0;
+}
+
 input{
- padding:12px;border-radius:9px;border:1px solid #777;
- width:90%;max-width:350px;margin:5px
-}
-.stat{
- display:inline-block;background:#222;
- border-radius:12px;padding:12px;margin:5px;
- min-width:120px
-}
-.gold{color:#ffd700}
-.green{color:#00ff66}
-.red{color:#ff3333}
-.board{
- width:100%;height:300px;
- background:#090909;border:2px solid #555;
- border-radius:12px;position:relative;
- overflow:hidden;margin:10px auto
-}
-canvas{max-width:100%;background:#090909;border:2px solid #555}
-.hidden{display:none}
-
-/* TAP */
-#tapTarget{
- width:55px;height:55px;border-radius:50%;
- background:red;position:absolute;display:none
+  width:100%;
+  padding:12px;
+  margin:8px 0;
+  border-radius:7px;
+  border:1px solid #555;
+  background:#090909;
+  color:white;
 }
 
-/* CAR */
-#road{
- width:260px;height:350px;background:#333;
- border-left:5px dashed white;border-right:5px dashed white;
- margin:auto;position:relative;overflow:hidden
+table{
+  width:100%;
+  border-collapse:collapse;
 }
-#car{position:absolute;bottom:15px;left:105px;font-size:42px}
-#enemy{position:absolute;top:-60px;left:80px;font-size:40px}
-
-/* JUMP */
-#player{position:absolute;left:30px;bottom:20px;font-size:42px}
-#rock{position:absolute;right:-50px;bottom:20px;font-size:40px}
-
-/* SHOOT */
-.shoot{
- position:absolute;width:55px;height:55px;
- border-radius:50%;background:red;
- border:5px solid white
+th,td{
+  padding:12px;
+  border-bottom:1px solid #333;
+  text-align:center;
 }
+th{color:#ff3030}
 
-/* PROFILE */
-.avatar{
- width:90px;height:90px;border-radius:50%;
- margin:auto;background:#300;
- display:flex;align-items:center;
- justify-content:center;font-size:45px
+footer{
+  text-align:center;
+  padding:30px;
+  color:#999;
+  border-top:1px solid #333;
+  margin-top:30px;
 }
 
-/* LEVEL */
-.progress{
- height:18px;background:#333;
- border-radius:20px;overflow:hidden
-}
-#progressBar{
- width:0;height:100%;background:red
+.status{
+  margin-top:10px;
+  color:#00ff88;
+  font-size:14px;
 }
 </style>
 </head>
@@ -108,748 +150,332 @@ canvas{max-width:100%;background:#090909;border:2px solid #555}
 <body>
 
 <header>
-<h1>🎮 JAYPRATAP GAMING 🎮</h1>
-<p>🔥 PLAY • EARN • LEVEL UP 🔥</p>
-
-<div>
-<span class="stat">🪙 Coins<br><b id="coins">0</b></span>
-<span class="stat">⭐ Level<br><b id="level">1</b></span>
-</div>
+  <h1>🎮 JAYPRATAP GAMING 🎮</h1>
+  <p>🔥 Gaming • Challenges • Leaderboard • Victory 🔥</p>
 </header>
 
 <nav>
-<a href="#home">🏠 Home</a>
-<a href="#games">🎮 Games</a>
-<a href="#profile">👤 Profile</a>
-<a href="#leaderboard">🏆 Leaderboard</a>
-<a href="#achievements">🏅 Awards</a>
+  <a href="#home">Home</a>
+  <a href="#games">Games</a>
+  <a href="#leaderboard">Leaderboard</a>
+  <a href="#profile">Profile</a>
 </nav>
 
-<!-- HOME -->
-<section id="home">
-<div class="card">
-<h2>🔥 JAYPRATAP GAME ZONE 🔥</h2>
-<p>5 games खेलो और अपना score बढ़ाओ!</p>
+<div class="container">
 
-<button onclick="dailyReward()">🎁 Daily Reward</button>
-<button onclick="toggleTheme()">🌙 Theme</button>
-<button onclick="soundOn()">🔊 Sound</button>
-</div>
-
-<div class="card">
-<h2>⭐ LEVEL PROGRESS</h2>
-<p>Level <b id="level2">1</b></p>
-<div class="progress">
-<div id="progressBar"></div>
-</div>
-<p id="xpText">XP: 0 / 100</p>
-</div>
+<section id="home" class="hero">
+  <h2>🔥 WELCOME GAMER 🔥</h2>
+  <p>Play games, make your score and reach the top!</p>
+  <button class="btn" onclick="document.getElementById('games').scrollIntoView()">PLAY NOW 🎮</button>
 </section>
 
-<!-- GAMES -->
-<section id="games">
+<section id="profile" class="card">
+  <h2 class="title">👤 Gamer Profile</h2>
 
-<h2>🎮 5 PLAYABLE GAMES</h2>
+  <input id="playerName" placeholder="Enter your gamer name">
 
-<!-- GAME 1 -->
-<div class="card">
-<h2>1️⃣ 🎯 TAP TARGET</h2>
-<p>Score: <b id="tapScore">0</b></p>
-<p>🏆 Best: <b class="gold" id="tapHigh">0</b></p>
-<p>⏱️ Time: <b id="tapTime">30</b></p>
+  <button class="btn" onclick="saveName()">Save Name</button>
 
-<div class="board" id="tapBoard">
-<div id="tapTarget" onclick="tapHit()"></div>
-</div>
-
-<button onclick="startTap()">▶ START</button>
-</div>
-
-<!-- GAME 2 -->
-<div class="card">
-<h2>2️⃣ 🐍 SNAKE</h2>
-<p>Score: <b id="snakeScore">0</b></p>
-<p>🏆 Best: <b class="gold" id="snakeHigh">0</b></p>
-
-<canvas id="snakeCanvas" width="300" height="300"></canvas>
-
-<div>
-<button onclick="snakeDir(0,-1)">⬆️</button><br>
-<button onclick="snakeDir(-1,0)">⬅️</button>
-<button onclick="snakeDir(0,1)">⬇️</button>
-<button onclick="snakeDir(1,0)">➡️</button>
-</div>
-
-<button onclick="startSnake()">▶ START</button>
-</div>
-
-<!-- GAME 3 -->
-<div class="card">
-<h2>3️⃣ 🏎️ CAR RACING</h2>
-<p>Score: <b id="carScore">0</b></p>
-<p>🏆 Best: <b class="gold" id="carHigh">0</b></p>
-
-<div id="road">
-<div id="car">🏎️</div>
-<div id="enemy">🚗</div>
-</div>
-
-<button onclick="carLeft()">⬅️ LEFT</button>
-<button onclick="carRight()">RIGHT ➡️</button>
-<br>
-<button onclick="startCar()">▶ START</button>
-</div>
-
-<!-- GAME 4 -->
-<div class="card">
-<h2>4️⃣ 🦘 JUMP GAME</h2>
-<p>Score: <b id="jumpScore">0</b></p>
-<p>🏆 Best: <b class="gold" id="jumpHigh">0</b></p>
-
-<div class="board">
-<div id="player">🦘</div>
-<div id="rock">🪨</div>
-</div>
-
-<button onclick="doJump()">🦘 JUMP</button>
-<button onclick="startJump()">▶ START</button>
-</div>
-
-<!-- GAME 5 -->
-<div class="card">
-<h2>5️⃣ 🎯 TARGET GAME</h2>
-<p>Score: <b id="shootScore">0</b></p>
-<p>🏆 Best: <b class="gold" id="shootHigh">0</b></p>
-<p>⏱️ Time: <b id="shootTime">30</b></p>
-
-<div class="board" id="shootBoard"></div>
-
-<button onclick="startShooter()">▶ START</button>
-</div>
-
+  <p class="status" id="profileStatus"></p>
 </section>
 
-<!-- PROFILE -->
-<section id="profile">
-<div class="card">
-<h2>👤 GAMER PROFILE</h2>
+<section id="games" class="card">
+  <h2 class="title">🎮 Mini Games</h2>
 
-<div class="avatar">🎮</div>
+  <div class="games">
 
-<input id="nameInput" placeholder="अपना Gamer Name लिखो">
+    <div class="game">
+      <h3>🎯 Tap Target</h3>
+      <p>Tap the button and increase your score!</p>
+      <div class="score" id="tapScore">0</div>
+      <button class="btn" onclick="tapTarget()">TAP 🎯</button>
+    </div>
 
-<br>
+    <div class="game">
+      <h3>⚡ Speed Click</h3>
+      <p>Click as fast as possible!</p>
+      <div class="score" id="clickScore">0</div>
+      <button class="btn" onclick="speedClick()">CLICK ⚡</button>
+    </div>
 
-<button onclick="saveProfile()">💾 SAVE PROFILE</button>
+    <div class="game">
+      <h3>🍀 Lucky Number</h3>
+      <p>Try your luck!</p>
+      <div class="score" id="luckyScore">0</div>
+      <button class="btn" onclick="luckyGame()">PLAY 🍀</button>
+    </div>
 
-<h2 id="playerName">JAYPRATAP</h2>
+  </div>
 
-<p>🎮 Games Played: <b id="gamesPlayed">0</b></p>
-<p>🏆 Total Score: <b id="totalScore">0</b></p>
-<p>🪙 Coins: <b id="profileCoins">0</b></p>
-</div>
+  <br>
+  <button class="btn" onclick="submitScore()">🏆 SUBMIT BEST SCORE ONLINE</button>
+  <p class="status" id="gameStatus"></p>
 </section>
 
-<!-- LEADERBOARD -->
-<section id="leaderboard">
-<div class="card">
-<h2>🏆 LEADERBOARD</h2>
+<section id="leaderboard" class="card">
+  <h2 class="title">🏆 ONLINE LEADERBOARD</h2>
 
-<p>🥇 <b id="rank1">JAYPRATAP</b> — <span id="score1">0</span></p>
-<p>🥈 GAMER 2 — 0</p>
-<p>🥉 GAMER 3 — 0</p>
+  <button class="btn" onclick="loadLeaderboard()">🔄 Refresh</button>
 
-<button onclick="updateBoard()">🔄 UPDATE SCORE</button>
+  <br><br>
 
-<p style="font-size:13px">
-ℹ️ यह अभी इसी browser में local leaderboard है।
-</p>
-</div>
+  <table>
+    <thead>
+      <tr>
+        <th>#</th>
+        <th>Player</th>
+        <th>Score</th>
+      </tr>
+    </thead>
+
+    <tbody id="leaderboardBody">
+      <tr>
+        <td colspan="3">Loading...</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <p class="status" id="firebaseStatus"></p>
 </section>
 
-<!-- ACHIEVEMENTS -->
-<section id="achievements">
-<div class="card">
-<h2>🏅 ACHIEVEMENTS</h2>
-
-<p id="a1">🔒 🎯 Target Master</p>
-<p id="a2">🔒 🐍 Snake Player</p>
-<p id="a3">🔒 🏎️ Speed Racer</p>
-<p id="a4">🔒 🦘 Jump Master</p>
-<p id="a5">🔒 🪙 Coin Collector</p>
-<p id="a6">🔒 ⭐ Level 5</p>
 </div>
-</section>
 
 <footer>
-<p>🔥 JAYPRATAP GAMING 🔥</p>
-<p>© 2026 All Games Fun 🎮</p>
+  🎮 JAYPRATAP GAMING 🎮
+  <br><br>
+  © 2026 Jaypratap Gaming
 </footer>
+
+
+<!-- Firebase -->
+<script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-app-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore-compat.js"></script>
 
 <script>
 
-/* ======================
-   DATA SAVE
-====================== */
-
-let data={
- coins:Number(localStorage.getItem("coins")||0),
- xp:Number(localStorage.getItem("xp")||0),
- level:Number(localStorage.getItem("level")||1),
- played:Number(localStorage.getItem("played")||0),
- total:Number(localStorage.getItem("total")||0),
- name:localStorage.getItem("name")||"JAYPRATAP"
+const firebaseConfig = {
+  apiKey: "AIzaSyB_a4mOviXxrHnfPZkfQgyFP8hW0fhQEBk",
+  authDomain: "jaypratap-gaming.firebaseapp.com",
+  projectId: "jaypratap-gaming",
+  storageBucket: "jaypratap-gaming.firebasestorage.app",
+  messagingSenderId: "317689965528",
+  appId: "1:317689965528:web:c1e4c7907aa19e00e5e0ad",
+  measurementId: "G-MLQPVKRW82"
 };
 
-function save(){
- localStorage.setItem("coins",data.coins);
- localStorage.setItem("xp",data.xp);
- localStorage.setItem("level",data.level);
- localStorage.setItem("played",data.played);
- localStorage.setItem("total",data.total);
- localStorage.setItem("name",data.name);
- updateUI();
+firebase.initializeApp(firebaseConfig);
+
+const db = firebase.firestore();
+
+let tapScore = 0;
+let clickScore = 0;
+let luckyScore = 0;
+
+let bestScore = Number(localStorage.getItem("bestScore") || 0);
+
+function getName(){
+  return localStorage.getItem("gamerName") || "Guest";
 }
 
-function updateUI(){
+function saveName(){
 
- document.getElementById("coins").innerText=data.coins;
- document.getElementById("profileCoins").innerText=data.coins;
+  const name = document.getElementById("playerName").value.trim();
 
- document.getElementById("level").innerText=data.level;
- document.getElementById("level2").innerText=data.level;
-
- document.getElementById("gamesPlayed").innerText=data.played;
- document.getElementById("totalScore").innerText=data.total;
-
- document.getElementById("playerName").innerText=data.name;
-
- let percent=data.xp;
- document.getElementById("progressBar").style.width=percent+"%";
- document.getElementById("xpText").innerText=
- "XP: "+percent+" / 100";
-
- checkAchievements();
-}
-
-function reward(score){
-
- data.coins+=Math.max(1,Math.floor(score/2));
- data.xp+=Math.min(score,25);
- data.total+=score;
- data.played++;
-
- while(data.xp>=100){
-   data.xp-=100;
-   data.level++;
- }
-
- save();
-}
-
-updateUI();
-
-
-/* DAILY REWARD */
-
-function dailyReward(){
-
- let today=new Date().toDateString();
- let last=localStorage.getItem("daily");
-
- if(last===today){
-   alert("🎁 आज का reward पहले ही मिल चुका है!");
-   return;
- }
-
- localStorage.setItem("daily",today);
-
- data.coins+=50;
- data.xp+=20;
-
- save();
-
- alert("🎁 Daily Reward!\n🪙 +50 Coins\n⭐ +20 XP");
-}
-
-
-/* THEME */
-
-function toggleTheme(){
- document.body.classList.toggle("light");
-}
-
-
-/* SOUND */
-
-function soundOn(){
- try{
-  let ctx=new AudioContext();
-  let o=ctx.createOscillator();
-  o.connect(ctx.destination);
-  o.frequency.value=600;
-  o.start();
-  o.stop(ctx.currentTime+.15);
- }catch(e){}
-}
-
-
-/* PROFILE */
-
-function saveProfile(){
-
- let n=document.getElementById("nameInput").value.trim();
-
- if(n){
-   data.name=n;
-   save();
-   alert("👤 Profile Saved!");
- }
-}
-
-
-/* HIGH SCORE */
-
-function high(name,score){
-
- let old=Number(localStorage.getItem(name)||0);
-
- if(score>old){
-   localStorage.setItem(name,score);
-   return score;
- }
-
- return old;
-}
-
-
-/* ======================
-   GAME 1
-====================== */
-
-let tapScore=0,tapTime=30,tapTimer;
-
-function startTap(){
-
- clearInterval(tapTimer);
-
- tapScore=0;
- tapTime=30;
-
- document.getElementById("tapScore").innerText=0;
- document.getElementById("tapTime").innerText=30;
- document.getElementById("tapTarget").style.display="block";
-
- moveTap();
-
- tapTimer=setInterval(()=>{
-
-   tapTime--;
-
-   document.getElementById("tapTime").innerText=tapTime;
-
-   if(tapTime<=0){
-
-     clearInterval(tapTimer);
-
-     document.getElementById("tapTarget").style.display="none";
-
-     let h=high("tapHigh",tapScore);
-
-     document.getElementById("tapHigh").innerText=h;
-
-     reward(tapScore);
-
-     alert("🎯 Game Over!\nScore: "+tapScore+"\n🏆 Best: "+h);
-   }
-
- },1000);
-}
-
-function moveTap(){
-
- let b=document.getElementById("tapBoard");
- let t=document.getElementById("tapTarget");
-
- t.style.left=Math.random()*(b.clientWidth-60)+"px";
- t.style.top=Math.random()*(b.clientHeight-60)+"px";
-}
-
-function tapHit(){
-
- tapScore++;
- document.getElementById("tapScore").innerText=tapScore;
- moveTap();
- soundOn();
-}
-
-
-/* ======================
-   GAME 2 SNAKE
-====================== */
-
-let snake=[],food={},direction={x:1,y:0},snakeTimer;
-
-function startSnake(){
-
- clearInterval(snakeTimer);
-
- snake=[
- {x:10,y:10},
- {x:9,y:10},
- {x:8,y:10}
- ];
-
- direction={x:1,y:0};
-
- document.getElementById("snakeScore").innerText=0;
-
- makeFood();
-
- snakeTimer=setInterval(updateSnake,130);
-}
-
-function snakeDir(x,y){
-
- if(x!==0&&direction.x===0)
- direction={x:x,y:y};
-
- if(y!==0&&direction.y===0)
- direction={x:x,y:y};
-}
-
-document.addEventListener("keydown",e=>{
-
- if(e.key==="ArrowUp")snakeDir(0,-1);
- if(e.key==="ArrowDown")snakeDir(0,1);
- if(e.key==="ArrowLeft")snakeDir(-1,0);
- if(e.key==="ArrowRight")snakeDir(1,0);
-
-});
-
-function makeFood(){
-
- food={
- x:Math.floor(Math.random()*20),
- y:Math.floor(Math.random()*20)
- };
-}
-
-function updateSnake(){
-
- let head={
- x:snake[0].x+direction.x,
- y:snake[0].y+direction.y
- };
-
- if(head.x<0||head.x>=20||head.y<0||head.y>=20){
-  endSnake();
-  return;
- }
-
- snake.unshift(head);
-
- if(head.x===food.x&&head.y===food.y){
-
-  let score=snake.length-3;
-
-  document.getElementById("snakeScore").innerText=score;
-
-  makeFood();
-
- }else{
-  snake.pop();
- }
-
- drawSnake();
-}
-
-function drawSnake(){
-
- let c=document.getElementById("snakeCanvas");
- let x=c.getContext("2d");
-
- x.clearRect(0,0,300,300);
-
- x.fillStyle="red";
- x.fillRect(food.x*15,food.y*15,14,14);
-
- x.fillStyle="lime";
-
- snake.forEach(p=>{
-  x.fillRect(p.x*15,p.y*15,14,14);
- });
-}
-
-function endSnake(){
-
- clearInterval(snakeTimer);
-
- let score=snake.length-3;
- let h=high("snakeHigh",score);
-
- document.getElementById("snakeHigh").innerText=h;
-
- reward(score);
-
- alert("🐍 Game Over!\nScore: "+score+"\n🏆 Best: "+h);
-}
-
-
-/* ======================
-   GAME 3 CAR
-====================== */
-
-let carX=105,carScore=0,carTimer;
-
-function startCar(){
-
- clearInterval(carTimer);
-
- carX=105;
- carScore=0;
-
- document.getElementById("carScore").innerText=0;
- document.getElementById("car").style.left=carX+"px";
-
- let e=document.getElementById("enemy");
-
- e.style.top="-60px";
- e.style.left=Math.random()*180+"px";
-
- carTimer=setInterval(updateCar,30);
-}
-
-function carLeft(){
-
- carX-=20;
-
- if(carX<5)carX=5;
-
- document.getElementById("car").style.left=carX+"px";
-}
-
-function carRight(){
-
- carX+=20;
-
- if(carX>210)carX=210;
-
- document.getElementById("car").style.left=carX+"px";
-}
-
-function updateCar(){
-
- let e=document.getElementById("enemy");
-
- let y=parseInt(e.style.top)+5;
-
- e.style.top=y+"px";
-
- if(y>350){
-
-  y=-60;
-
-  e.style.left=Math.random()*180+"px";
-
-  carScore++;
-
-  document.getElementById("carScore").innerText=carScore;
- }
-
- if(y>270&&y<335&&
- Math.abs(carX-parseInt(e.style.left))<45){
-
-  clearInterval(carTimer);
-
-  let h=high("carHigh",carScore);
-
-  document.getElementById("carHigh").innerText=h;
-
-  reward(carScore);
-
-  alert("🏎️ Race Over!\nScore: "+carScore+"\n🏆 Best: "+h);
- }
-}
-
-
-/* ======================
-   GAME 4 JUMP
-====================== */
-
-let jumpScore=0,jumpTimer,jumping=false;
-
-function startJump(){
-
- clearInterval(jumpTimer);
-
- jumpScore=0;
- jumping=false;
-
- document.getElementById("jumpScore").innerText=0;
-
- let rock=document.getElementById("rock");
-
- rock.style.right="-50px";
-
- jumpTimer=setInterval(()=>{
-
-  let r=parseInt(rock.style.right)+7;
-
-  if(r>500){
-
-   r=-50;
-
-   jumpScore++;
-
-   document.getElementById("jumpScore").innerText=jumpScore;
+  if(!name){
+    alert("Gamer name enter karo!");
+    return;
   }
 
-  rock.style.right=r+"px";
+  localStorage.setItem("gamerName", name);
 
-  let p=document.getElementById("player");
+  document.getElementById("profileStatus").textContent =
+    "✅ Name saved: " + name;
+}
 
-  let bottom=parseInt(getComputedStyle(p).bottom);
+function tapTarget(){
 
-  if(r>390&&r<500&&bottom<70){
+  tapScore += 10;
 
-   clearInterval(jumpTimer);
+  document.getElementById("tapScore").textContent = tapScore;
 
-   let h=high("jumpHigh",jumpScore);
+  updateBest();
+}
 
-   document.getElementById("jumpHigh").innerText=h;
+function speedClick(){
 
-   reward(jumpScore);
+  clickScore += 5;
 
-   alert("🦘 Game Over!\nScore: "+jumpScore+"\n🏆 Best: "+h);
+  document.getElementById("clickScore").textContent = clickScore;
+
+  updateBest();
+}
+
+function luckyGame(){
+
+  const win = Math.floor(Math.random() * 6);
+
+  if(win === 5){
+    luckyScore += 50;
+    alert("🎉 JACKPOT! +50");
+  }else{
+    luckyScore += 5;
+    alert("👍 +5 Score");
   }
 
- },40);
+  document.getElementById("luckyScore").textContent = luckyScore;
+
+  updateBest();
 }
 
-function doJump(){
+function updateBest(){
 
- if(jumping)return;
+  const total =
+    tapScore +
+    clickScore +
+    luckyScore;
 
- jumping=true;
+  if(total > bestScore){
 
- let p=document.getElementById("player");
+    bestScore = total;
 
- p.style.bottom="150px";
-
- setTimeout(()=>{
-
-  p.style.bottom="20px";
-  jumping=false;
-
- },500);
+    localStorage.setItem(
+      "bestScore",
+      bestScore
+    );
+  }
 }
 
+async function submitScore(){
 
-/* ======================
-   GAME 5 TARGET
-====================== */
+  updateBest();
 
-let shootScore=0,shootTime=30,shootTimer;
+  const name = getName();
 
-function startShooter(){
-
- clearInterval(shootTimer);
-
- shootScore=0;
- shootTime=30;
-
- document.getElementById("shootScore").innerText=0;
- document.getElementById("shootTime").innerText=30;
-
- makeShoot();
-
- shootTimer=setInterval(()=>{
-
-  shootTime--;
-
-  document.getElementById("shootTime").innerText=shootTime;
-
-  if(shootTime<=0){
-
-   clearInterval(shootTimer);
-
-   document.getElementById("shootBoard").innerHTML="";
-
-   let h=high("shootHigh",shootScore);
-
-   document.getElementById("shootHigh").innerText=h;
-
-   reward(shootScore);
-
-   alert("🎯 Game Over!\nScore: "+shootScore+"\n🏆 Best: "+h);
+  if(name === "Guest"){
+    alert("Pehle Gamer Name save karo!");
+    document.getElementById("playerName").focus();
+    return;
   }
 
- },1000);
+  if(bestScore <= 0){
+    alert("Pehle game khelo!");
+    return;
+  }
+
+  const status =
+    document.getElementById("gameStatus");
+
+  status.textContent =
+    "⏳ Score online submit ho raha hai...";
+
+  try{
+
+    await db.collection("leaderboard")
+      .doc(name)
+      .set({
+
+        name: name,
+        score: bestScore,
+        updatedAt: firebase.firestore.FieldValue.serverTimestamp()
+
+      }, { merge:true });
+
+    status.textContent =
+      "✅ Score online save ho gaya!";
+
+    loadLeaderboard();
+
+  }catch(error){
+
+    console.error(error);
+
+    status.textContent =
+      "❌ Score save nahi hua: " +
+      error.message;
+  }
 }
 
-function makeShoot(){
+async function loadLeaderboard(){
 
- let board=document.getElementById("shootBoard");
+  const body =
+    document.getElementById("leaderboardBody");
 
- board.innerHTML="";
+  const status =
+    document.getElementById("firebaseStatus");
 
- let t=document.createElement("div");
+  body.innerHTML =
+    "<tr><td colspan='3'>Loading...</td></tr>";
 
- t.className="shoot";
+  try{
 
- t.onclick=function(){
+    const snapshot =
+      await db.collection("leaderboard")
+      .orderBy("score","desc")
+      .limit(20)
+      .get();
 
-  shootScore++;
+    body.innerHTML = "";
 
-  document.getElementById("shootScore").innerText=shootScore;
+    if(snapshot.empty){
 
-  makeShoot();
-  soundOn();
- };
+      body.innerHTML =
+        "<tr><td colspan='3'>No scores yet 🎮</td></tr>";
 
- t.style.left=Math.random()*(board.clientWidth-60)+"px";
- t.style.top=Math.random()*(board.clientHeight-60)+"px";
+      status.textContent =
+        "Leaderboard ready.";
 
- board.appendChild(t);
+      return;
+    }
+
+    let position = 1;
+
+    snapshot.forEach(doc => {
+
+      const data = doc.data();
+
+      const row =
+        document.createElement("tr");
+
+      row.innerHTML = `
+        <td>${position}</td>
+        <td>${escapeHtml(data.name || "Player")}</td>
+        <td>${Number(data.score || 0)}</td>
+      `;
+
+      body.appendChild(row);
+
+      position++;
+    });
+
+    status.textContent =
+      "🟢 Online leaderboard connected";
+
+  }catch(error){
+
+    console.error(error);
+
+    body.innerHTML =
+      "<tr><td colspan='3'>Leaderboard load error</td></tr>";
+
+    status.textContent =
+      "❌ Firebase error: " + error.message;
+  }
 }
 
+function escapeHtml(text){
 
-/* ======================
-   LEADERBOARD
-====================== */
+  const div =
+    document.createElement("div");
 
-function updateBoard(){
+  div.textContent = text;
 
- document.getElementById("rank1").innerText=data.name;
- document.getElementById("score1").innerText=data.total;
+  return div.innerHTML;
 }
 
+document.getElementById("playerName").value =
+  getName() === "Guest" ? "" : getName();
 
-/* ======================
-   ACHIEVEMENTS
-====================== */
-
-function checkAchievements(){
-
- if(Number(localStorage.getItem("tapHigh")||0)>=20)
- document.getElementById("a1").innerText="🏆 🎯 Target Master";
-
- if(Number(localStorage.getItem("snakeHigh")||0)>=5)
- document.getElementById("a2").innerText="🏆 🐍 Snake Player";
-
- if(Number(localStorage.getItem("carHigh")||0)>=10)
- document.getElementById("a3").innerText="🏆 🏎️ Speed Racer";
-
- if(Number(localStorage.getItem("jumpHigh")||0)>=10)
- document.getElementById("a4").innerText="🏆 🦘 Jump Master";
-
- if(data.coins>=100)
- document.getElementById("a5").innerText="🏆 🪙 Coin Collector";
-
- if(data.level>=5)
- document.getElementById("a6").innerText="🏆 ⭐ Level 5";
-}
+loadLeaderboard();
 
 </script>
 
