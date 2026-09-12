@@ -2,1919 +2,1056 @@
 <html lang="hi">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-<title>JAYPRATAP GAMING 🎮 | Free Fire Gaming Website</title>
-<meta name="description" content="JAYPRATAP GAMING - Free Fire gaming, mini games, leaderboard, tournaments, rooms and gamer profile.">
-<meta name="keywords" content="Jaypratap Gaming, Free Fire, gaming, gamer, leaderboard, tournament">
-<meta name="author" content="JAYPRATAP VISHWAKARMA">
-<meta name="robots" content="index,follow">
-
-<meta property="og:title" content="JAYPRATAP GAMING 🎮">
-<meta property="og:description" content="Free Fire Gaming Website">
-<meta property="og:type" content="website">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>JAYPRATAP GAMING 🎮</title>
 
 <style>
-*{
-  box-sizing:border-box;
-  margin:0;
-  padding:0;
-  font-family:Arial,sans-serif;
-}
-
+*{box-sizing:border-box}
 body{
-  background:#070707;
-  color:white;
-  min-height:100vh;
+ margin:0;
+ font-family:Arial,sans-serif;
+ background:#080808;
+ color:white;
 }
-
-body.light{
-  background:#f2f2f2;
-  color:#111;
-}
-
 header{
-  background:linear-gradient(135deg,#ff0000,#780000);
-  padding:20px;
-  text-align:center;
-  box-shadow:0 0 20px #ff0000;
+ background:linear-gradient(135deg,#ff0000,#700000);
+ padding:25px 15px;
+ text-align:center;
 }
-
-header h1{
-  font-size:30px;
-  font-weight:900;
-}
-
-header p{
-  margin-top:6px;
-}
+header h1{margin:0;font-size:30px}
+header p{margin:8px 0 0}
 
 nav{
-  display:flex;
-  gap:8px;
-  overflow-x:auto;
-  padding:10px;
-  background:#111;
-  position:sticky;
-  top:0;
-  z-index:10;
+ display:flex;
+ gap:8px;
+ padding:10px;
+ background:#151515;
+ overflow-x:auto;
+ position:sticky;
+ top:0;
+ z-index:10;
 }
-
 nav button{
-  border:0;
-  background:#222;
-  color:white;
-  padding:10px 14px;
-  border-radius:10px;
-  white-space:nowrap;
+ border:0;
+ padding:11px 15px;
+ border-radius:10px;
+ background:#292929;
+ color:white;
+ white-space:nowrap;
+ cursor:pointer;
 }
-
-nav button:hover{
-  background:#e00000;
-}
+nav button:hover{background:#e00000}
 
 .container{
-  max-width:1000px;
-  margin:auto;
-  padding:15px;
+ max-width:1000px;
+ margin:auto;
+ padding:15px;
 }
+
+.section{display:none}
+.section.active{display:block}
 
 .card{
-  background:#111;
-  border:1px solid #333;
-  border-radius:18px;
-  padding:18px;
-  margin:15px 0;
-  box-shadow:0 5px 20px rgba(255,0,0,.15);
-}
-
-.light .card{
-  background:white;
-  border-color:#ddd;
+ background:#131313;
+ border:1px solid #333;
+ border-radius:18px;
+ padding:20px;
+ margin:15px 0;
 }
 
 .hero{
-  text-align:center;
-  padding:35px 15px;
+ text-align:center;
+ padding:35px 10px;
 }
-
 .hero h2{
-  font-size:34px;
-  color:#ff2929;
+ color:#ff3030;
+ font-size:34px;
 }
 
-.big-btn{
-  display:inline-block;
-  margin:8px;
-  padding:13px 20px;
-  border:0;
-  border-radius:12px;
-  background:#e00000;
-  color:white;
-  font-weight:bold;
+.grid{
+ display:grid;
+ grid-template-columns:repeat(auto-fit,minmax(180px,1fr));
+ gap:12px;
 }
 
-input,select,textarea{
-  width:100%;
-  padding:12px;
-  margin:7px 0;
-  border-radius:10px;
-  border:1px solid #444;
-  background:#191919;
-  color:white;
+.feature{
+ background:#1d1d1d;
+ border:1px solid #333;
+ border-radius:15px;
+ padding:22px 10px;
+ text-align:center;
+ cursor:pointer;
+ transition:.2s;
 }
-
-.light input,
-.light select,
-.light textarea{
-  background:#fff;
-  color:#111;
+.feature:hover{
+ transform:translateY(-3px);
+ border-color:red;
+ background:#292929;
 }
-
-button{
-  cursor:pointer;
-}
+.feature h3{margin:8px 0}
 
 .btn{
-  padding:11px 16px;
-  border:0;
-  border-radius:10px;
-  background:#e00000;
-  color:white;
-  font-weight:bold;
-  margin:4px;
+ border:0;
+ border-radius:10px;
+ padding:11px 16px;
+ margin:5px;
+ background:#e00000;
+ color:white;
+ font-weight:bold;
+ cursor:pointer;
 }
-
-.btn.green{background:#008f39}
 .btn.blue{background:#075ed7}
+.btn.green{background:#008c3a}
 .btn.gold{background:#b88700}
 .btn.gray{background:#444}
 
-.grid{
-  display:grid;
-  grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
-  gap:12px;
+input,textarea{
+ width:100%;
+ padding:12px;
+ margin:7px 0;
+ border-radius:10px;
+ border:1px solid #444;
+ background:#202020;
+ color:white;
 }
 
 .stat{
-  background:#191919;
-  padding:15px;
-  border-radius:14px;
-  text-align:center;
+ background:#1d1d1d;
+ border-radius:12px;
+ padding:15px;
+ text-align:center;
 }
-
-.light .stat{
-  background:#eee;
-}
-
 .stat b{
-  display:block;
-  font-size:25px;
-  color:#ff3030;
-}
-
-.profile{
-  text-align:center;
-}
-
-.avatar{
-  width:100px;
-  height:100px;
-  border-radius:50%;
-  object-fit:cover;
-  border:4px solid #e00000;
-  margin:10px;
-}
-
-.badge{
-  display:inline-block;
-  padding:6px 10px;
-  border-radius:20px;
-  background:#e00000;
-  margin:4px;
-  font-size:13px;
+ display:block;
+ font-size:25px;
+ color:#ff3030;
 }
 
 .message{
-  background:#191919;
-  padding:10px;
-  margin:7px 0;
-  border-radius:10px;
+ background:#1d1d1d;
+ padding:12px;
+ margin:8px 0;
+ border-radius:10px;
 }
 
-.light .message{
-  background:#eee;
-}
-
-.small{
-  color:#aaa;
-  font-size:13px;
-}
-
-.hidden{
-  display:none!important;
+.avatar{
+ width:100px;
+ height:100px;
+ border-radius:50%;
+ border:4px solid red;
+ object-fit:cover;
 }
 
 table{
-  width:100%;
-  border-collapse:collapse;
+ width:100%;
+ border-collapse:collapse;
+}
+th,td{
+ padding:10px;
+ border-bottom:1px solid #333;
+ text-align:left;
 }
 
-th,td{
-  padding:10px;
-  border-bottom:1px solid #333;
-  text-align:left;
+.small{
+ color:#aaa;
+ font-size:13px;
 }
 
 footer{
-  text-align:center;
-  padding:30px 10px;
-  color:#aaa;
+ text-align:center;
+ padding:30px 10px;
+ color:#aaa;
 }
 
-a{
-  color:#ff4040;
-  text-decoration:none;
-}
-
-.section-title{
-  color:#ff3030;
-  margin-bottom:12px;
-}
-
-.notice{
-  background:#321;
-  border:1px solid #a50;
-  padding:12px;
-  border-radius:10px;
-  margin:10px 0;
-}
+a{color:#ff4040}
 </style>
 </head>
 
 <body>
 
 <header>
-  <h1>🔥 JAYPRATAP GAMING 🎮</h1>
-  <p>Free Fire • Gaming • Tournament • Community</p>
+<h1>🔥 JAYPRATAP GAMING 🎮</h1>
+<p>Free Fire • Gaming • Tournament • Community</p>
 </header>
 
 <nav>
-  <button onclick="showSection('home')">🏠 Home</button>
-  <button onclick="showSection('profile')">👤 Profile</button>
-  <button onclick="showSection('games')">🎮 Games</button>
-  <button onclick="showSection('leaderboard')">🏆 Leaderboard</button>
-  <button onclick="showSection('rooms')">🚪 Rooms</button>
-  <button onclick="showSection('chat')">💬 Chat</button>
-  <button onclick="showSection('friends')">👥 Friends</button>
-  <button onclick="showSection('tournament')">🏅 Tournament</button>
-  <button onclick="showSection('notifications')">🔔 Notifications</button>
-  <button onclick="showSection('admin')">🛡️ Admin</button>
+<button onclick="openPage('home')">🏠 Home</button>
+<button onclick="openPage('games')">🎮 Games</button>
+<button onclick="openPage('leaderboard')">🏆 Leaderboard</button>
+<button onclick="openPage('chat')">💬 Chat</button>
+<button onclick="openPage('rooms')">🚪 Rooms</button>
+<button onclick="openPage('tournament')">🏅 Tournament</button>
+<button onclick="openPage('friends')">👥 Friends</button>
+<button onclick="openPage('profile')">👤 Profile</button>
 </nav>
 
-<main class="container">
+<div class="container">
 
 <!-- HOME -->
-<section id="home" class="section">
-  <div class="hero">
-    <h2>JAYPRATAP GAMING 🎮</h2>
-    <p>🔥 Welcome Gamer! 🔥</p>
-    <p class="small">Play • Compete • Earn XP • Climb the Rank</p>
+<section id="home" class="section active">
 
-    <button class="big-btn" onclick="showSection('games')">🎮 PLAY NOW</button>
-    <button class="big-btn" onclick="showSection('tournament')">🏆 TOURNAMENT</button>
-  </div>
+<div class="hero">
+<h2>JAYPRATAP GAMING 🎮</h2>
+<p>🔥 Welcome Gamer 🔥</p>
 
-  <div class="card">
-    <h2 class="section-title">📊 Your Stats</h2>
+<button class="btn" onclick="openPage('games')">
+🎮 PLAY NOW
+</button>
+</div>
 
-    <div class="grid">
-      <div class="stat">
-        <b id="homeScore">0</b>
-        Score
-      </div>
+<div class="card">
+<h2>✨ Features</h2>
 
-      <div class="stat">
-        <b id="homeCoins">0</b>
-        Coins
-      </div>
+<div class="grid">
 
-      <div class="stat">
-        <b id="homeXP">0</b>
-        XP
-      </div>
+<div class="feature" onclick="openPage('games')">
+<div style="font-size:40px">🎮</div>
+<h3>Mini Games</h3>
+<p>Games खेलो</p>
+</div>
 
-      <div class="stat">
-        <b id="homeLevel">1</b>
-        Level
-      </div>
-    </div>
-  </div>
+<div class="feature" onclick="openPage('leaderboard')">
+<div style="font-size:40px">🏆</div>
+<h3>Leaderboard</h3>
+<p>Top players देखो</p>
+</div>
 
-  <div class="card">
-    <h2 class="section-title">🔥 Features</h2>
+<div class="feature" onclick="openPage('chat')">
+<div style="font-size:40px">💬</div>
+<h3>Live Chat</h3>
+<p>Gamer से बात करो</p>
+</div>
 
-    <div class="grid">
-      <div class="stat">🎮 Mini Games</div>
-      <div class="stat">🏆 Leaderboard</div>
-      <div class="stat">💬 Live Chat</div>
-      <div class="stat">🚪 Game Rooms</div>
-      <div class="stat">🏅 Tournament</div>
-      <div class="stat">👥 Friends</div>
-    </div>
-  </div>
-</section>
+<div class="feature" onclick="openPage('rooms')">
+<div style="font-size:40px">🚪</div>
+<h3>Game Rooms</h3>
+<p>Room बनाओ</p>
+</div>
 
+<div class="feature" onclick="openPage('tournament')">
+<div style="font-size:40px">🏅</div>
+<h3>Tournament</h3>
+<p>Competition खेलो</p>
+</div>
 
-<!-- PROFILE -->
-<section id="profile" class="section hidden">
+<div class="feature" onclick="openPage('friends')">
+<div style="font-size:40px">👥</div>
+<h3>Friends</h3>
+<p>Friends जोड़ो</p>
+</div>
 
-  <div class="card profile">
-    <h2 class="section-title">👤 Gamer Profile</h2>
+</div>
+</div>
 
-    <img id="avatarImg"
-         class="avatar"
-         src="https://api.dicebear.com/9.x/bottts/svg?seed=Jaypratap">
+<div class="card">
+<h2>📊 My Stats</h2>
 
-    <h2 id="profileName">Guest Gamer</h2>
+<div class="grid">
 
-    <p id="profileEmail" class="small">Login नहीं है</p>
+<div class="stat">
+<b id="homeScore">0</b>
+Score
+</div>
 
-    <div>
-      <span class="badge">🎮 Gamer</span>
-      <span class="badge">🔥 Pro</span>
-    </div>
+<div class="stat">
+<b id="homeCoins">0</b>
+Coins
+</div>
 
-    <input id="nameInput" placeholder="Gamer Name">
-    <input id="bioInput" placeholder="Bio">
+<div class="stat">
+<b id="homeXP">0</b>
+XP
+</div>
 
-    <button class="btn" onclick="saveProfile()">💾 Save Profile</button>
-  </div>
+<div class="stat">
+<b id="homeLevel">1</b>
+Level
+</div>
 
-  <div class="card">
-    <h2 class="section-title">📊 Detailed Stats</h2>
-
-    <div class="grid">
-      <div class="stat">
-        <b id="scoreStat">0</b>
-        Score
-      </div>
-
-      <div class="stat">
-        <b id="winsStat">0</b>
-        Wins
-      </div>
-
-      <div class="stat">
-        <b id="lossStat">0</b>
-        Loss
-      </div>
-
-      <div class="stat">
-        <b id="coinsStat">0</b>
-        Coins
-      </div>
-
-      <div class="stat">
-        <b id="xpStat">0</b>
-        XP
-      </div>
-
-      <div class="stat">
-        <b id="levelStat">1</b>
-        Level
-      </div>
-    </div>
-  </div>
-
-  <div class="card">
-    <h2 class="section-title">🔥 Daily Login</h2>
-    <p id="streakText">Daily reward available</p>
-    <button class="btn gold" onclick="dailyReward()">🎁 Claim Reward</button>
-  </div>
+</div>
+</div>
 
 </section>
 
 
 <!-- GAMES -->
-<section id="games" class="section hidden">
+<section id="games" class="section">
 
-  <div class="card">
-    <h2 class="section-title">🎮 Mini Games</h2>
+<div class="card">
+<h2>🎮 Mini Games</h2>
 
-    <div class="grid">
+<div class="grid">
 
-      <div class="stat">
-        <h3>🎯 Tap Target</h3>
-        <p>Tap करके +10 Score</p>
-        <button class="btn" onclick="tapTarget()">TAP 🎯</button>
-      </div>
+<div class="feature">
+<h3>🎯 Tap Target</h3>
+<p>+10 Score</p>
+<button class="btn" onclick="tapTarget()">TAP 🎯</button>
+</div>
 
-      <div class="stat">
-        <h3>⚡ Speed Click</h3>
-        <p>हर click पर +5 Score</p>
-        <button class="btn blue" onclick="speedClick()">CLICK ⚡</button>
-      </div>
+<div class="feature">
+<h3>⚡ Speed Click</h3>
+<p>+5 Score</p>
+<button class="btn blue" onclick="speedClick()">CLICK ⚡</button>
+</div>
 
-      <div class="stat">
-        <h3>🍀 Lucky Number</h3>
-        <p>Lucky number मिलने पर bonus</p>
-        <button class="btn green" onclick="luckyNumber()">LUCKY 🍀</button>
-      </div>
+<div class="feature">
+<h3>🍀 Lucky Number</h3>
+<p>Lucky 7 = +50</p>
+<button class="btn green" onclick="luckyNumber()">LUCKY 🍀</button>
+</div>
 
-    </div>
-  </div>
+</div>
+</div>
 
-  <div class="card">
-    <h2 class="section-title">🎮 Game Result</h2>
-    <h2 id="gameResult">Game खेलने के लिए button दबाओ!</h2>
-  </div>
+<div class="card">
+<h2>🎮 Result</h2>
+<h3 id="gameResult">Game शुरू करो!</h3>
+</div>
 
 </section>
 
 
 <!-- LEADERBOARD -->
-<section id="leaderboard" class="section hidden">
+<section id="leaderboard" class="section">
 
-  <div class="card">
-    <h2 class="section-title">🏆 Online Leaderboard</h2>
+<div class="card">
+<h2>🏆 Leaderboard</h2>
 
-    <button class="btn" onclick="loadLeaderboard()">🔄 Refresh</button>
+<button class="btn" onclick="loadLeaderboard()">
+🔄 Refresh
+</button>
 
-    <div id="leaderboardBox">
-      Loading...
-    </div>
-  </div>
+<div id="leaderboardBox">
+Leaderboard load हो रहा है...
+</div>
 
-</section>
-
-
-<!-- ROOMS -->
-<section id="rooms" class="section hidden">
-
-  <div class="card">
-    <h2 class="section-title">🚪 Game Rooms</h2>
-
-    <input id="roomName" placeholder="Room Name">
-    <input id="roomPassword" placeholder="Room Password (optional)">
-
-    <button class="btn" onclick="createRoom()">➕ Create Room</button>
-
-    <hr style="margin:15px 0;border-color:#333">
-
-    <button class="btn blue" onclick="loadRooms()">🔄 Refresh Rooms</button>
-
-    <div id="roomsBox">Loading...</div>
-  </div>
+</div>
 
 </section>
 
 
 <!-- CHAT -->
-<section id="chat" class="section hidden">
+<section id="chat" class="section">
 
-  <div class="card">
-    <h2 class="section-title">💬 Gamer Chat</h2>
+<div class="card">
+<h2>💬 Live Chat</h2>
 
-    <div id="chatBox"
-         style="max-height:350px;overflow:auto">
-      Loading chat...
-    </div>
+<div id="chatBox">
+Chat अभी खाली है।
+</div>
 
-    <textarea id="chatMessage"
-              placeholder="Message लिखो..."></textarea>
+<textarea id="chatMessage"
+placeholder="अपना message लिखो..."></textarea>
 
-    <button class="btn" onclick="sendMessage()">📤 Send</button>
-    <button class="btn gray" onclick="loadChat()">🔄 Refresh</button>
-  </div>
+<button class="btn" onclick="sendChat()">
+📤 Send
+</button>
+
+</div>
 
 </section>
 
 
-<!-- FRIENDS -->
-<section id="friends" class="section hidden">
+<!-- ROOMS -->
+<section id="rooms" class="section">
 
-  <div class="card">
-    <h2 class="section-title">👥 Friends</h2>
+<div class="card">
+<h2>🚪 Game Rooms</h2>
 
-    <input id="friendEmail"
-           placeholder="Friend का email">
+<input id="roomName"
+placeholder="Room Name">
 
-    <button class="btn" onclick="sendFriendRequest()">
-      📨 Send Request
-    </button>
+<input id="roomPassword"
+placeholder="Password optional">
 
-    <div id="friendsBox">
-      Login करके friends feature use करो।
-    </div>
-  </div>
+<button class="btn" onclick="createRoom()">
+➕ Create Room
+</button>
+
+<button class="btn blue" onclick="loadRooms()">
+🔄 Refresh
+</button>
+
+<div id="roomsBox">
+अभी कोई room नहीं।
+</div>
+
+</div>
 
 </section>
 
 
 <!-- TOURNAMENT -->
-<section id="tournament" class="section hidden">
+<section id="tournament" class="section">
 
-  <div class="card">
-    <h2 class="section-title">🏅 Weekly Tournament</h2>
+<div class="card">
+<h2>🏅 Weekly Tournament</h2>
 
-    <p>🎯 Tournament Points: <b id="tournamentPoints">0</b></p>
+<div class="stat">
+<b id="tournamentPoints">0</b>
+Tournament Points
+</div>
 
-    <button class="btn gold"
-            onclick="addTournamentPoints()">
-      🏆 Add Tournament Points
-    </button>
+<button class="btn gold"
+onclick="addTournamentPoints()">
+🏆 +10 Points
+</button>
 
-    <button class="btn"
-            onclick="loadTournament()">
-      🔄 Ranking Refresh
-    </button>
-  </div>
+<button class="btn"
+onclick="loadTournament()">
+🔄 Ranking
+</button>
 
-  <div class="card">
-    <div id="tournamentBox">Loading...</div>
-  </div>
+<div id="tournamentBox">
+Ranking load होगा।
+</div>
 
-</section>
-
-
-<!-- NOTIFICATIONS -->
-<section id="notifications" class="section hidden">
-
-  <div class="card">
-    <h2 class="section-title">🔔 Notifications</h2>
-
-    <button class="btn" onclick="loadNotifications()">
-      🔄 Refresh
-    </button>
-
-    <div id="notificationBox">
-      Login करके notifications देखो।
-    </div>
-  </div>
+</div>
 
 </section>
 
 
-<!-- REDEEM -->
-<section id="redeem" class="section hidden">
+<!-- FRIENDS -->
+<section id="friends" class="section">
 
-  <div class="card">
-    <h2 class="section-title">🎁 Redeem Coupon</h2>
+<div class="card">
+<h2>👥 Friends</h2>
 
-    <input id="coupon"
-           placeholder="Coupon Code">
+<input id="friendName"
+placeholder="Friend का नाम">
 
-    <button class="btn gold"
-            onclick="redeemCoupon()">
-      🎁 Redeem
-    </button>
+<button class="btn"
+onclick="addFriend()">
+➕ Add Friend
+</button>
 
-    <p id="couponResult"></p>
-  </div>
+<div id="friendsBox">
+अभी कोई friend नहीं।
+</div>
 
-</section>
-
-
-<!-- ADMIN -->
-<section id="admin" class="section hidden">
-
-  <div class="card">
-
-    <h2 class="section-title">🛡️ Admin Panel</h2>
-
-    <div class="notice">
-      ⚠️ Admin panel Firebase Security Rules से भी secure होना चाहिए।
-    </div>
-
-    <input id="adminEmail"
-           placeholder="Admin Email">
-
-    <button class="btn"
-            onclick="adminLogin()">
-      🔐 Admin Login
-    </button>
-
-    <div id="adminPanel"
-         class="hidden">
-
-      <h3>👑 Admin Dashboard</h3>
-
-      <div class="grid" style="margin-top:15px">
-
-        <div class="stat">
-          <b id="adminUsersCount">0</b>
-          Players
-        </div>
-
-        <div class="stat">
-          <b id="adminRoomsCount">0</b>
-          Rooms
-        </div>
-
-      </div>
-
-      <button class="btn blue"
-              onclick="adminUsers()">
-        👥 Load Players
-      </button>
-
-      <button class="btn blue"
-              onclick="adminRooms()">
-        🚪 Load Rooms
-      </button>
-
-      <div id="adminBox"
-           style="margin-top:15px"></div>
-
-    </div>
-
-  </div>
+</div>
 
 </section>
 
 
-<!-- LOGIN -->
-<section id="auth" class="section">
+<!-- PROFILE -->
+<section id="profile" class="section">
 
-  <div class="card">
+<div class="card">
 
-    <h2 class="section-title">🔐 Account</h2>
+<h2>👤 Gamer Profile</h2>
 
-    <input id="email"
-           type="email"
-           placeholder="Email">
+<div style="text-align:center">
 
-    <input id="password"
-           type="password"
-           placeholder="Password">
+<img class="avatar"
+id="avatar"
+src="https://api.dicebear.com/9.x/bottts/svg?seed=Jaypratap">
 
-    <button class="btn"
-            onclick="register()">
-      📝 Register
-    </button>
+<h2 id="profileName">Jaypratap Gamer</h2>
 
-    <button class="btn blue"
-            onclick="login()">
-      🔑 Login
-    </button>
+<p id="profileBio">
+🔥 Free Fire Gamer 🔥
+</p>
 
-    <button class="btn gray"
-            onclick="logout()">
-      🚪 Logout
-    </button>
+</div>
 
-    <p id="authStatus"
-       style="margin-top:10px">
-      Login/Register करो।
-    </p>
+<input id="nameInput"
+placeholder="Gamer Name">
 
-  </div>
+<input id="bioInput"
+placeholder="Bio">
+
+<button class="btn"
+onclick="saveProfile()">
+💾 Save
+</button>
+
+</div>
+
+<div class="card">
+
+<h2>📊 Stats</h2>
+
+<div class="grid">
+
+<div class="stat">
+<b id="scoreStat">0</b>
+Score
+</div>
+
+<div class="stat">
+<b id="winsStat">0</b>
+Wins
+</div>
+
+<div class="stat">
+<b id="lossStat">0</b>
+Loss
+</div>
+
+<div class="stat">
+<b id="coinsStat">0</b>
+Coins
+</div>
+
+</div>
+
+</div>
 
 </section>
 
-</main>
+</div>
 
 
 <footer>
-  <p>🔥 JAYPRATAP GAMING 🎮</p>
-  <p class="small">Made for gamers ❤️</p>
 
-  <p style="margin-top:12px">
-    <a href="https://www.youtube.com/@BhaktiMargofficil_01"
-       target="_blank">
-       ▶️ YouTube
-    </a>
-    &nbsp; | &nbsp;
-    <a href="https://www.instagram.com/drx_jaypratap_vishwakarma__315"
-       target="_blank">
-       📸 Instagram
-    </a>
-  </p>
+<p>🔥 JAYPRATAP GAMING 🎮</p>
 
-  <button class="btn gray"
-          onclick="toggleTheme()">
-    🌙 Theme
-  </button>
+<p>
+<a href="https://www.youtube.com/@BhaktiMargofficil_01"
+target="_blank">▶️ YouTube</a>
+|
+<a href="https://www.instagram.com/drx_jaypratap_vishwakarma__315"
+target="_blank">📸 Instagram</a>
+</p>
+
 </footer>
 
 
-<!-- FIREBASE -->
-<script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-app-compat.js"></script>
-<script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-auth-compat.js"></script>
-<script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore-compat.js"></script>
-
 <script>
 
-const firebaseConfig = {
-  apiKey: "AIzaSyB_a4mOviXxrHnfPZkfQgyFP8hW0fhQEBk",
-  authDomain: "jaypratap-gaming.firebaseapp.com",
-  projectId: "jaypratap-gaming",
-  storageBucket: "jaypratap-gaming.firebasestorage.app",
-  messagingSenderId: "317689965528",
-  appId: "1:317689965528:web:c1e4c7907aa19e00e5e0ad",
-  measurementId: "G-MLQPVKRW82"
+/* DATA */
+
+let data=JSON.parse(
+localStorage.getItem("jaypratapGaming")
+)||{
+name:"Jaypratap Gamer",
+bio:"🔥 Free Fire Gamer 🔥",
+score:0,
+coins:0,
+xp:0,
+wins:0,
+loss:0,
+tournament:0,
+friends:[]
 };
 
-firebase.initializeApp(firebaseConfig);
 
-const auth = firebase.auth();
-const db = firebase.firestore();
-
-const ADMIN_EMAIL =
-"jaypratapvishwakarma315@gmail.com";
-
-
-let currentUser = null;
-
-
-/* ---------------- STORAGE ---------------- */
-
-let data = JSON.parse(
-  localStorage.getItem("jaypratapGaming")
-) || {
-  name:"Guest Gamer",
-  bio:"🔥 Gaming Lover",
-  score:0,
-  coins:0,
-  xp:0,
-  wins:0,
-  loss:0,
-  tournament:0,
-  streak:0
-};
-
+/* SAVE */
 
 function saveData(){
 
-  localStorage.setItem(
-    "jaypratapGaming",
-    JSON.stringify(data)
-  );
-
-  updateUI();
-}
-
-
-function updateUI(){
-
-  document.getElementById("homeScore").textContent =
-    data.score;
-
-  document.getElementById("homeCoins").textContent =
-    data.coins;
-
-  document.getElementById("homeXP").textContent =
-    data.xp;
-
-  document.getElementById("homeLevel").textContent =
-    Math.floor(data.xp/100)+1;
-
-  document.getElementById("scoreStat").textContent =
-    data.score;
-
-  document.getElementById("winsStat").textContent =
-    data.wins;
-
-  document.getElementById("lossStat").textContent =
-    data.loss;
-
-  document.getElementById("coinsStat").textContent =
-    data.coins;
-
-  document.getElementById("xpStat").textContent =
-    data.xp;
-
-  document.getElementById("levelStat").textContent =
-    Math.floor(data.xp/100)+1;
-
-  document.getElementById("tournamentPoints").textContent =
-    data.tournament;
-
-  document.getElementById("profileName").textContent =
-    data.name;
-
-  document.getElementById("nameInput").value =
-    data.name;
-
-  document.getElementById("bioInput").value =
-    data.bio;
-}
-
-
-/* ---------------- NAVIGATION ---------------- */
-
-function showSection(id){
-
-  document.querySelectorAll(".section")
-    .forEach(s => s.classList.add("hidden"));
-
-  const el = document.getElementById(id);
-
-  if(el){
-    el.classList.remove("hidden");
-  }
-
-  window.scrollTo({
-    top:0,
-    behavior:"smooth"
-  });
-
-}
-
-
-/* ---------------- THEME ---------------- */
-
-function toggleTheme(){
-
-  document.body.classList.toggle("light");
-
-  localStorage.setItem(
-    "theme",
-    document.body.classList.contains("light")
-      ? "light"
-      : "dark"
-  );
-}
-
-
-if(localStorage.getItem("theme")==="light"){
-  document.body.classList.add("light");
-}
-
-
-/* ---------------- PROFILE ---------------- */
-
-function saveProfile(){
-
-  data.name =
-    document.getElementById("nameInput").value ||
-    "Guest Gamer";
-
-  data.bio =
-    document.getElementById("bioInput").value ||
-    "🔥 Gaming Lover";
-
-  saveData();
-
-  if(currentUser){
-
-    db.collection("players")
-      .doc(currentUser.uid)
-      .set({
-        name:data.name,
-        bio:data.bio,
-        email:currentUser.email,
-        score:data.score,
-        updatedAt:firebase.firestore.FieldValue.serverTimestamp()
-      },{merge:true})
-      .catch(console.error);
-  }
-
-  alert("✅ Profile Saved!");
-}
-
-
-/* ---------------- AUTH ---------------- */
-
-async function register(){
-
-  const email =
-    document.getElementById("email").value.trim();
-
-  const password =
-    document.getElementById("password").value;
-
-  if(!email || !password){
-    alert("Email और Password भरो");
-    return;
-  }
-
-  try{
-
-    const result =
-      await auth.createUserWithEmailAndPassword(
-        email,
-        password
-      );
-
-    currentUser = result.user;
-
-    await db.collection("players")
-      .doc(currentUser.uid)
-      .set({
-        name:data.name,
-        bio:data.bio,
-        email:currentUser.email,
-        score:data.score,
-        coins:data.coins,
-        xp:data.xp,
-        wins:data.wins,
-        loss:data.loss,
-        createdAt:
-          firebase.firestore.FieldValue.serverTimestamp()
-      },{merge:true});
-
-    document.getElementById("authStatus").textContent =
-      "✅ Account बन गया!";
-
-  }catch(error){
-
-    document.getElementById("authStatus").textContent =
-      "❌ " + error.message;
-  }
-}
-
-
-async function login(){
-
-  const email =
-    document.getElementById("email").value.trim();
-
-  const password =
-    document.getElementById("password").value;
-
-  if(!email || !password){
-    alert("Email और Password भरो");
-    return;
-  }
-
-  try{
-
-    const result =
-      await auth.signInWithEmailAndPassword(
-        email,
-        password
-      );
-
-    currentUser = result.user;
-
-    document.getElementById("authStatus").textContent =
-      "✅ Login successful: " +
-      currentUser.email;
-
-    await loadMyProfile();
-
-  }catch(error){
-
-    document.getElementById("authStatus").textContent =
-      "❌ " + error.message;
-  }
-}
-
-
-async function logout(){
-
-  try{
-
-    await auth.signOut();
-
-    currentUser = null;
-
-    document.getElementById("authStatus").textContent =
-      "🚪 Logout हो गया";
-
-  }catch(error){
-
-    console.error(error);
-  }
-}
-
-
-auth.onAuthStateChanged(async user => {
-
-  currentUser = user;
-
-  if(user){
-
-    document.getElementById("profileEmail")
-      .textContent = user.email;
-
-    document.getElementById("authStatus")
-      .textContent =
-      "✅ Logged in: " + user.email;
-
-    await loadMyProfile();
-
-  }else{
-
-    document.getElementById("profileEmail")
-      .textContent =
-      "Login नहीं है";
-  }
-
-});
-
-
-/* ---------------- LOAD PROFILE ---------------- */
-
-async function loadMyProfile(){
-
-  if(!currentUser) return;
-
-  try{
-
-    const snap =
-      await db.collection("players")
-      .doc(currentUser.uid)
-      .get();
-
-    if(snap.exists){
-
-      const p = snap.data();
-
-      data.name =
-        p.name || data.name;
-
-      data.bio =
-        p.bio || data.bio;
-
-      if(typeof p.score === "number")
-        data.score = p.score;
-
-      if(typeof p.coins === "number")
-        data.coins = p.coins;
-
-      if(typeof p.xp === "number")
-        data.xp = p.xp;
-
-      if(typeof p.wins === "number")
-        data.wins = p.wins;
-
-      if(typeof p.loss === "number")
-        data.loss = p.loss;
-
-      saveData();
-    }
-
-  }catch(error){
-
-    console.log(error);
-  }
-
-}
-
-
-/* ---------------- SCORE ---------------- */
-
-async function updateScore(points){
-
-  data.score += points;
-  data.xp += Math.max(points,1);
-
-  if(points > 0){
-    data.wins++;
-  }
-
-  saveData();
-
-  if(currentUser){
-
-    await db.collection("players")
-      .doc(currentUser.uid)
-      .set({
-        name:data.name,
-        email:currentUser.email,
-        score:data.score,
-        coins:data.coins,
-        xp:data.xp,
-        wins:data.wins,
-        loss:data.loss,
-        updatedAt:
-          firebase.firestore.FieldValue.serverTimestamp()
-      },{merge:true});
-
-    await db.collection("leaderboard")
-      .doc(currentUser.uid)
-      .set({
-        name:data.name,
-        score:data.score,
-        email:currentUser.email,
-        updatedAt:
-          firebase.firestore.FieldValue.serverTimestamp()
-      },{merge:true});
-  }
-}
-
-
-/* ---------------- GAMES ---------------- */
-
-async function tapTarget(){
-
-  await updateScore(10);
-
-  data.coins += 2;
-  saveData();
-
-  document.getElementById("gameResult").textContent =
-    "🎯 Great! +10 Score +2 Coins";
-}
-
-
-async function speedClick(){
-
-  await updateScore(5);
-
-  data.coins += 1;
-  saveData();
-
-  document.getElementById("gameResult").textContent =
-    "⚡ Speed Click! +5 Score";
-}
-
-
-async function luckyNumber(){
-
-  const number =
-    Math.floor(Math.random()*10)+1;
-
-  if(number === 7){
-
-    await updateScore(50);
-
-    data.coins += 10;
-    saveData();
-
-    document.getElementById("gameResult").textContent =
-      "🍀 JACKPOT! 7 मिला! +50 Score +10 Coins";
-
-  }else{
-
-    await updateScore(5);
-
-    document.getElementById("gameResult").textContent =
-      "🍀 Number " + number +
-      " आया! +5 Score";
-  }
-
-}
-
-
-/* ---------------- LEADERBOARD ---------------- */
-
-async function loadLeaderboard(){
-
-  const box =
-    document.getElementById("leaderboardBox");
-
-  box.innerHTML = "Loading...";
-
-  try{
-
-    const snap =
-      await db.collection("leaderboard")
-      .orderBy("score","desc")
-      .limit(20)
-      .get();
-
-    if(snap.empty){
-
-      box.innerHTML =
-        "<p>अभी कोई player नहीं है।</p>";
-
-      return;
-    }
-
-    let html =
-      "<table><tr><th>#</th><th>Player</th><th>Score</th></tr>";
-
-    let rank = 1;
-
-    snap.forEach(doc => {
-
-      const p = doc.data();
-
-      html += `
-        <tr>
-          <td>${rank}</td>
-          <td>🎮 ${escapeHTML(p.name || "Gamer")}</td>
-          <td>🔥 ${p.score || 0}</td>
-        </tr>
-      `;
-
-      rank++;
-    });
-
-    html += "</table>";
-
-    box.innerHTML = html;
-
-  }catch(error){
-
-    box.innerHTML =
-      "❌ Leaderboard Error: " +
-      escapeHTML(error.message);
-  }
-}
-
-
-/* ---------------- ROOMS ---------------- */
-
-async function createRoom(){
-
-  if(!currentUser){
-
-    alert("पहले Login करो");
-    return;
-  }
-
-  const name =
-    document.getElementById("roomName").value.trim();
-
-  const password =
-    document.getElementById("roomPassword").value;
-
-  if(!name){
-
-    alert("Room Name भरो");
-    return;
-  }
-
-  try{
-
-    await db.collection("rooms").add({
-
-      name:name,
-      password:password || "",
-      host:currentUser.email,
-      hostUid:currentUser.uid,
-      players:1,
-      createdAt:
-        firebase.firestore.FieldValue.serverTimestamp()
-    });
-
-    alert("✅ Room Created!");
-
-    document.getElementById("roomName").value = "";
-    document.getElementById("roomPassword").value = "";
-
-    loadRooms();
-
-  }catch(error){
-
-    alert("❌ " + error.message);
-  }
-}
-
-
-async function loadRooms(){
-
-  const box =
-    document.getElementById("roomsBox");
-
-  box.innerHTML = "Loading...";
-
-  try{
-
-    const snap =
-      await db.collection("rooms")
-      .orderBy("createdAt","desc")
-      .limit(20)
-      .get();
-
-    if(snap.empty){
-
-      box.innerHTML =
-        "<p>🚪 अभी कोई room नहीं है।</p>";
-
-      return;
-    }
-
-    let html = "";
-
-    snap.forEach(doc => {
-
-      const r = doc.data();
-
-      html += `
-        <div class="message">
-          <h3>🎮 ${escapeHTML(r.name)}</h3>
-          <p>👑 Host: ${escapeHTML(r.host || "Gamer")}</p>
-          <p>👥 Players: ${r.players || 1}</p>
-          <p>${r.password ? "🔒 Password Protected" : "🔓 Open Room"}</p>
-
-          <button class="btn green"
-            onclick="joinRoom('${doc.id}')">
-            🚪 Join
-          </button>
-        </div>
-      `;
-    });
-
-    box.innerHTML = html;
-
-  }catch(error){
-
-    box.innerHTML =
-      "❌ " + escapeHTML(error.message);
-  }
-}
-
-
-function joinRoom(id){
-
-  if(!currentUser){
-
-    alert("पहले Login करो");
-    return;
-  }
-
-  alert(
-    "🚪 Room selected!\n\n" +
-    "Room ID: " + id +
-    "\n\nHost से password पूछो अगर room protected है।"
-  );
-}
-
-
-/* ---------------- CHAT ---------------- */
-
-async function sendMessage(){
-
-  if(!currentUser){
-
-    alert("पहले Login करो");
-    return;
-  }
-
-  const input =
-    document.getElementById("chatMessage");
-
-  const text =
-    input.value.trim();
-
-  if(!text) return;
-
-  try{
-
-    await db.collection("chat").add({
-
-      uid:currentUser.uid,
-      name:data.name,
-      email:currentUser.email,
-      message:text,
-      createdAt:
-        firebase.firestore.FieldValue.serverTimestamp()
-    });
-
-    input.value = "";
-
-    loadChat();
-
-  }catch(error){
-
-    alert("❌ " + error.message);
-  }
-}
-
-
-async function loadChat(){
-
-  const box =
-    document.getElementById("chatBox");
-
-  try{
-
-    const snap =
-      await db.collection("chat")
-      .orderBy("createdAt","desc")
-      .limit(50)
-      .get();
-
-    if(snap.empty){
-
-      box.innerHTML =
-        "<p>💬 अभी कोई message नहीं है।</p>";
-
-      return;
-    }
-
-    let html = "";
-
-    snap.docs.reverse().forEach(doc => {
-
-      const m = doc.data();
-
-      html += `
-        <div class="message">
-          <b>🎮 ${escapeHTML(m.name || "Gamer")}</b>
-          <p>${escapeHTML(m.message || "")}</p>
-
-          ${
-            currentUser &&
-            currentUser.uid === m.uid
-            ? `<button class="btn gray"
-                onclick="deleteMessage('${doc.id}')">
-                🗑️ Delete
-              </button>`
-            : ""
-          }
-
-          <button class="btn gray"
-            onclick="reportMessage('${doc.id}')">
-            🚩 Report
-          </button>
-        </div>
-      `;
-    });
-
-    box.innerHTML = html;
-
-  }catch(error){
-
-    box.innerHTML =
-      "❌ Chat Error: " +
-      escapeHTML(error.message);
-  }
-}
-
-
-async function deleteMessage(id){
-
-  if(!currentUser) return;
-
-  try{
-
-    await db.collection("chat")
-      .doc(id)
-      .delete();
-
-    loadChat();
-
-  }catch(error){
-
-    alert("❌ Delete failed");
-  }
-}
-
-
-async function reportMessage(id){
-
-  if(!currentUser){
-
-    alert("पहले Login करो");
-    return;
-  }
-
-  try{
-
-    await db.collection("reports").add({
-
-      messageId:id,
-      reportedBy:currentUser.uid,
-      email:currentUser.email,
-      createdAt:
-        firebase.firestore.FieldValue.serverTimestamp()
-    });
-
-    alert("🚩 Report submitted");
-
-  }catch(error){
-
-    alert("❌ Report failed");
-  }
-}
-
-
-/* ---------------- FRIEND REQUEST ---------------- */
-
-async function sendFriendRequest(){
-
-  if(!currentUser){
-
-    alert("पहले Login करो");
-    return;
-  }
-
-  const email =
-    document.getElementById("friendEmail")
-    .value.trim();
-
-  if(!email){
-
-    alert("Friend email भरो");
-    return;
-  }
-
-  try{
-
-    const snap =
-      await db.collection("players")
-      .where("email","==",email)
-      .limit(1)
-      .get();
-
-    if(snap.empty){
-
-      alert("❌ Player नहीं मिला");
-      return;
-    }
-
-    const friendDoc =
-      snap.docs[0];
-
-    const friend =
-      friendDoc.data();
-
-    if(friendDoc.id === currentUser.uid){
-
-      alert("अपने आपको request नहीं भेज सकते");
-      return;
-    }
-
-    await db.collection("friendRequests").add({
-
-      fromUid:currentUser.uid,
-      fromEmail:currentUser.email,
-      fromName:data.name,
-
-      toUid:friendDoc.id,
-      toEmail:friend.email,
-
-      status:"pending",
-
-      createdAt:
-        firebase.firestore.FieldValue.serverTimestamp()
-    });
-
-    await db.collection("notifications").add({
-
-      uid:friendDoc.id,
-
-      message:
-        "👥 " + data.name +
-        " ने आपको friend request भेजी है।",
-
-      type:"friendRequest",
-
-      createdAt:
-        firebase.firestore.FieldValue.serverTimestamp()
-    });
-
-    alert("📨 Friend request sent!");
-
-  }catch(error){
-
-    alert("❌ " + error.message);
-  }
-}
-
-
-/* ---------------- NOTIFICATIONS ---------------- */
-
-async function loadNotifications(){
-
-  const box =
-    document.getElementById("notificationBox");
-
-  if(!currentUser){
-
-    box.innerHTML =
-      "पहले Login करो।";
-
-    return;
-  }
-
-  try{
-
-    const snap =
-      await db.collection("notifications")
-      .where("uid","==",currentUser.uid)
-      .limit(30)
-      .get();
-
-    if(snap.empty){
-
-      box.innerHTML =
-        "🔔 कोई notification नहीं है।";
-
-      return;
-    }
-
-    let html = "";
-
-    snap.forEach(doc => {
-
-      const n = doc.data();
-
-      html += `
-        <div class="message">
-          🔔 ${escapeHTML(n.message || "")}
-        </div>
-      `;
-    });
-
-    box.innerHTML = html;
-
-  }catch(error){
-
-    box.innerHTML =
-      "❌ " + escapeHTML(error.message);
-  }
-}
-
-
-/* ---------------- TOURNAMENT ---------------- */
-
-async function addTournamentPoints(){
-
-  data.tournament += 10;
-
-  data.xp += 5;
-
-  saveData();
-
-  if(currentUser){
-
-    await db.collection("tournaments")
-      .doc(currentUser.uid)
-      .set({
-
-        name:data.name,
-        email:currentUser.email,
-        points:data.tournament,
-
-        updatedAt:
-          firebase.firestore.FieldValue.serverTimestamp()
-
-      },{merge:true});
-  }
-
-  alert("🏆 +10 Tournament Points!");
-}
-
-
-async function loadTournament(){
-
-  const box =
-    document.getElementById("tournamentBox");
-
-  try{
-
-    const snap =
-      await db.collection("tournaments")
-      .orderBy("points","desc")
-      .limit(20)
-      .get();
-
-    if(snap.empty){
-
-      box.innerHTML =
-        "🏆 Tournament में अभी कोई player नहीं।";
-
-      return;
-    }
-
-    let html =
-      "<table><tr><th>#</th><th>Player</th><th>Points</th></tr>";
-
-    let rank = 1;
-
-    snap.forEach(doc => {
-
-      const p = doc.data();
-
-      html += `
-        <tr>
-          <td>${rank}</td>
-          <td>🎮 ${escapeHTML(p.name || "Gamer")}</td>
-          <td>🏆 ${p.points || 0}</td>
-        </tr>
-      `;
-
-      rank++;
-    });
-
-    html += "</table>";
-
-    box.innerHTML = html;
-
-  }catch(error){
-
-    box.innerHTML =
-      "❌ " + escapeHTML(error.message);
-  }
-}
-
-
-/* ---------------- DAILY REWARD ---------------- */
-
-function dailyReward(){
-
-  const today =
-    new Date().toDateString();
-
-  const last =
-    localStorage.getItem("dailyReward");
-
-  if(last === today){
-
-    alert("⏳ आज का reward पहले ही ले चुके हो!");
-    return;
-  }
-
-  localStorage.setItem(
-    "dailyReward",
-    today
-  );
-
-  data.coins += 25;
-  data.xp += 10;
-  data.streak++;
-
-  saveData();
-
-  document.getElementById("streakText").textContent =
-    "🔥 Current Streak: " +
-    data.streak +
-    " days";
-
-  alert("🎁 +25 Coins +10 XP!");
-}
-
-
-/* ---------------- REDEEM ---------------- */
-
-function redeemCoupon(){
-
-  const code =
-    document.getElementById("coupon")
-    .value.trim()
-    .toUpperCase();
-
-  const result =
-    document.getElementById("couponResult");
-
-  if(code === "WELCOME50"){
-
-    data.coins += 50;
-    saveData();
-
-    result.textContent =
-      "🎉 WELCOME50: +50 Coins";
-
-  }else if(code === "GAMER100"){
-
-    data.coins += 100;
-    saveData();
-
-    result.textContent =
-      "🎉 GAMER100: +100 Coins";
-
-  }else{
-
-    result.textContent =
-      "❌ Invalid Coupon";
-  }
-}
-
-
-/* ---------------- ADMIN ---------------- */
-
-function adminLogin(){
-
-  const email =
-    document.getElementById("adminEmail")
-    .value.trim()
-    .toLowerCase();
-
-  if(email !== ADMIN_EMAIL.toLowerCase()){
-
-    alert("❌ Admin email गलत है");
-    return;
-  }
-
-  document.getElementById("adminPanel")
-    .classList.remove("hidden");
-
-  alert("👑 Admin Login Successful!");
-
-  adminUsers();
-  adminRooms();
-}
-
-
-async function adminUsers(){
-
-  const box =
-    document.getElementById("adminBox");
-
-  try{
-
-    const snap =
-      await db.collection("players")
-      .limit(100)
-      .get();
-
-    document.getElementById(
-      "adminUsersCount"
-    ).textContent = snap.size;
-
-    let html =
-      "<h3>👥 Players</h3>";
-
-    snap.forEach(doc => {
-
-      const p = doc.data();
-
-      html += `
-        <div class="message">
-          🎮 ${escapeHTML(p.name || "Gamer")}
-          <br>
-          📧 ${escapeHTML(p.email || "")}
-          <br>
-          🏆 Score: ${p.score || 0}
-        </div>
-      `;
-    });
-
-    box.innerHTML = html;
-
-  }catch(error){
-
-    box.innerHTML =
-      "❌ " + escapeHTML(error.message);
-  }
-}
-
-
-async function adminRooms(){
-
-  const box =
-    document.getElementById("adminBox");
-
-  try{
-
-    const snap =
-      await db.collection("rooms")
-      .limit(100)
-      .get();
-
-    document.getElementById(
-      "adminRoomsCount"
-    ).textContent = snap.size;
-
-    let html =
-      "<h3>🚪 Rooms</h3>";
-
-    snap.forEach(doc => {
-
-      const r = doc.data();
-
-      html += `
-        <div class="message">
-          🎮 ${escapeHTML(r.name || "Room")}
-          <br>
-          👑 ${escapeHTML(r.host || "")}
-          <br>
-          👥 ${r.players || 1}
-        </div>
-      `;
-    });
-
-    box.innerHTML = html;
-
-  }catch(error){
-
-    box.innerHTML =
-      "❌ " + escapeHTML(error.message);
-  }
-}
-
-
-/* ---------------- SECURITY DISPLAY HELPER ---------------- */
-
-function escapeHTML(value){
-
-  return String(value)
-    .replaceAll("&","&amp;")
-    .replaceAll("<","&lt;")
-    .replaceAll(">","&gt;")
-    .replaceAll('"',"&quot;")
-    .replaceAll("'","&#039;");
-}
-
-
-/* ---------------- START ---------------- */
+localStorage.setItem(
+"jaypratapGaming",
+JSON.stringify(data)
+);
 
 updateUI();
 
-loadLeaderboard();
+}
+
+
+/* NAVIGATION */
+
+function openPage(page){
+
+document.querySelectorAll(".section")
+.forEach(function(section){
+
+section.classList.remove("active");
+
+});
+
+let selected=document.getElementById(page);
+
+if(selected){
+
+selected.classList.add("active");
+
+window.scrollTo({
+top:0,
+behavior:"smooth"
+});
+
+}
+
+}
+
+
+/* UI */
+
+function updateUI(){
+
+document.getElementById("homeScore").textContent=data.score;
+
+document.getElementById("homeCoins").textContent=data.coins;
+
+document.getElementById("homeXP").textContent=data.xp;
+
+document.getElementById("homeLevel").textContent=
+Math.floor(data.xp/100)+1;
+
+document.getElementById("scoreStat").textContent=data.score;
+
+document.getElementById("winsStat").textContent=data.wins;
+
+document.getElementById("lossStat").textContent=data.loss;
+
+document.getElementById("coinsStat").textContent=data.coins;
+
+document.getElementById("tournamentPoints").textContent=
+data.tournament;
+
+document.getElementById("profileName").textContent=
+data.name;
+
+document.getElementById("profileBio").textContent=
+data.bio;
+
+document.getElementById("nameInput").value=
+data.name;
+
+document.getElementById("bioInput").value=
+data.bio;
+
+}
+
+
+/* PROFILE */
+
+function saveProfile(){
+
+data.name=
+document.getElementById("nameInput").value ||
+"Jaypratap Gamer";
+
+data.bio=
+document.getElementById("bioInput").value ||
+"🔥 Free Fire Gamer 🔥";
+
+saveData();
+
+alert("✅ Profile Saved!");
+
+}
+
+
+/* GAMES */
+
+function tapTarget(){
+
+data.score+=10;
+data.xp+=10;
+data.coins+=2;
+data.wins++;
+
+saveData();
+
+document.getElementById("gameResult").textContent=
+"🎯 +10 Score | +2 Coins";
+
+}
+
+
+function speedClick(){
+
+data.score+=5;
+data.xp+=5;
+data.coins++;
+
+saveData();
+
+document.getElementById("gameResult").textContent=
+"⚡ +5 Score | +1 Coin";
+
+}
+
+
+function luckyNumber(){
+
+let number=
+Math.floor(Math.random()*10)+1;
+
+if(number===7){
+
+data.score+=50;
+data.xp+=50;
+data.coins+=10;
+data.wins++;
+
+document.getElementById("gameResult").textContent=
+"🍀 JACKPOT! 7 मिला! +50 Score";
+
+}else{
+
+data.score+=5;
+data.xp+=5;
+
+document.getElementById("gameResult").textContent=
+"🍀 Number "+number+" आया! +5 Score";
+
+}
+
+saveData();
+
+}
+
+
+/* FRIENDS */
+
+function addFriend(){
+
+let name=
+document.getElementById("friendName").value.trim();
+
+if(!name){
+
+alert("Friend का नाम लिखो");
+
+return;
+
+}
+
+data.friends.push(name);
+
+document.getElementById("friendName").value="";
+
+saveData();
+
+showFriends();
+
+}
+
+
+function showFriends(){
+
+let box=
+document.getElementById("friendsBox");
+
+if(data.friends.length===0){
+
+box.innerHTML="अभी कोई friend नहीं।";
+
+return;
+
+}
+
+box.innerHTML=
+data.friends.map(function(friend,index){
+
+return `
+<div class="message">
+👤 ${friend}
+<br>
+<button class="btn gray"
+onclick="removeFriend(${index})">
+Remove
+</button>
+</div>
+`;
+
+}).join("");
+
+}
+
+
+function removeFriend(index){
+
+data.friends.splice(index,1);
+
+saveData();
+
+showFriends();
+
+}
+
+
+/* TOURNAMENT */
+
+function addTournamentPoints(){
+
+data.tournament+=10;
+
+data.xp+=10;
+
+saveData();
+
+alert("🏆 +10 Tournament Points!");
+
+}
+
+
+function loadTournament(){
+
+document.getElementById("tournamentBox").innerHTML=
+`
+<div class="message">
+🥇 Jaypratap Gamer — ${data.tournament} Points
+</div>
+
+<div class="message">
+🥈 Pro Gamer — 0 Points
+</div>
+
+<div class="message">
+🥉 Free Fire King — 0 Points
+</div>
+`;
+
+}
+
+
+/* ROOMS */
+
+let rooms=
+JSON.parse(localStorage.getItem("gamingRooms"))
+||[];
+
+
+function createRoom(){
+
+let name=
+document.getElementById("roomName").value.trim();
+
+let password=
+document.getElementById("roomPassword").value;
+
+if(!name){
+
+alert("Room Name भरो");
+
+return;
+
+}
+
+rooms.push({
+
+name:name,
+password:password,
+host:data.name,
+players:1
+
+});
+
+localStorage.setItem(
+"gamingRooms",
+JSON.stringify(rooms)
+);
+
+document.getElementById("roomName").value="";
+document.getElementById("roomPassword").value="";
+
+loadRooms();
+
+alert("✅ Room Created!");
+
+}
+
+
+function loadRooms(){
+
+let box=
+document.getElementById("roomsBox");
+
+if(rooms.length===0){
+
+box.innerHTML=
+"🚪 अभी कोई room नहीं है।";
+
+return;
+
+}
+
+box.innerHTML=
+rooms.map(function(room,index){
+
+return `
+<div class="message">
+
+<h3>🎮 ${room.name}</h3>
+
+<p>👑 Host: ${room.host}</p>
+
+<p>👥 Players: ${room.players}</p>
+
+<p>${room.password ? "🔒 Protected" : "🔓 Open"}</p>
+
+<button class="btn green"
+onclick="joinRoom(${index})">
+🚪 Join
+</button>
+
+</div>
+`;
+
+}).join("");
+
+}
+
+
+function joinRoom(index){
+
+alert(
+"🚪 Room: "+
+rooms[index].name+
+"\nHost: "+
+rooms[index].host
+);
+
+}
+
+
+/* CHAT */
+
+let messages=
+JSON.parse(localStorage.getItem("gamingChat"))
+||[];
+
+
+function sendChat(){
+
+let input=
+document.getElementById("chatMessage");
+
+let text=input.value.trim();
+
+if(!text)return;
+
+messages.push({
+
+name:data.name,
+message:text
+
+});
+
+localStorage.setItem(
+"gamingChat",
+JSON.stringify(messages)
+);
+
+input.value="";
+
+loadChat();
+
+}
+
+
+function loadChat(){
+
+let box=
+document.getElementById("chatBox");
+
+if(messages.length===0){
+
+box.innerHTML=
+"💬 अभी कोई message नहीं है।";
+
+return;
+
+}
+
+box.innerHTML=
+messages.map(function(m){
+
+return `
+<div class="message">
+<b>🎮 ${m.name}</b>
+<p>${escapeHTML(m.message)}</p>
+</div>
+`;
+
+}).join("");
+
+}
+
+
+/* LEADERBOARD */
+
+function loadLeaderboard(){
+
+let players=
+JSON.parse(
+localStorage.getItem("gamingPlayers")
+)||[];
+
+let me={
+name:data.name,
+score:data.score
+};
+
+players=players.filter(function(p){
+
+return p.name!==data.name;
+
+});
+
+players.push(me);
+
+players.sort(function(a,b){
+
+return b.score-a.score;
+
+});
+
+localStorage.setItem(
+"gamingPlayers",
+JSON.stringify(players)
+);
+
+let box=
+document.getElementById("leaderboardBox");
+
+box.innerHTML=
+`
+<table>
+
+<tr>
+<th>#</th>
+<th>Player</th>
+<th>Score</th>
+</tr>
+
+${
+players.slice(0,20).map(function(p,i){
+
+return `
+<tr>
+<td>${i+1}</td>
+<td>🎮 ${escapeHTML(p.name)}</td>
+<td>🔥 ${p.score}</td>
+</tr>
+`;
+
+}).join("")
+}
+
+</table>
+`;
+
+}
+
+
+/* SAFE TEXT */
+
+function escapeHTML(text){
+
+return String(text)
+.replaceAll("&","&amp;")
+.replaceAll("<","&lt;")
+.replaceAll(">","&gt;")
+.replaceAll('"',"&quot;")
+.replaceAll("'","&#039;");
+
+}
+
+
+/* START */
+
+updateUI();
+showFriends();
 loadRooms();
 loadChat();
-loadTournament();
-
-setInterval(() => {
-
-  if(
-    !document.getElementById("chat")
-      .classList.contains("hidden")
-  ){
-
-    loadChat();
-  }
-
-},5000);
+loadLeaderboard();
 
 </script>
 
