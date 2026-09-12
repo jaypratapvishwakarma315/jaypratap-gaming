@@ -6,109 +6,123 @@
 <title>JAYPRATAP GAMING 🎮</title>
 <style>
 *{box-sizing:border-box}
-body{margin:0;font-family:Arial;background:#090b14;color:white}
-header{padding:25px 15px;text-align:center;background:linear-gradient(135deg,#171b3d,#10111c)}
-h1{margin:0;color:#00eaff}
-p{color:#bbb}
+body{margin:0;font-family:Arial;background:#080b14;color:white}
+header{text-align:center;padding:25px;background:#121936}
+h1{color:#00eaff}
 nav{display:flex;gap:8px;overflow:auto;padding:10px;background:#111522}
-nav button{white-space:nowrap;padding:10px 15px;border:0;border-radius:20px;background:#20263b;color:white}
-section{display:none;padding:20px}
+nav button,.btn{padding:11px 16px;border:0;border-radius:12px;background:#202943;color:white}
+section{display:none;padding:18px}
 section.active{display:block}
-.card{background:#151a2b;border-radius:18px;padding:20px;margin:15px 0;box-shadow:0 5px 20px #0008}
-button.action{padding:12px 18px;border:0;border-radius:12px;background:#00c8ff;color:#001018;font-weight:bold}
-input{width:100%;padding:13px;margin:7px 0;border:0;border-radius:10px;background:#22283b;color:white}
-.score{font-size:30px;color:#00ffb3}
+.card{background:#151b2e;padding:20px;margin:12px 0;border-radius:18px}
+.stat{font-size:20px;line-height:2}
+.big{font-size:32px;font-weight:bold;color:#00ffb3}
+.btn{background:#00c8ff;color:#001018;font-weight:bold}
 </style>
 </head>
-
 <body>
 
 <header>
-<h1>🎮 JAYPRATAP GAMING 🎮</h1>
-<p>🔥 Play • Score • Compete • Win 🔥</p>
+<h1>🎮 JAYPRATAP GAMING</h1>
+<p>🔥 Play • Earn • Compete 🔥</p>
 </header>
 
 <nav>
 <button onclick="show('home')">🏠 Home</button>
 <button onclick="show('games')">🎮 Games</button>
-<button onclick="show('leaderboard')">🏆 Leaderboard</button>
-<button onclick="show('friends')">👥 Friends</button>
+<button onclick="show('rewards')">🎁 Rewards</button>
 <button onclick="show('profile')">👤 Profile</button>
 </nav>
 
 <section id="home" class="active">
 <div class="card">
 <h2>🔥 Welcome Gamer!</h2>
-<p>JAYPRATAP GAMING में आपका स्वागत है ❤️</p>
-<p>अपना score बढ़ाओ और leaderboard में ऊपर जाओ!</p>
+<div class="stat">
+💎 Gems: <b id="gems">5</b><br>
+🪙 Coins: <b id="coins">0</b><br>
+⚡ XP: <b id="xp">0</b>
+</div>
 </div>
 </section>
 
 <section id="games">
 <div class="card">
-<h2>🎮 Mini Game</h2>
-<p>Button दबाओ और points कमाओ!</p>
-<div class="score" id="score">0</div>
+<h2>🎮 Gem Game</h2>
+<p>हर Play पर XP और Coins मिलेंगे।</p>
+<div class="big" id="score">0</div>
 <br>
-<button class="action" onclick="play()">⚡ PLAY</button>
+<button class="btn" onclick="playGame()">⚡ PLAY</button>
 </div>
 </section>
 
-<section id="leaderboard">
+<section id="rewards">
 <div class="card">
-<h2>🏆 Leaderboard</h2>
-<p>🥇 JAYPRATAP — <span id="lbscore">0</span> XP</p>
-<p>🥈 Gamer Pro — 850 XP</p>
-<p>🥉 FF Warrior — 700 XP</p>
-</div>
-</section>
-
-<section id="friends">
-<div class="card">
-<h2>👥 Player Search</h2>
-<input id="search" placeholder="Player name search...">
-<button class="action" onclick="searchPlayer()">🔎 Search</button>
-<p id="result"></p>
+<h2>🎁 Daily Gem Reward</h2>
+<p>आज का reward:</p>
+<div class="big">💎 +1 Gem</div>
+<br>
+<button class="btn" onclick="claimGem()">💎 CLAIM GEM</button>
+<p id="message"></p>
 </div>
 </section>
 
 <section id="profile">
 <div class="card">
-<h2>👤 My Profile</h2>
-<p>🔥 JAYPRATAP</p>
-<p>🎮 Gaming Player</p>
-<p>⚡ XP: <span id="xp">0</span></p>
+<h2>👤 JAYPRATAP</h2>
+<div class="stat">
+💎 Gems: <b id="gems2">5</b><br>
+🪙 Coins: <b id="coins2">0</b><br>
+⚡ XP: <b id="xp2">0</b>
+</div>
 </div>
 </section>
 
 <script>
-let score=Number(localStorage.getItem("score")||0);
+let gems=Number(localStorage.getItem("gems") ?? 5);
+let coins=Number(localStorage.getItem("coins") ?? 0);
+let xp=Number(localStorage.getItem("xp") ?? 0);
+let score=Number(localStorage.getItem("score") ?? 0);
+
+function save(){
+localStorage.setItem("gems",gems);
+localStorage.setItem("coins",coins);
+localStorage.setItem("xp",xp);
+localStorage.setItem("score",score);
+
+document.querySelectorAll("#gems,#gems2").forEach(x=>x.textContent=gems);
+document.querySelectorAll("#coins,#coins2").forEach(x=>x.textContent=coins);
+document.querySelectorAll("#xp,#xp2").forEach(x=>x.textContent=xp);
+document.getElementById("score").textContent=score;
+}
 
 function show(id){
 document.querySelectorAll("section").forEach(x=>x.classList.remove("active"));
 document.getElementById(id).classList.add("active");
 }
 
-function update(){
-document.getElementById("score").textContent=score;
-document.getElementById("lbscore").textContent=score;
-document.getElementById("xp").textContent=score;
-localStorage.setItem("score",score);
-}
-
-function play(){
+function playGame(){
 score+=10;
-update();
-alert("🔥 +10 XP मिला!");
+xp+=10;
+coins+=5;
+save();
+alert("🔥 +10 XP | 🪙 +5 Coins");
 }
 
-function searchPlayer(){
-let name=document.getElementById("search").value.trim();
-document.getElementById("result").textContent=
-name ? "🔎 Player मिला: "+name : "⚠️ Player name डालो";
+function claimGem(){
+let today=new Date().toDateString();
+let last=localStorage.getItem("gemClaim");
+
+if(last===today){
+document.getElementById("message").textContent="❌ आज का Gem पहले ही ले चुके हो!";
+return;
 }
 
-update();
+gems++;
+localStorage.setItem("gemClaim",today);
+save();
+document.getElementById("message").textContent="🎉 +1 Gem मिल गया!";
+}
+
+save();
 </script>
 
 </body>
