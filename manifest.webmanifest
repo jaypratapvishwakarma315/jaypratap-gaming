@@ -1,0 +1,10 @@
+{
+  "name": "Jaypratap Gaming",
+  "short_name": "Jaypratap Gaming",
+  "description": "Jaypratap Gaming - Play games, earn coins and gems, compete on leaderboard.",
+  "start_url": "./",
+  "display": "standalone",
+  "background_color": "#0b1020",
+  "theme_color": "#0b1020",
+  "orientation": "portrait"
+}
