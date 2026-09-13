@@ -1,31 +1,138 @@
 <!DOCTYPE html>
-<html lang="hi">
+<html lang="en">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width,initial-scale=1">
-<title>JAYPRATAP GAMING 🎮</title>
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>Jaypratap Gaming 🎮</title>
+<meta name="description" content="Jaypratap Gaming - Play games, earn coins and gems, compete on leaderboard.">
+
 <style>
 *{box-sizing:border-box}
-body{margin:0;font-family:Arial,sans-serif;background:#070a12;color:#fff}
-header{text-align:center;padding:24px 12px;background:linear-gradient(135deg,#111a3a,#10111b)}
-h1{margin:0;color:#00eaff}
-header p{color:#bbb}
-nav{display:flex;gap:7px;overflow-x:auto;padding:10px;background:#101522;position:sticky;top:0;z-index:5}
-nav button{white-space:nowrap;border:0;border-radius:12px;padding:10px 14px;background:#20283d;color:#fff}
-section{display:none;padding:16px}
-section.active{display:block}
-.card{background:#141a2b;border-radius:18px;padding:18px;margin-bottom:14px}
-.stats{display:grid;grid-template-columns:repeat(3,1fr);gap:8px}
-.stat{background:#20283d;padding:12px;border-radius:12px;text-align:center}
-.num{font-size:22px;font-weight:bold;color:#00ffb3}
-.big{font-size:34px;font-weight:bold;color:#00eaff}
-.btn{border:0;border-radius:12px;padding:12px 17px;background:#00c8ff;color:#001018;font-weight:bold;margin:5px 3px}
-input{width:100%;padding:13px;border:0;border-radius:10px;background:#222a3e;color:#fff;margin:6px 0}
-.game,.item,.mission{background:#20283d;padding:15px;border-radius:15px;margin:10px 0}
-.result{min-height:24px;color:#00ffb3;font-weight:bold}
-.badge{display:inline-block;padding:8px 10px;border-radius:20px;background:#2b3550;margin:4px}
-.bar{height:12px;background:#252d42;border-radius:20px;overflow:hidden}
-.bar span{display:block;height:100%;background:#00eaff;width:0}
+body{
+ margin:0;
+ font-family:Arial,sans-serif;
+ background:#070b16;
+ color:#fff
+}
+header{
+ padding:20px;
+ text-align:center;
+ background:linear-gradient(135deg,#111b45,#40105c);
+ position:sticky;
+ top:0;
+ z-index:10
+}
+header h1{margin:0;color:#00eaff}
+header p{color:#ccc;margin:7px 0 0}
+nav{
+ display:flex;
+ gap:7px;
+ overflow:auto;
+ padding:10px;
+ background:#0d1324;
+ position:sticky;
+ top:77px;
+ z-index:9
+}
+nav button{
+ white-space:nowrap;
+ background:#18213a;
+ color:#fff;
+ border:1px solid #304064;
+ border-radius:9px;
+ padding:10px 13px
+}
+main{max-width:1000px;margin:auto;padding:15px}
+.section{
+ display:none;
+ background:#10182b;
+ border:1px solid #283657;
+ border-radius:16px;
+ padding:18px;
+ margin-bottom:15px
+}
+.section.active{display:block}
+.card{
+ background:#151f36;
+ border:1px solid #2b3b61;
+ border-radius:13px;
+ padding:15px;
+ margin:10px 0
+}
+.grid{
+ display:grid;
+ grid-template-columns:repeat(auto-fit,minmax(180px,1fr));
+ gap:12px
+}
+.stat{
+ background:#17223c;
+ border-radius:12px;
+ padding:14px;
+ text-align:center
+}
+.stat b{
+ display:block;
+ font-size:23px;
+ color:#00eaff;
+ margin-top:5px
+}
+input{
+ width:100%;
+ padding:12px;
+ margin:6px 0;
+ border:0;
+ border-radius:9px;
+ background:#080d1b;
+ color:white
+}
+button{
+ cursor:pointer;
+ border:0;
+ padding:11px 15px;
+ border-radius:9px;
+ background:#00c6df;
+ color:#001018;
+ font-weight:bold;
+ margin:4px
+}
+button:hover{filter:brightness(1.15)}
+.red{background:#ff405d;color:#fff}
+.green{background:#35d07f}
+.gold{background:#ffc107;color:#111}
+.purple{background:#9b51e0;color:#fff}
+.game{
+ text-align:center;
+ background:#121d34;
+ border:1px solid #304267;
+ padding:20px;
+ border-radius:15px
+}
+.big{
+ font-size:45px;
+ color:#00eaff;
+ margin:15px
+}
+.msg{
+ background:#1a2743;
+ padding:9px;
+ border-radius:9px;
+ margin:6px 0
+}
+.small{font-size:13px;color:#aaa}
+.success{color:#35d07f}
+.error{color:#ff526b}
+a{color:#00eaff;text-decoration:none}
+#toast{
+ display:none;
+ position:fixed;
+ bottom:20px;
+ left:50%;
+ transform:translateX(-50%);
+ background:#111;
+ padding:12px 18px;
+ border-radius:10px;
+ z-index:99
+}
 </style>
 </head>
 
@@ -33,404 +140,1425 @@ input{width:100%;padding:13px;border:0;border-radius:10px;background:#222a3e;col
 
 <header>
 <h1>🎮 JAYPRATAP GAMING</h1>
-<p>🔥 PLAY • EARN • LEVEL UP 🔥</p>
+<p>🔥 Play • Compete • Earn • Win 🔥</p>
 </header>
 
 <nav>
-<button onclick="show('home')">🏠 Home</button>
-<button onclick="show('games')">🎮 Games</button>
-<button onclick="show('missions')">🎯 Missions</button>
-<button onclick="show('shop')">🛒 Shop</button>
-<button onclick="show('rank')">🏆 Rank</button>
-<button onclick="show('friends')">👥 Friends</button>
-<button onclick="show('rewards')">🎁 Rewards</button>
-<button onclick="show('profile')">👤 Profile</button>
+<button onclick="showPage('home')">🏠 Home</button>
+<button onclick="showPage('games')">🎮 Games</button>
+<button onclick="showPage('shop')">💎 Shop</button>
+<button onclick="showPage('leaderboard')">🏆 Rank</button>
+<button onclick="showPage('friends')">👥 Friends</button>
+<button onclick="showPage('chat')">💬 Chat</button>
+<button onclick="showPage('rooms')">🚪 Rooms</button>
+<button onclick="showPage('rewards')">🎁 Rewards</button>
+<button onclick="showPage('profile')">👤 Profile</button>
+<button onclick="showPage('login')">🔐 Login</button>
 </nav>
 
-<section id="home" class="active">
+<main>
+
+<!-- HOME -->
+<section id="home" class="section active">
+
+<h2>🔥 Welcome to Jaypratap Gaming</h2>
+
+<div class="grid">
+
+<div class="stat">
+💎 Gems
+<b id="gems">5</b>
+</div>
+
+<div class="stat">
+🪙 Coins
+<b id="coins">0</b>
+</div>
+
+<div class="stat">
+⭐ XP
+<b id="xp">0</b>
+</div>
+
+<div class="stat">
+🏆 Score
+<b id="score">0</b>
+</div>
+
+</div>
+
 <div class="card">
-<h2>🔥 Welcome Gamer!</h2>
-
-<div class="stats">
-<div class="stat">💎<br><span class="num" id="gems">5</span></div>
-<div class="stat">🪙<br><span class="num" id="coins">0</span></div>
-<div class="stat">⚡<br><span class="num" id="xp">0</span></div>
-</div>
-
-<h3>🏆 Level <span id="level">1</span></h3>
-<div class="bar"><span id="xpbar"></span></div>
-<p><span id="levelxp">0</span> / <span id="nextxp">100</span> XP</p>
+<h3>📊 My Rank</h3>
+<p id="rank">Bronze</p>
 </div>
 
 <div class="card">
-<h2>🔥 Current Streak</h2>
-<div class="big">🔥 <span id="streak">0</span> Days</div>
+<h3>🔔 Notifications</h3>
+<div id="notifications"></div>
 </div>
+
+<div class="card">
+<h3>🌐 Social Media</h3>
+
+<a href="https://www.instagram.com/drx_jaypratap_vishwakarma__315" target="_blank">
+<button>📸 Instagram</button>
+</a>
+
+<a href="https://www.youtube.com/@BhaktiMargofficil_01" target="_blank">
+<button class="red">▶️ YouTube</button>
+</a>
+
+</div>
+
 </section>
 
-<section id="games">
-<div class="card">
+
+<!-- LOGIN -->
+<section id="login" class="section">
+
+<h2>🔐 Login / Register</h2>
+
+<input id="email" type="email" placeholder="Email">
+
+<input id="password" type="password" placeholder="Password">
+
+<button onclick="registerUser()">📝 Register</button>
+
+<button onclick="loginUser()">🔑 Login</button>
+
+<button class="red" onclick="logoutUser()">🚪 Logout</button>
+
+<p id="authResult"></p>
+
+<div id="userInfo" class="small">Guest mode</div>
+
+</section>
+
+
+<!-- GAMES -->
+<section id="games" class="section">
+
 <h2>🎮 Mini Games</h2>
 
-<div class="game">
-<h3>🎯 Tap Challenge</h3>
-<p>10 taps पूरा करो।</p>
-<button class="btn" onclick="tapGame()">🎯 TAP</button>
-<p id="tapResult" class="result"></p>
-</div>
+<div class="grid">
 
 <div class="game">
-<h3>🧠 Guess Number</h3>
-<p>1 से 5 के बीच number guess करो।</p>
-<input id="guess" type="number" min="1" max="5" placeholder="1-5">
-<button class="btn" onclick="guessGame()">🧠 GUESS</button>
-<p id="guessResult" class="result"></p>
+
+<h3>👆 Tap Game</h3>
+
+<div class="big" id="tapCount">0</div>
+
+<button onclick="tapGame()">TAP!</button>
+
+<p class="small">हर tap पर score मिलेगा</p>
+
 </div>
 
+
 <div class="game">
+
+<h3>🎯 Guess Number</h3>
+
+<input id="guess" type="number" min="1" max="10" placeholder="1 - 10">
+
+<button onclick="guessGame()">GUESS</button>
+
+<p id="guessResult"></p>
+
+</div>
+
+
+<div class="game">
+
 <h3>⚡ Fast Click</h3>
-<p>Click करके random reward पाओ।</p>
-<button class="btn" onclick="fastGame()">⚡ CLICK</button>
-<p id="fastResult" class="result"></p>
+
+<div class="big" id="fastResult">READY</div>
+
+<button onclick="fastGame()">CLICK</button>
+
 </div>
 
 </div>
+
 </section>
 
-<section id="missions">
+
+<!-- SHOP -->
+<section id="shop" class="section">
+
+<h2>💎 Gem Shop</h2>
+
+<div class="grid">
+
 <div class="card">
-<h2>🎯 Daily Missions</h2>
-
-<div class="mission">
-<h3>🎮 Play Mission</h3>
-<p>5 games खेलो</p>
-<p>Progress: <b id="gameMission">0</b>/5</p>
-<button class="btn" onclick="claimMission('games')">🎁 CLAIM</button>
+<h3>💎 1 Gem</h3>
+<p>100 Coins</p>
+<button onclick="buyItem(1,100)">BUY</button>
 </div>
 
-<div class="mission">
-<h3>🪙 Coin Mission</h3>
-<p>50 Coins कमाओ</p>
-<p>Progress: <b id="coinMission">0</b>/50</p>
-<button class="btn" onclick="claimMission('coins')">🎁 CLAIM</button>
+<div class="card">
+<h3>💎 5 Gems</h3>
+<p>500 Coins</p>
+<button onclick="buyItem(5,500)">BUY</button>
 </div>
 
-<div class="mission">
-<h3>⚡ XP Mission</h3>
-<p>100 XP कमाओ</p>
-<p>Progress: <b id="xpMission">0</b>/100</p>
-<button class="btn" onclick="claimMission('xp')">🎁 CLAIM</button>
+<div class="card">
+<h3>💎 10 Gems</h3>
+<p>1000 Coins</p>
+<button onclick="buyItem(10,1000)">BUY</button>
 </div>
 
-<p id="missionResult" class="result"></p>
 </div>
+
+<p id="shopResult"></p>
+
 </section>
 
-<section id="shop">
-<div class="card">
-<h2>🛒 GEM SHOP 💎</h2>
 
-<div class="item">
-<h3>🎁 Starter Reward</h3>
-<p>💎 2 Gems</p>
-<button class="btn" onclick="buy(2,'Starter Reward')">BUY</button>
+<!-- LEADERBOARD -->
+<section id="leaderboard" class="section">
+
+<h2>🏆 Global Leaderboard</h2>
+
+<button onclick="loadLeaderboard()">🔄 Refresh</button>
+
+<div id="leaderboardData">
+Login करके leaderboard में score save करो।
 </div>
 
-<div class="item">
-<h3>🔥 Pro Reward</h3>
-<p>💎 3 Gems</p>
-<button class="btn" onclick="buy(3,'Pro Reward')">BUY</button>
-</div>
-
-<div class="item">
-<h3>👑 VIP Reward</h3>
-<p>💎 5 Gems</p>
-<button class="btn" onclick="buy(5,'VIP Reward')">BUY</button>
-</div>
-
-<p id="shopResult" class="result"></p>
-</div>
 </section>
 
-<section id="rank">
-<div class="card">
-<h2>🏆 Leaderboard</h2>
-<p>🥇 JAYPRATAP — <b id="rankxp">0</b> XP</p>
-<p>🥈 Gamer Pro — 850 XP</p>
-<p>🥉 FF Warrior — 700 XP</p>
-<p>🏅 Gaming King — 500 XP</p>
-</div>
 
-<div class="card">
-<h2>⭐ Your Level</h2>
-<div class="big">LEVEL <span id="level2">1</span></div>
-</div>
+<!-- FRIENDS -->
+<section id="friends" class="section">
+
+<h2>👥 Friends</h2>
+
+<input id="playerSearch" placeholder="Player email या name">
+
+<button onclick="searchPlayer()">🔎 Search</button>
+
+<div id="searchResult"></div>
+
+<h3>⭐ My Friends</h3>
+
+<div id="friendsList"></div>
+
 </section>
 
-<section id="friends">
-<div class="card">
-<h2>👥 Player Search</h2>
-<input id="playerSearch" placeholder="Player name लिखो">
-<button class="btn" onclick="searchPlayer()">🔎 SEARCH</button>
-<p id="searchResult" class="result"></p>
+
+<!-- CHAT -->
+<section id="chat" class="section">
+
+<h2>💬 Global Chat</h2>
+
+<div id="chatbox" style="max-height:350px;overflow:auto">
+Login करके chat शुरू करो।
 </div>
 
-<div class="card">
-<h2>❤️ Friends</h2>
-<p>👤 Gamer Pro</p>
-<p>👤 FF Warrior</p>
-<p>👤 Gaming King</p>
-</div>
+<input id="chatInput" placeholder="Message लिखो...">
+
+<button onclick="sendChat()">📤 Send</button>
+
+<button onclick="loadChat()">🔄 Refresh</button>
+
+<p class="small">Chat के लिए Login जरूरी है।</p>
+
 </section>
 
-<section id="rewards">
-<div class="card">
-<h2>🎁 Daily Reward</h2>
-<p>हर दिन 1 💎 free Gem!</p>
-<button class="btn" onclick="dailyReward()">💎 CLAIM</button>
-<p id="rewardResult" class="result"></p>
-</div>
 
-<div class="card">
-<h2>🔔 Notifications</h2>
-<p class="badge">🎮 Welcome Gamer</p>
-<p class="badge">💎 Daily Reward</p>
-<p class="badge">🏆 Keep Playing</p>
-</div>
+<!-- ROOMS -->
+<section id="rooms" class="section">
+
+<h2>🚪 Gaming Rooms</h2>
+
+<input id="roomName" placeholder="Room name">
+
+<button onclick="createRoom()">➕ Create Room</button>
+
+<button onclick="loadRooms()">🔄 Refresh</button>
+
+<div id="roomsData"></div>
+
 </section>
 
-<section id="profile">
-<div class="card">
-<h2>👤 JAYPRATAP</h2>
-<p>🎮 Gaming Player</p>
 
-<div class="stats">
-<div class="stat">💎<br><span class="num" id="gems2">5</span></div>
-<div class="stat">🪙<br><span class="num" id="coins2">0</span></div>
-<div class="stat">⚡<br><span class="num" id="xp2">0</span></div>
+<!-- REWARDS -->
+<section id="rewards" class="section">
+
+<h2>🎁 Daily Rewards</h2>
+
+<div class="card">
+
+<h3>🎁 Daily Reward</h3>
+
+<p>हर दिन reward claim करो।</p>
+
+<button class="gold" onclick="dailyReward()">
+CLAIM REWARD
+</button>
+
+<p id="rewardResult"></p>
+
 </div>
 
-<h3>🏆 Level <span id="level3">1</span></h3>
-<p>🔥 Streak: <b id="streak2">0</b> Days</p>
+<div class="card">
 
 <h3>🏅 Achievements</h3>
-<p id="achievements">🔒 Play games to unlock badges.</p>
+
+<div id="achievementList"></div>
+
 </div>
+
 </section>
 
-<script>
-let gems=Number(localStorage.getItem("gems") ?? 5);
-let coins=Number(localStorage.getItem("coins") ?? 0);
-let xp=Number(localStorage.getItem("xp") ?? 0);
-let score=Number(localStorage.getItem("score") ?? 0);
-let taps=0;
 
-let gamesPlayed=Number(localStorage.getItem("gamesPlayed") ?? 0);
-let missionGames=Number(localStorage.getItem("missionGames") ?? 0);
-let missionCoins=Number(localStorage.getItem("missionCoins") ?? 0);
-let missionXP=Number(localStorage.getItem("missionXP") ?? 0);
+<!-- PROFILE -->
+<section id="profile" class="section">
 
-let streak=Number(localStorage.getItem("streak") ?? 0);
-let lastLogin=localStorage.getItem("lastLogin") || "";
+<h2>👤 My Profile</h2>
 
-function getLevel(){
-return Math.min(10,Math.floor(xp/100)+1);
+<input id="playerName" placeholder="Gaming Name">
+
+<button onclick="saveProfile()">💾 Save Profile</button>
+
+<div class="card">
+
+<p id="profileName">Name: Guest</p>
+
+<p id="profileScore">Score: 0</p>
+
+<p id="profileRank">Rank: Bronze</p>
+
+<p id="status">🔴 Offline</p>
+
+</div>
+
+</section>
+
+</main>
+
+<div id="toast"></div>
+
+
+<script type="module">
+
+import {initializeApp}
+from "https://www.gstatic.com/firebasejs/12.1.0/firebase-app.js";
+
+import {
+getAuth,
+createUserWithEmailAndPassword,
+signInWithEmailAndPassword,
+onAuthStateChanged,
+signOut
+}
+from "https://www.gstatic.com/firebasejs/12.1.0/firebase-auth.js";
+
+import {
+getFirestore,
+collection,
+doc,
+getDoc,
+getDocs,
+setDoc,
+addDoc,
+query,
+orderBy,
+limit,
+serverTimestamp
+}
+from "https://www.gstatic.com/firebasejs/12.1.0/firebase-firestore.js";
+
+
+const firebaseConfig={
+apiKey:"AIzaSyB_a4mOviXxrHnfPZkfQgyFP8hW0fhQEBk",
+authDomain:"jaypratap-gaming.firebaseapp.com",
+projectId:"jaypratap-gaming",
+storageBucket:"jaypratap-gaming.firebasestorage.app",
+messagingSenderId:"317689965528",
+appId:"1:317689965528:web:c1e4c7907aa19e00e5e0ad",
+measurementId:"G-MLQPVKRW82"
+};
+
+
+const app=initializeApp(firebaseConfig);
+
+const auth=getAuth(app);
+
+const db=getFirestore(app);
+
+let currentUser=null;
+
+let tapCount=0;
+
+let fastStart=0;
+
+
+let data={
+gems:Number(localStorage.getItem("gems")||5),
+coins:Number(localStorage.getItem("coins")||0),
+xp:Number(localStorage.getItem("xp")||0),
+score:Number(localStorage.getItem("score")||0)
+};
+
+
+/* PAGE */
+
+window.showPage=function(id){
+
+document.querySelectorAll(".section")
+.forEach(s=>s.classList.remove("active"));
+
+document.getElementById(id).classList.add("active");
+
+if(id==="chat")loadChat();
+if(id==="rooms")loadRooms();
+if(id==="leaderboard")loadLeaderboard();
+
+};
+
+
+/* TOAST */
+
+function toast(text){
+
+const t=document.getElementById("toast");
+
+t.textContent=text;
+t.style.display="block";
+
+setTimeout(()=>{
+t.style.display="none";
+},2000);
+
 }
 
-function save(){
-localStorage.setItem("gems",gems);
-localStorage.setItem("coins",coins);
-localStorage.setItem("xp",xp);
-localStorage.setItem("score",score);
-localStorage.setItem("gamesPlayed",gamesPlayed);
-localStorage.setItem("missionGames",missionGames);
-localStorage.setItem("missionCoins",missionCoins);
-localStorage.setItem("missionXP",missionXP);
-localStorage.setItem("streak",streak);
 
-let level=getLevel();
-let current=xp%100;
-let next=level<10?100:0;
+/* UI */
 
-document.querySelectorAll("#gems,#gems2").forEach(e=>e.textContent=gems);
-document.querySelectorAll("#coins,#coins2").forEach(e=>e.textContent=coins);
-document.querySelectorAll("#xp,#xp2").forEach(e=>e.textContent=xp);
-document.querySelectorAll("#level,#level2,#level3").forEach(e=>e.textContent=level);
-document.querySelectorAll("#streak,#streak2").forEach(e=>e.textContent=streak);
+function updateUI(){
 
-document.getElementById("rankxp").textContent=xp;
-document.getElementById("xpbar").style.width=(level>=10?100:current)+"%";
-document.getElementById("levelxp").textContent=level>=10?100:current;
-document.getElementById("nextxp").textContent=level>=10?100:100;
-document.getElementById("gameMission").textContent=Math.min(missionGames,5);
-document.getElementById("coinMission").textContent=Math.min(missionCoins,50);
-document.getElementById("xpMission").textContent=Math.min(missionXP,100);
+document.getElementById("gems").textContent=data.gems;
+
+document.getElementById("coins").textContent=data.coins;
+
+document.getElementById("xp").textContent=data.xp;
+
+document.getElementById("score").textContent=data.score;
+
+document.getElementById("profileScore").textContent=
+"Score: "+data.score;
+
+
+let rank="Bronze";
+
+if(data.score>=1000)rank="💎 Diamond";
+else if(data.score>=500)rank="🏆 Platinum";
+else if(data.score>=250)rank="🥇 Gold";
+else if(data.score>=100)rank="🥈 Silver";
+
+document.getElementById("rank").textContent=rank;
+
+document.getElementById("profileRank").textContent=
+"Rank: "+rank;
+
+
+localStorage.setItem("gems",data.gems);
+localStorage.setItem("coins",data.coins);
+localStorage.setItem("xp",data.xp);
+localStorage.setItem("score",data.score);
 
 updateAchievements();
+
 }
 
-function show(id){
-document.querySelectorAll("section").forEach(s=>s.classList.remove("active"));
-document.getElementById(id).classList.add("active");
+
+/* SCORE */
+
+async function addScore(points){
+
+data.score+=points;
+
+data.xp+=points;
+
+updateUI();
+
+
+if(!currentUser)return;
+
+
+try{
+
+await setDoc(
+doc(db,"players",currentUser.uid),
+{
+uid:currentUser.uid,
+email:currentUser.email,
+score:data.score,
+xp:data.xp,
+gems:data.gems,
+coins:data.coins,
+updatedAt:serverTimestamp()
+},
+{merge:true}
+);
+
+
+await setDoc(
+doc(db,"leaderboard",currentUser.uid),
+{
+uid:currentUser.uid,
+email:currentUser.email,
+score:data.score,
+xp:data.xp,
+updatedAt:serverTimestamp()
+},
+{merge:true}
+);
+
+}catch(e){
+
+console.log(e);
+
 }
 
-function addReward(c,x){
-coins+=c;
-xp=Math.min(1000,xp+x);
-score+=x;
-
-gamesPlayed++;
-missionGames++;
-missionCoins+=c;
-missionXP+=x;
-
-save();
 }
 
-function tapGame(){
-taps++;
 
-if(taps>=10){
-addReward(10,20);
-taps=0;
-document.getElementById("tapResult").textContent=
-"🎉 Complete! +10 🪙 +20 ⚡";
-}else{
-document.getElementById("tapResult").textContent=
-"🎯 "+taps+"/10 taps";
-}
-}
+/* REGISTER */
 
-function guessGame(){
-let value=Number(document.getElementById("guess").value);
+window.registerUser=async function(){
 
-if(value<1 || value>5){
-document.getElementById("guessResult").textContent="⚠️ 1 से 5 चुनो!";
+const email=document.getElementById("email").value.trim();
+
+const password=document.getElementById("password").value;
+
+
+if(!email||!password){
+
+toast("Email और password डालो");
+
 return;
+
 }
 
-let secret=Math.floor(Math.random()*5)+1;
 
-if(value===secret){
-addReward(20,30);
-document.getElementById("guessResult").textContent=
-"🎉 सही! +20 🪙 +30 ⚡";
+try{
+
+const result=
+await createUserWithEmailAndPassword(
+auth,email,password
+);
+
+currentUser=result.user;
+
+
+await setDoc(
+doc(db,"players",currentUser.uid),
+{
+uid:currentUser.uid,
+email:currentUser.email,
+score:data.score,
+xp:data.xp,
+gems:data.gems,
+coins:data.coins,
+createdAt:serverTimestamp()
+},
+{merge:true}
+);
+
+
+document.getElementById("authResult").innerHTML=
+"<span class='success'>✅ Registration successful</span>";
+
+toast("Account बन गया 🎉");
+
+}catch(e){
+
+document.getElementById("authResult").innerHTML=
+"<span class='error'>❌ "+e.message+"</span>";
+
+}
+
+};
+
+
+/* LOGIN */
+
+window.loginUser=async function(){
+
+const email=document.getElementById("email").value.trim();
+
+const password=document.getElementById("password").value;
+
+
+if(!email||!password){
+
+toast("Email और password डालो");
+
+return;
+
+}
+
+
+try{
+
+await signInWithEmailAndPassword(
+auth,email,password
+);
+
+toast("Login successful ✅");
+
+}catch(e){
+
+document.getElementById("authResult").innerHTML=
+"<span class='error'>❌ "+e.message+"</span>";
+
+}
+
+};
+
+
+/* LOGOUT */
+
+window.logoutUser=async function(){
+
+await signOut(auth);
+
+toast("Logout हो गया");
+
+};
+
+
+/* AUTH STATE */
+
+onAuthStateChanged(auth,async(user)=>{
+
+currentUser=user;
+
+
+if(user){
+
+document.getElementById("userInfo").innerHTML=
+"🟢 Logged in: <b>"+escapeHTML(user.email)+"</b>";
+
+document.getElementById("status").textContent=
+"🟢 Online";
+
+
+try{
+
+const snap=await getDoc(
+doc(db,"players",user.uid)
+);
+
+if(snap.exists()){
+
+const p=snap.data();
+
+data.gems=Number(p.gems??data.gems);
+data.coins=Number(p.coins??data.coins);
+data.xp=Number(p.xp??data.xp);
+data.score=Number(p.score??data.score);
+
+updateUI();
+
+}
+
+}catch(e){
+
+console.log(e);
+
+}
+
 }else{
+
+document.getElementById("userInfo").textContent=
+"🔴 Guest mode";
+
+document.getElementById("status").textContent=
+"🔴 Offline";
+
+}
+
+});
+
+
+/* TAP GAME */
+
+window.tapGame=function(){
+
+tapCount++;
+
+document.getElementById("tapCount").textContent=
+tapCount;
+
+data.coins++;
+
+updateUI();
+
+addScore(2);
+
+};
+
+
+/* GUESS GAME */
+
+window.guessGame=function(){
+
+const n=Number(
+document.getElementById("guess").value
+);
+
+if(n<1||n>10){
+
 document.getElementById("guessResult").textContent=
-"❌ गलत! सही number "+secret+" था।";
-}
+"1 से 10 के बीच number डालो";
+
+return;
+
 }
 
-function fastGame(){
-let c=Math.floor(Math.random()*10)+1;
-let x=c*2;
 
-addReward(c,x);
+const correct=Math.floor(Math.random()*10)+1;
+
+
+if(n===correct){
+
+document.getElementById("guessResult").innerHTML=
+"<span class='success'>🎉 सही! +20 Score</span>";
+
+data.coins+=10;
+
+addScore(20);
+
+}else{
+
+document.getElementById("guessResult").innerHTML=
+"<span class='error'>❌ गलत! सही number "+correct+" था</span>";
+
+}
+
+updateUI();
+
+};
+
+
+/* FAST GAME */
+
+window.fastGame=function(){
+
+if(!fastStart){
+
+fastStart=Date.now();
 
 document.getElementById("fastResult").textContent=
-"⚡ +"+c+" 🪙 +"+x+" ⚡";
+"🔥 CLICK AGAIN!";
+
+setTimeout(()=>{
+
+if(fastStart){
+
+fastStart=0;
+
+document.getElementById("fastResult").textContent=
+"⏰ Too Late";
+
 }
 
-function buy(price,name){
-if(gems<price){
-document.getElementById("shopResult").textContent=
-"❌ Gems कम हैं!";
+},3000);
+
 return;
+
 }
 
-gems-=price;
-save();
 
-document.getElementById("shopResult").textContent=
-"🎉 "+name+" खरीदा! 💎 -"+price;
+const time=Date.now()-fastStart;
+
+fastStart=0;
+
+
+let points=10;
+
+if(time<500)points=50;
+else if(time<1000)points=30;
+else if(time<2000)points=20;
+
+
+document.getElementById("fastResult").textContent=
+time+"ms +"+points;
+
+
+data.coins+=Math.floor(points/2);
+
+addScore(points);
+
+updateUI();
+
+};
+
+
+/* SHOP */
+
+window.buyItem=function(cost,reward){
+
+if(data.gems<cost){
+
+document.getElementById("shopResult").innerHTML=
+"<span class='error'>❌ Gems कम हैं</span>";
+
+return;
+
 }
 
-function dailyReward(){
-let today=new Date().toDateString();
+data.gems-=cost;
 
-if(localStorage.getItem("dailyGem")===today){
+data.coins+=reward;
+
+updateUI();
+
+document.getElementById("shopResult").innerHTML=
+"<span class='success'>✅ Purchase successful</span>";
+
+toast("Shop purchase ✅");
+
+};
+
+
+/* DAILY REWARD */
+
+window.dailyReward=function(){
+
+const today=new Date().toDateString();
+
+const last=localStorage.getItem("dailyReward");
+
+
+if(last===today){
+
 document.getElementById("rewardResult").textContent=
-"❌ आज का reward पहले ही लिया है!";
+"⏰ आज का reward ले चुके हो";
+
 return;
+
 }
 
-gems++;
-localStorage.setItem("dailyGem",today);
-save();
 
-document.getElementById("rewardResult").textContent=
-"🎉 +1 💎 Gem मिल गया!";
-}
+localStorage.setItem("dailyReward",today);
 
-function claimMission(type){
-let done=false;
+data.coins+=100;
+data.gems+=1;
+data.xp+=25;
 
-if(type==="games" && missionGames>=5){
-gems+=1;
-missionGames=0;
-done=true;
-}
+updateUI();
 
-if(type==="coins" && missionCoins>=50){
-gems+=1;
-missionCoins=0;
-done=true;
-}
+document.getElementById("rewardResult").innerHTML=
+"<span class='success'>🎉 +100 Coins +1 Gem +25 XP</span>";
 
-if(type==="xp" && missionXP>=100){
-gems+=2;
-missionXP=0;
-done=true;
-}
+addNotification("🎁 Daily Reward मिला!");
 
-save();
+};
 
-document.getElementById("missionResult").textContent=
-done?"🎉 Mission Complete! 💎 Reward मिल गया!":
-"❌ Mission अभी पूरा नहीं हुआ!";
-}
 
-function searchPlayer(){
-let name=document.getElementById("playerSearch").value.trim();
-
-if(!name){
-document.getElementById("searchResult").textContent=
-"⚠️ Player name डालो!";
-return;
-}
-
-document.getElementById("searchResult").textContent=
-"🔎 Player मिला: "+name+" 🎮";
-}
+/* ACHIEVEMENTS */
 
 function updateAchievements(){
-let a="";
 
-if(xp>=50)a+="🥉 50 XP ";
-if(xp>=100)a+="🥈 100 XP ";
-if(xp>=500)a+="🥇 500 XP ";
-if(xp>=900)a+="👑 900 XP ";
+let a=[];
 
-if(gamesPlayed>=10)a+="🎮 10 Games ";
 
-document.getElementById("achievements").textContent=
-a||"🔒 Play games to unlock badges.";
+if(data.score>=10)a.push("🥉 First Score");
+
+if(data.score>=100)a.push("🥈 100 Score");
+
+if(data.score>=500)a.push("🥇 500 Score");
+
+if(data.coins>=100)a.push("🪙 Coin Collector");
+
+if(data.gems>=10)a.push("💎 Gem Collector");
+
+
+document.getElementById("achievementList").innerHTML=
+a.length
+?a.map(x=>"<div class='msg'>"+x+"</div>").join("")
+:"<p class='small'>Games खेलो और achievements unlock करो 🎮</p>";
+
 }
 
-function updateStreak(){
-let today=new Date().toDateString();
 
-if(lastLogin!==today){
-streak++;
-lastLogin=today;
+/* NOTIFICATIONS */
 
-localStorage.setItem("lastLogin",today);
-localStorage.setItem("streak",streak);
+function addNotification(text){
+
+const arr=JSON.parse(
+localStorage.getItem("notifications")||"[]"
+);
+
+arr.unshift({
+text:text,
+time:new Date().toLocaleString()
+});
+
+localStorage.setItem(
+"notifications",
+JSON.stringify(arr.slice(0,10))
+);
+
+loadNotifications();
+
 }
+
+
+function loadNotifications(){
+
+const arr=JSON.parse(
+localStorage.getItem("notifications")||"[]"
+);
+
+document.getElementById("notifications").innerHTML=
+arr.length
+?arr.map(x=>
+"<div class='msg'>🔔 "+escapeHTML(x.text)+
+"<div class='small'>"+x.time+"</div></div>"
+).join("")
+:"<p class='small'>No notifications</p>";
+
 }
 
-updateStreak();
-save();
+
+/* LEADERBOARD */
+
+window.loadLeaderboard=async function(){
+
+const box=document.getElementById("leaderboardData");
+
+box.innerHTML="⏳ Loading...";
+
+
+try{
+
+const q=query(
+collection(db,"leaderboard"),
+orderBy("score","desc"),
+limit(20)
+);
+
+const snap=await getDocs(q);
+
+if(snap.empty){
+
+box.innerHTML="No players yet.";
+
+return;
+
+}
+
+
+let html="";
+
+let i=0;
+
+
+snap.forEach(d=>{
+
+i++;
+
+const p=d.data();
+
+html+=`
+<div class="card">
+🏆 <b>#${i}</b>
+${escapeHTML(p.name||p.email||"Player")}
+<span style="float:right">
+⭐ ${p.score||0}
+</span>
+</div>
+`;
+
+});
+
+
+box.innerHTML=html;
+
+
+}catch(e){
+
+box.innerHTML=
+"<span class='error'>Leaderboard error</span>";
+
+}
+
+};
+
+
+/* SEARCH PLAYER */
+
+window.searchPlayer=async function(){
+
+const text=
+document.getElementById("playerSearch").value.trim();
+
+const box=document.getElementById("searchResult");
+
+
+if(!text){
+
+box.textContent="Search text डालो";
+
+return;
+
+}
+
+
+box.textContent="🔎 Searching...";
+
+
+try{
+
+const snap=await getDocs(
+collection(db,"players")
+);
+
+let result=[];
+
+
+snap.forEach(d=>{
+
+const p=d.data();
+
+const value=
+((p.email||"")+" "+(p.name||"")).toLowerCase();
+
+if(value.includes(text.toLowerCase()))
+result.push(p);
+
+});
+
+
+if(!result.length){
+
+box.innerHTML="❌ Player नहीं मिला";
+
+return;
+
+}
+
+
+box.innerHTML=result.slice(0,10).map(p=>`
+
+<div class="card">
+
+👤 <b>${escapeHTML(p.name||"Player")}</b>
+
+<div class="small">
+${escapeHTML(p.email||"")}
+</div>
+
+<div>⭐ Score: ${p.score||0}</div>
+
+<button onclick="addFriend('${escapeHTML(p.email||"")}')">
+➕ Add Friend
+</button>
+
+</div>
+
+`).join("");
+
+
+}catch(e){
+
+box.innerHTML=
+"<span class='error'>Search error</span>";
+
+}
+
+};
+
+
+/* FRIEND */
+
+window.addFriend=function(email){
+
+if(!email)return;
+
+
+const friends=JSON.parse(
+localStorage.getItem("friends")||"[]"
+);
+
+
+if(!friends.includes(email))
+friends.push(email);
+
+
+localStorage.setItem(
+"friends",
+JSON.stringify(friends)
+);
+
+loadFriends();
+
+toast("Friend added 👥");
+
+};
+
+
+function loadFriends(){
+
+const friends=JSON.parse(
+localStorage.getItem("friends")||"[]"
+);
+
+
+document.getElementById("friendsList").innerHTML=
+friends.length
+?friends.map(x=>
+"<div class='msg'>👤 "+escapeHTML(x)+"</div>"
+).join("")
+:"<p class='small'>अभी कोई friend नहीं है।</p>";
+
+}
+
+
+/* CHAT */
+
+window.sendChat=async function(){
+
+if(!currentUser){
+
+toast("पहले Login करो 🔐");
+
+return;
+
+}
+
+
+const input=document.getElementById("chatInput");
+
+const text=input.value.trim();
+
+
+if(!text)return;
+
+
+try{
+
+await addDoc(
+collection(db,"chat"),
+{
+uid:currentUser.uid,
+email:currentUser.email,
+text:text,
+createdAt:serverTimestamp()
+}
+);
+
+
+input.value="";
+
+await loadChat();
+
+}catch(e){
+
+toast("Chat error");
+
+}
+
+};
+
+
+window.loadChat=async function(){
+
+const box=document.getElementById("chatbox");
+
+box.innerHTML="⏳ Loading...";
+
+
+try{
+
+const q=query(
+collection(db,"chat"),
+orderBy("createdAt","desc"),
+limit(50)
+);
+
+const snap=await getDocs(q);
+
+let arr=[];
+
+snap.forEach(d=>arr.push(d.data()));
+
+arr.reverse();
+
+
+box.innerHTML=arr.length
+?arr.map(m=>`
+
+<div class="msg">
+
+<b>${escapeHTML(m.email||"Player")}</b><br>
+
+${escapeHTML(m.text||"")}
+
+</div>
+
+`).join("")
+:"No messages yet.";
+
+
+}catch(e){
+
+box.innerHTML=
+"<span class='error'>Chat error</span>";
+
+}
+
+};
+
+
+/* ROOMS */
+
+window.createRoom=async function(){
+
+if(!currentUser){
+
+toast("Login करके room बनाओ");
+
+return;
+
+}
+
+
+const name=
+document.getElementById("roomName").value.trim();
+
+
+if(!name){
+
+toast("Room name डालो");
+
+return;
+
+}
+
+
+try{
+
+await addDoc(
+collection(db,"rooms"),
+{
+name:name,
+host:currentUser.uid,
+hostEmail:currentUser.email,
+createdAt:serverTimestamp()
+}
+);
+
+
+document.getElementById("roomName").value="";
+
+toast("Room created 🚪");
+
+addNotification("🚪 Room created: "+name);
+
+loadRooms();
+
+
+}catch(e){
+
+toast("Room create error");
+
+}
+
+};
+
+
+window.loadRooms=async function(){
+
+const box=document.getElementById("roomsData");
+
+box.innerHTML="⏳ Loading...";
+
+
+try{
+
+const snap=await getDocs(
+collection(db,"rooms")
+);
+
+
+if(snap.empty){
+
+box.innerHTML="अभी कोई room नहीं है।";
+
+return;
+
+}
+
+
+let html="";
+
+
+snap.forEach(d=>{
+
+const r=d.data();
+
+html+=`
+
+<div class="card">
+
+🚪 <b>${escapeHTML(r.name||"Room")}</b>
+
+<div class="small">
+Host: ${escapeHTML(r.hostEmail||"")}
+</div>
+
+<div class="small">
+Room ID: ${d.id}
+</div>
+
+<button onclick="joinRoom('${d.id}')">
+🎮 Join
+</button>
+
+</div>
+
+`;
+
+});
+
+
+box.innerHTML=html;
+
+
+}catch(e){
+
+box.innerHTML=
+"<span class='error'>Rooms error</span>";
+
+}
+
+};
+
+
+window.joinRoom=function(id){
+
+toast("Room selected 🎮");
+
+addNotification("🎮 Room selected: "+id);
+
+};
+
+
+/* PROFILE */
+
+window.saveProfile=async function(){
+
+const name=
+document.getElementById("playerName").value.trim();
+
+
+if(!name){
+
+toast("Gaming name डालो");
+
+return;
+
+}
+
+
+localStorage.setItem("playerName",name);
+
+
+document.getElementById("profileName").textContent=
+"Name: "+name;
+
+
+if(currentUser){
+
+try{
+
+await setDoc(
+doc(db,"players",currentUser.uid),
+{
+uid:currentUser.uid,
+email:currentUser.email,
+name:name,
+score:data.score,
+xp:data.xp,
+gems:data.gems,
+coins:data.coins,
+updatedAt:serverTimestamp()
+},
+{merge:true}
+);
+
+
+await setDoc(
+doc(db,"leaderboard",currentUser.uid),
+{
+uid:currentUser.uid,
+email:currentUser.email,
+name:name,
+score:data.score,
+xp:data.xp,
+updatedAt:serverTimestamp()
+},
+{merge:true}
+);
+
+
+}catch(e){
+
+console.log(e);
+
+}
+
+}
+
+
+toast("Profile saved ✅");
+
+};
+
+
+/* ESCAPE */
+
+function escapeHTML(text){
+
+return String(text)
+.replaceAll("&","&amp;")
+.replaceAll("<","&lt;")
+.replaceAll(">","&gt;")
+.replaceAll('"',"&quot;")
+.replaceAll("'","&#039;");
+
+}
+
+
+/* START */
+
+const savedName=
+localStorage.getItem("playerName");
+
+
+if(savedName){
+
+document.getElementById("playerName").value=savedName;
+
+document.getElementById("profileName").textContent=
+"Name: "+savedName;
+
+}
+
+
+updateUI();
+
+loadNotifications();
+
+loadFriends();
+
 </script>
 
 </body>
